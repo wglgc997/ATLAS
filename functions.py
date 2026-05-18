@@ -1,17 +1,27 @@
 # Importing the libraries
 # requests download the link > beutifulsoup read > urlib organize
 from bs4 import BeautifulSoup
+<<<<<<< HEAD
 import requests
 from urllib.parse import urljoin, urlparse
 
 
+=======
+import requests, time
+from urllib.parse import urljoin, urlparse
+
+>>>>>>> ac6c9ce (new functions)
 # Ignore these type of links
 SKIP_SCHEMES = ("mailto:", "tel:", "javascript:", "data:")
 DEFAULT_HEADERS = {
     "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (HTML, like Gecko) "
+<<<<<<< HEAD
                 "Chrome/122.0.0.0 Safari/537.36"
 }
+=======
+                "Chrome/122.0.0.0 Safari/537.36" }
+>>>>>>> ac6c9ce (new functions)
 
 
 def is_skippable(href: str) -> bool:
@@ -69,6 +79,11 @@ def extract_links(base_url: str, html: str) -> list[dict]:
 def check_link(url: str, timeout: int = 10) -> dict:
     """Check the link"""
     result = {
+<<<<<<< HEAD
+=======
+        "timestamp": None,
+        "crawl_id": None,
+>>>>>>> ac6c9ce (new functions)
         "url": url,
         "status_code": None,
         "ok": False,
@@ -76,11 +91,31 @@ def check_link(url: str, timeout: int = 10) -> dict:
         "final_url": None,
         "error": None,
         "method_used": None,
+<<<<<<< HEAD
+=======
+        "response_time": None,
+        "depth": None,
+        "https": None,
+        "internal": None,
+        "status_category": None,
+
+
+>>>>>>> ac6c9ce (new functions)
     }
 
     try:
         # HEAD first
+<<<<<<< HEAD
         r = requests.head(url, headers=DEFAULT_HEADERS, timeout=timeout, allow_redirects=True)
+=======
+        # Catch the time
+
+        start = time.time()
+        r = requests.head(url, headers=DEFAULT_HEADERS, timeout=timeout, allow_redirects=True)
+        response_time = time.time() - start
+
+        result["response_time"] = round(response_time, 2)
+>>>>>>> ac6c9ce (new functions)
         result["method_used"] = "HEAD"
         result["status_code"] = r.status_code
         result["final_url"] = r.url
@@ -107,4 +142,44 @@ def check_link(url: str, timeout: int = 10) -> dict:
         result["error"] = f"Connection error: {e}"
     except Exception as e:
         result["error"] = f"Other error: {e}"
+<<<<<<< HEAD
     return result
+=======
+    return result
+
+def get_depth(url):
+
+    parsed = urlparse(url)
+    parts = parsed.path.strip("/").split("/")
+    return len([p for p in parts if p])
+
+def url_https(url):
+    """"Link have HTTPS?"""
+    return url.startswith("https://")
+
+def is_internal(base_url, target_url):
+
+    base_domain = urlparse(base_url).netloc
+    target_domain = urlparse(target_url).netloc
+    return base_domain == target_domain
+
+def status_category(status):
+    """Status code of the page"""
+    if status is None:
+        return "unknown"
+
+    if 200 <= status < 300:
+        return "success"
+
+    if 300 <= status < 400:
+        return "redirected"
+
+    if 400 <= status < 500:
+        return "client_error"
+
+    if 500 <= status < 600:
+        return "server_error"
+
+    return  "unknown"
+
+>>>>>>> ac6c9ce (new functions)
