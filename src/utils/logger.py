@@ -13,7 +13,7 @@ LOG_FILE = LOG_DIR / "link_checker.log"
 
 
 def setup_logging(level: int = logging.INFO) -> None:
-
+    """Configure application logging."""
 
     LOG_DIR.mkdir(exist_ok=True)
 
