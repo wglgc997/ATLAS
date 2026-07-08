@@ -17,3 +17,4 @@ def test_read_file_ignores_empty_lines(tmp_path):
         "https://example.com",
         "https://google.com",
     ]
+

@@ -5,3 +5,24 @@
 2026-07-01 14:10:40,671 | INFO | __main__ | Found 303 link(s) on page: https://productdetail-web-stage.g5p.pcf.dell.com/en-us/work/shop/cty/pdp/spd/dell-km5555-kbd-mouse
 2026-07-01 14:11:46,923 | INFO | __main__ | Scan completed | crawl_id=34498912-8117-4c48-8afa-4263fa679217 | page=https://productdetail-web-stage.g5p.pcf.dell.com/en-us/work/shop/cty/pdp/spd/dell-km5555-kbd-mouse | checked_links=303
 2026-07-01 14:11:46,923 | INFO | __main__ | Link Checker finished
+2026-07-07 11:07:25,452 | INFO | __main__ | Link Checker started
+2026-07-07 11:07:25,453 | INFO | __main__ | Loaded single URL https://productdetail-web-stage.g5p.pcf.dell.com/en-uk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:07:25,454 | INFO | __main__ | Crawl ID created: 96cbe9cc-98cf-47e3-ad16-2f0a3cadc93e
+2026-07-07 11:07:25,454 | INFO | __main__ | Checking page: https://productdetail-web-stage.g5p.pcf.dell.com/en-uk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:07:29,103 | INFO | __main__ | Found 189 link(s) on page: https://productdetail-web-stage.g5p.pcf.dell.com/en-uk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:08:09,516 | INFO | __main__ | Scan completed | crawl_id=96cbe9cc-98cf-47e3-ad16-2f0a3cadc93e | page=https://productdetail-web-stage.g5p.pcf.dell.com/en-uk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off | checked_links=189
+2026-07-07 11:08:09,516 | INFO | __main__ | Link Checker finished
+2026-07-07 11:09:06,132 | INFO | __main__ | Link Checker started
+2026-07-07 11:09:06,132 | INFO | __main__ | Loaded single URL https://productdetail-web-stage.g5p.pcf.dell.com/es-es/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:09:06,133 | INFO | __main__ | Crawl ID created: d5fa552b-2f0c-4d54-98b4-7525ff923d45
+2026-07-07 11:09:06,133 | INFO | __main__ | Checking page: https://productdetail-web-stage.g5p.pcf.dell.com/es-es/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:09:11,039 | INFO | __main__ | Found 175 link(s) on page: https://productdetail-web-stage.g5p.pcf.dell.com/es-es/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:09:49,722 | INFO | __main__ | Scan completed | crawl_id=d5fa552b-2f0c-4d54-98b4-7525ff923d45 | page=https://productdetail-web-stage.g5p.pcf.dell.com/es-es/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off | checked_links=175
+2026-07-07 11:09:49,722 | INFO | __main__ | Link Checker finished
+2026-07-07 11:11:17,191 | INFO | __main__ | Link Checker started
+2026-07-07 11:11:17,191 | INFO | __main__ | Loaded single URL https://productdetail-web-stage.g5p.pcf.dell.com/da-dk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:11:17,192 | INFO | __main__ | Crawl ID created: 0af5d863-f354-49dd-8022-a75827c735c4
+2026-07-07 11:11:17,192 | INFO | __main__ | Checking page: https://productdetail-web-stage.g5p.pcf.dell.com/da-dk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:11:21,746 | INFO | __main__ | Found 173 link(s) on page: https://productdetail-web-stage.g5p.pcf.dell.com/da-dk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off
+2026-07-07 11:12:03,786 | INFO | __main__ | Scan completed | crawl_id=0af5d863-f354-49dd-8022-a75827c735c4 | page=https://productdetail-web-stage.g5p.pcf.dell.com/da-dk/work/shop/cty/pdp/spd/dell-pro-p514260-laptop?redirect=off | checked_links=173
+2026-07-07 11:12:03,787 | INFO | __main__ | Link Checker finished
