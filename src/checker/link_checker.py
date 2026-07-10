@@ -1,83 +1,75 @@
 import time
-from typing import TypedDict
-
 import requests
-from src.config.settings import DEFAULT_HEADERS
+
+from src.config.settings import VERIFY_SSL
 
 
-class LinkCheckResult(TypedDict):
-    timestamp: None
-    crawl_id: None
-    url: str
-    status_code: int | None
-    ok: bool
-    redirected: bool
-    final_url: str | None
-    error: str | None
-    method_used: str | None
-    response_time: float | None
-    depth: None
-    https: None
-    internal: None
-    status_category: None
+def classify_status(http_status: int | None, was_redirected: bool) -> str:
+    """Classify the link result"""
+
+    if http_status is None:
+        return "Broken"
+
+    if was_redirected:
+        return "Redirected"
+
+    if http_status == 200:
+        return "Good"
+
+    if 400 <= http_status <= 599:
+        return "Broken"
+
+    return "Broken"
 
 
-def check_link(url: str, timeout: int = 10) -> LinkCheckResult:
-    """Check the link"""
-    result: LinkCheckResult = {
-        "timestamp": None,
-        "crawl_id": None,
-        "url": url,
-        "status_code": None,
-        "ok": False,
-        "redirected": False,
-        "final_url": None,
-        "error": None,
-        "method_used": None,
-        "response_time": None,
-        "depth": None,
-        "https": None,
-        "internal": None,
-        "status_category": None,
-    }
+def check_link(url: str, timeout: int = 10) -> dict:
+    """
+    Verify a URL and return a pattern result.
+
+    This DON'T access any sharepoint or
+    salve a CSV file.
+    """
+
+    start_time = time.perf_counter()
 
     try:
-        # HEAD first
-        # Catch the time
-
-        start = time.time()
-        r = requests.head(
-            url, headers=DEFAULT_HEADERS, timeout=timeout, allow_redirects=True
+        response = requests.get(
+            url,
+            timeout=timeout,
+            allow_redirects=True,
+            verify=VERIFY_SSL,
+            headers={
+                "User-Agent": "Mozilla/5.0 LinkChecker/1.0"
+            },
         )
-        response_time = time.time() - start
 
-        result["response_time"] = round(response_time, 2)
-        result["method_used"] = "HEAD"
-        result["status_code"] = r.status_code
-        result["final_url"] = r.url
-        result["redirected"] = r.url != url
+        response_time_ms = round((time.perf_counter() - start_time) * 1000)
 
-        if 200 <= r.status_code < 400:
-            result["ok"] = True
-            return result
+        was_redirected = len(response.history) > 0
 
-        # Try GET if 405 or >=400
-        if r.status_code >= 400 or r.status_code == 405:
-            g = requests.get(
-                url, headers=DEFAULT_HEADERS, timeout=timeout, allow_redirects=True
-            )
-            result["method_used"] = "GET"
-            result["status_code"] = g.status_code
-            result["final_url"] = g.url
-            result["redirected"] = g.url != url
-            result["ok"] = 200 <= g.status_code < 400
-            return result
-    except requests.exceptions.SSLError as e:
-        result["error"] = f"SSL error: {e}"
-    except requests.exceptions.Timeout:
-        result["error"] = "Timeout"
-    except requests.exceptions.ConnectionError as e:
-        result["error"] = f"Connection error: {e}"
-    except Exception as e:
-        result["error"] = f"Other error: {e}"
-    return result
+        status = classify_status(
+            http_status=response.status_code,
+            was_redirected=was_redirected,
+        )
+
+        return {
+            "url": url,
+            "final_url": response.url,
+            "http_status": response.status_code,
+            "status": status,
+            "response_time_ms": response_time_ms,
+            "error_message": None,
+        }
+
+    except requests.RequestException as error:
+        response_time_ms = round((time.perf_counter() - start_time) * 1000)
+
+        return{
+            "url": url,
+            "final_url": None,
+            "http_status": None,
+            "status": "Broken",
+            "response_time_ms": response_time_ms,
+            "error_message": str(error)
+        }
+

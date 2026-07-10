@@ -1,33 +1,27 @@
+from urllib.parse import urljoin
 from bs4 import BeautifulSoup
-from src.utils.url_utils import is_skippable, normalize_link
+
+SKIP_SCHEMES = ("mailto:", "tel:", "javascript:", "data:")
 
 
-def extract_links(base_url: str, html: str) -> list[dict]:
-    """Web scraping the page"""
-    soup = BeautifulSoup(html, "html.parser")  # Convert HTML in navegable structure
-    links = []  # Storage links inside the variable
+def extract_links_from_html(html: str, base_url: str):
+    soup = BeautifulSoup(html, "html.parser")
+    links = []
 
-    for a in soup.find_all("a"):  # Get all the <a>
-        href = a.get("href")
-        text = (a.get_text() or "").strip()
+    for tag in soup.select("a[href]"):
+        href = tag.get("href")
 
-        if is_skippable(href):
+        if not href:
             continue
-        abs_url = normalize_link(base_url, href)
-        links.append(
-            {
-                "text": text or "(sem texto)",
-                "href": href,
-                "abs_url": abs_url,
-                "source_page": base_url,
-            }
-        )
 
-    # Dedup remove
-    seen = set()  # verify duplicates
-    unique = []
-    for item in links:
-        if item["abs_url"] not in seen:
-            seen.add(item["abs_url"])
-            unique.append(item)
-    return unique
+        if href.startswith(SKIP_SCHEMES):
+            continue
+
+        links.append({
+            "url": urljoin(base_url, href),
+            "text": tag.get_text(strip=True) or None,
+            "link_type": "anchor",
+            "source_attribute": "href",
+        })
+
+    return links
