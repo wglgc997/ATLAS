@@ -38,6 +38,7 @@ class LinkResult(BaseModel):
     link_text: Optional[str] = None
     link_type: Optional[str] = None
     source_attribute: Optional[str] = None
+    source_location: Optional[str] = None
 
 
 class ScanResponse(BaseModel):

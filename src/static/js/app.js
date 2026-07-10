@@ -175,8 +175,8 @@ function renderTable(results, selectedStatus = "all") {
                 ${escapeHtml(responseTime)}
             </td>
 
-            <td>
-                ${escapeHtml(result.link_text ?? "-")}
+            <td class="url-cell">
+                ${escapeHtml(result.source_location ?? "-")}
             </td>
 
             <td>

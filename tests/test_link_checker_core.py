@@ -27,30 +27,35 @@ def test_extract_links_from_html_resolves_relevant_links() -> None:
             "link_text": "About us",
             "link_type": "anchor",
             "source_attribute": "href",
+            "source_location": "Text link: About us",
         },
         {
             "url": "https://example.com/static/app.css",
             "link_text": None,
             "link_type": "resource",
             "source_attribute": "href",
+            "source_location": "Stylesheet: app.css",
         },
         {
             "url": "https://example.com/static/app.js",
             "link_text": None,
             "link_type": "script",
             "source_attribute": "src",
+            "source_location": "Script: app.js",
         },
         {
             "url": "https://example.com/path/images/logo.png",
             "link_text": None,
             "link_type": "image",
             "source_attribute": "src",
+            "source_location": "Image: Logo",
         },
         {
             "url": "https://example.org/embed",
             "link_text": None,
             "link_type": "iframe",
             "source_attribute": "src",
+            "source_location": "Iframe: embed",
         },
     ]
 
@@ -75,24 +80,28 @@ def test_scan_page_builds_summary(monkeypatch) -> None:
                 "link_text": "OK",
                 "link_type": "anchor",
                 "source_attribute": "href",
+                "source_location": "Text link: OK",
             },
             {
                 "url": "https://example.com/redirect",
                 "link_text": "Redirect",
                 "link_type": "anchor",
                 "source_attribute": "href",
+                "source_location": "Text link: Redirect",
             },
             {
                 "url": "https://example.com/broken",
                 "link_text": "Broken",
                 "link_type": "anchor",
                 "source_attribute": "href",
+                "source_location": "CTA: Broken",
             },
             {
                 "url": "invalid://url",
                 "link_text": "Invalid",
                 "link_type": "anchor",
                 "source_attribute": "href",
+                "source_location": "Text link: Invalid",
             },
         ]
 
@@ -129,3 +138,4 @@ def test_scan_page_builds_summary(monkeypatch) -> None:
     assert scan.broken == 1
     assert scan.error == 1
     assert scan.results[0].link_text == "OK"
+    assert scan.results[2].source_location == "CTA: Broken"

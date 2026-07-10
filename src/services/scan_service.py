@@ -51,6 +51,7 @@ def scan_page(page_url: str, timeout: int = 10) -> ScanResponse:
             link_text=link.get("link_text"),
             link_type=link.get("link_type"),
             source_attribute=link.get("source_attribute"),
+            source_location=link.get("source_location"),
         )
 
         results.append(result)
