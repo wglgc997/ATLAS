@@ -1,4 +1,4 @@
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, HttpUrl, Field
 from typing import Optional
 
 """
@@ -11,7 +11,12 @@ class ScanRequest(BaseModel):
     """Payload received for API"""
 
     url : HttpUrl
-    timeout: int = 10
+    timeout: int = Field(
+        default=10,
+        ge=1,
+        le=60,
+        description="Maximum request timeout in seconds",
+    )
 
 class LinkResult(BaseModel):
     """
@@ -20,11 +25,11 @@ class LinkResult(BaseModel):
     """
 
     url: str
-    final_url: Optional[str]
-    http_status: Optional[str]
+    final_url: Optional[str] = None
+    http_status: Optional[int] = None
     status: str
-    response_time_ms: int
-    error_message: Optional[str]
+    response_time_ms: Optional[int] = None
+    error_message: Optional[str] = None
     source_page: str
     link_text: Optional[str] = None
     link_type: Optional[str] = None

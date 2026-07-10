@@ -1,40 +1,66 @@
-from src.crawler.extractor import extract_links
 from src.checker.link_checker import check_link
+from src.crawler.browser_extractor import extract_links_with_browser
 
-
-def build_summary(source_page: str, results: list[dict]) -> dict:
-    """Build the summary at the final of scan"""
-
-    return{
-        "source_page": source_page,
-        "total_links": len(results),
-        "good": sum(1 for item in results if item["status"] == "Good"),
-        "redirected": sum(1 for item in results if item["status"] == "Redirected"),
-        "broken": sum(1 for item in results if item["status"] == "Broken"),
-        "results": results,
-    }
 
 def scan_page(page_url: str, timeout: int = 10) -> dict:
+    """
+    Extract all links from a page, validate them and
+    return a complete scan summary.
+    """
 
+    # Extract links after the page is rendered by the browser.
+    links = extract_links_with_browser(page_url)
 
-   extracted_links = extract_links(page_url=page_url, timeout=timeout)
+    results = []
 
-   results = []
+    # Validate every extracted link.
+    for link in links:
+        link_url = link.get("url")
 
-   for link in extracted_links:
-       result = check_link(
-           url=link["abs_url"],
-           timeout=timeout,
-       )
+        if not link_url:
+            continue
 
-       result["source_page"] = page_url
-       result["link_text"] = link.get("text")
-       result["link_type"] = link.get("link_type")
-       result["source_attribute"] = link.get("source_attribute")
+        checked_link = check_link(
+            url=link_url,
+            timeout=timeout,
+        )
 
-       results.append(result)
+        result = {
+            "url": link["url"],
+            "final_url": checked_link.get("final_url"),
+            "http_status": checked_link.get("http_status"),
+            "status": checked_link.get("status"),
+            "response_time_ms": checked_link.get("response_time_ms"),
+            "error_message": checked_link.get("error_message"),
+            "source_page": page_url,
+            "link_text": link.get("link_text"),
+            "link_type": link.get("link_type"),
+            "source_attribute": link.get("source_attribute"),
+        }
 
-       return build_summary(
-           source_page=page_url,
-           results=results,
-       )
+        results.append(result)
+
+    # Count links by final category.
+    good = sum(
+        result["status"] == "Good"
+        for result in results
+    )
+
+    redirected = sum(
+        result["status"] == "Redirected"
+        for result in results
+    )
+
+    broken = sum(
+        result["status"] == "Broken"
+        for result in results
+    )
+
+    return {
+        "source_page": page_url,
+        "total_links": len(results),
+        "good": good,
+        "redirected": redirected,
+        "broken": broken,
+        "results": results,
+    }

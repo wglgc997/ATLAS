@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Link Checker</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='/css/styles.css') }}"
+    >
+</head>
+
+<body>
+    <main class="container">
+
+        <header class="page-header">
+            <h1>Link Checker</h1>
+
+            <p>
+                Enter a page URL to identify valid, redirected and broken links.
+            </p>
+        </header>
+
+        <section class="scan-panel">
+            <form id="scan-form">
+
+                <label for="page-url">
+                    Page URL
+                </label>
+
+                <div class="form-row">
+                    <input
+                        id="page-url"
+                        name="url"
+                        type="url"
+                        placeholder="https://example.com/page"
+                        required
+                    >
+
+                    <button id="scan-button" type="submit">
+                        Analyze links
+                    </button>
+                </div>
+
+                <p id="form-error" class="error-message hidden"></p>
+            </form>
+        </section>
+
+        <section id="loading-section" class="loading-panel hidden">
+            <div class="spinner"></div>
+
+            <p>
+                Analyzing page links. This may take a few moments.
+            </p>
+        </section>
+
+        <section id="results-section" class="hidden">
+
+            <div class="summary-grid">
+
+                <article class="summary-card total-card">
+                    <span>Total links</span>
+                    <strong id="total-links">0</strong>
+                </article>
+
+                <article class="summary-card good-card">
+                    <span>Valid</span>
+                    <strong id="good-links">0</strong>
+                </article>
+
+                <article class="summary-card redirected-card">
+                    <span>Redirected</span>
+                    <strong id="redirected-links">0</strong>
+                </article>
+
+                <article class="summary-card broken-card">
+                    <span>Broken</span>
+                    <strong id="broken-links">0</strong>
+                </article>
+
+            </div>
+
+            <div class="table-panel">
+
+                <div class="table-header">
+                    <div>
+                        <h2>Scan results</h2>
+
+                        <p id="source-page"></p>
+                    </div>
+
+                    <select id="status-filter">
+                        <option value="all">All statuses</option>
+                        <option value="good">Valid</option>
+                        <option value="redirected">Redirected</option>
+                        <option value="broken">Broken</option>
+                    </select>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>HTTP</th>
+                                <th>Link</th>
+                                <th>Final URL</th>
+                                <th>Response time</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="results-table-body">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+</body>
+</html>

@@ -6,14 +6,15 @@ from src.services.scan_service import scan_page
 router = APIRouter(prefix="/scans", tags=["Scans"])
 
 
-@router.post("")
-def run_scan(request: ScanRequest):
-    """Execute the complete scan of a page"""
+@router.post("", response_model=ScanRequest,)
+def run_scan(request: ScanRequest) -> ScanResponse:
+    """Execute the complete scan of a page
+    The endpoint receives a page URL from the frontend,
+    extracts all links, validates them and returns a
+    summarized report.
+    """
 
-
-    result = scan_page(
+    return scan_page(
         page_url=str(request.url),
         timeout=request.timeout,
     )
-
-    return result
