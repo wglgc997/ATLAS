@@ -6,7 +6,7 @@ from src.services.scan_service import scan_page
 router = APIRouter(prefix="/scans", tags=["Scans"])
 
 
-@router.post("", response_model=ScanRequest,)
+@router.post("", response_model=ScanResponse)
 def run_scan(request: ScanRequest) -> ScanResponse:
     """Execute the complete scan of a page
     The endpoint receives a page URL from the frontend,

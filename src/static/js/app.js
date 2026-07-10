@@ -10,6 +10,7 @@ const totalLinksElement = document.getElementById("total-links");
 const goodLinksElement = document.getElementById("good-links");
 const redirectedLinksElement = document.getElementById("redirected-links");
 const brokenLinksElement = document.getElementById("broken-links");
+const errorLinksElement = document.getElementById("error-links");
 
 const sourcePageElement = document.getElementById("source-page");
 const resultsTableBody = document.getElementById("results-table-body");
@@ -49,10 +50,13 @@ function normalizeStatus(status) {
 
     if (
         normalizedStatus === "broken" ||
-        normalizedStatus === "error" ||
         normalizedStatus === "failed"
     ) {
         return "broken";
+    }
+
+    if (normalizedStatus === "error") {
+        return "error";
     }
 
     return "unknown";
@@ -67,6 +71,7 @@ function getStatusLabel(status) {
         good: "Valid",
         redirected: "Redirected",
         broken: "Broken",
+        error: "Error",
         unknown: "Unknown",
     };
 
@@ -100,6 +105,7 @@ function renderSummary(data) {
     goodLinksElement.textContent = data.good ?? 0;
     redirectedLinksElement.textContent = data.redirected ?? 0;
     brokenLinksElement.textContent = data.broken ?? 0;
+    errorLinksElement.textContent = data.error ?? 0;
 
     sourcePageElement.textContent = data.source_page
         ? `Source page: ${data.source_page}`
@@ -125,7 +131,7 @@ function renderTable(results, selectedStatus = "all") {
     if (filteredResults.length === 0) {
         resultsTableBody.innerHTML = `
             <tr>
-                <td colspan="5" class="empty-state">
+                <td colspan="9" class="empty-state">
                     No links found for the selected filter.
                 </td>
             </tr>
@@ -167,6 +173,22 @@ function renderTable(results, selectedStatus = "all") {
 
             <td>
                 ${escapeHtml(responseTime)}
+            </td>
+
+            <td>
+                ${escapeHtml(result.link_text ?? "-")}
+            </td>
+
+            <td>
+                ${escapeHtml(result.link_type ?? "-")}
+            </td>
+
+            <td>
+                ${escapeHtml(result.source_attribute ?? "-")}
+            </td>
+
+            <td class="url-cell">
+                ${escapeHtml(result.error_message ?? "-")}
             </td>
         `;
 

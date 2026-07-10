@@ -12,7 +12,7 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/styles.css') }}"
+        href="{{ url_for('static', path='/css/style.css') }}"
     >
 </head>
 
@@ -84,6 +84,11 @@
                     <strong id="broken-links">0</strong>
                 </article>
 
+                <article class="summary-card error-card">
+                    <span>Errors</span>
+                    <strong id="error-links">0</strong>
+                </article>
+
             </div>
 
             <div class="table-panel">
@@ -100,6 +105,7 @@
                         <option value="good">Valid</option>
                         <option value="redirected">Redirected</option>
                         <option value="broken">Broken</option>
+                        <option value="error">Errors</option>
                     </select>
                 </div>
 
@@ -112,6 +118,10 @@
                                 <th>Link</th>
                                 <th>Final URL</th>
                                 <th>Response time</th>
+                                <th>Text</th>
+                                <th>Type</th>
+                                <th>Source attribute</th>
+                                <th>Error</th>
                             </tr>
                         </thead>
 
