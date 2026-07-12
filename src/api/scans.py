@@ -17,4 +17,7 @@ def run_scan(request: ScanRequest) -> ScanResponse:
     return scan_page(
         page_url=str(request.url),
         timeout=request.timeout,
+        max_workers=request.max_workers,
+        include_assets=request.include_assets,
+        include_external=request.include_external,
     )

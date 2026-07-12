@@ -22,6 +22,23 @@ class ScanRequest(BaseModel):
         description="Maximum request timeout in seconds",
     )
 
+    max_workers: int = Field(
+        default=12,
+        ge=1,
+        le=32,
+        description="Maximum number of links checked in parallel",
+    )
+    
+    include_assets: bool = Field(
+        default=False,
+        description="Include technical assets such as scripts and stylesheets",
+    )
+    
+    include_external: bool = Field(
+        default=True,
+        description="Include links pointing to external domains",
+    )
+
 class LinkResult(BaseModel):
     """
     Pattern response of each

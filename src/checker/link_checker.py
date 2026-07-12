@@ -37,15 +37,27 @@ def check_link(url: str, timeout: int = 10) -> dict:
     start_time = time.perf_counter()
 
     try:
-        response = requests.get(
+        headers = {
+            "User-Agent": "Mozilla/5.0 LinkChecker/1.0",
+        }
+
+        response = requests.head(
             url,
             timeout=timeout,
             allow_redirects=True,
             verify=VERIFY_SSL,
-            headers={
-                "User-Agent": "Mozilla/5.0 LinkChecker/1.0"
-            },
+            headers=headers,
         )
+
+        if response.status_code in (403, 405):
+            response = requests.get(
+                url,
+                timeout=timeout,
+                allow_redirects=True,
+                verify=VERIFY_SSL,
+                headers=headers,
+                stream=True,
+            )
 
         response_time_ms = round((time.perf_counter() - start_time) * 1000)
 
