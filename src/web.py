@@ -34,3 +34,14 @@ async def home(request: Request):
         name="index.html",
         context={},
     )
+
+
+@app.get("/health")
+def health_check() -> dict[str, str]:
+    """
+    Return the current health status of the application.
+
+    This endpoint is used by the desktop launcher to confirm that
+    the FastAPI server is ready before opening the web browser.
+    """
+    return {"status": "healthy"}
