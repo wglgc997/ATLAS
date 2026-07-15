@@ -6,6 +6,10 @@ import urllib.request
 import webbrowser
 import uvicorn
 
+from src.utils.runtime_paths import configure_playwright_browser_path
+
+
+
 HOST = "127.0.0.1"
 PORT = 8000
 
@@ -58,12 +62,16 @@ class LinkCheckerLauncher:
         """
         Create and configure the Uvicorn server.
 
+        The FastAPI application is imported only after the launcher
+        configures the bundled Playwright browser directory.
+
             Returns:
                 A configured Uvicorn Server instance.
         """
+        from src.web import app
 
         config = uvicorn.Config(
-            app="src.web:app",
+            app=app,
             host=self.host,
             port=self.port,
             log_level="info",
@@ -194,11 +202,19 @@ class LinkCheckerLauncher:
 
         The method starts the server, waits for FastAPI to become
         available, opens the browser, and keeps the application active.
+
+        Raises:
+        RuntimeError: If the FastAPI server does not become available.
+        FileNotFoundError: If bundled Chromium is missing.
         """
 
         print("=" * 50)
         print("Link Checker")
         print("=" * 50)
+
+        browser_directory = configure_playwright_browser_path()
+
+        print(f"Chromium directory: {browser_directory}")
         print("Starting local server...")
 
         self.start_server()
