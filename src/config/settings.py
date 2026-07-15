@@ -1,8 +1,15 @@
-DEFAULT_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (HTML, like Gecko) "
-    "Chrome/122.0.0.0 Safari/537.36"
-}
+from pathlib import Path
+import os
 
-DEFAULT_TIMEOUT = 10
-DEFAULT_THREADS = 20
+from dotenv import load_dotenv
+
+
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+load_dotenv(BASE_DIR / ".env")
+
+
+def str_to_bool(value: str) -> bool:
+    return value.lower() in ("true", "1", "yes")
+
+VERIFY_SSL = str_to_bool(os.getenv("VERIFY_SSL", "true"))

@@ -1,7 +1,0 @@
-2026-07-01 14:10:37,565 | INFO | __main__ | Link Checker started
-2026-07-01 14:10:37,566 | INFO | __main__ | Loaded single URL https://productdetail-web-stage.g5p.pcf.dell.com/en-us/work/shop/cty/pdp/spd/dell-km5555-kbd-mouse
-2026-07-01 14:10:37,568 | INFO | __main__ | Crawl ID created: 34498912-8117-4c48-8afa-4263fa679217
-2026-07-01 14:10:37,568 | INFO | __main__ | Checking page: https://productdetail-web-stage.g5p.pcf.dell.com/en-us/work/shop/cty/pdp/spd/dell-km5555-kbd-mouse
-2026-07-01 14:10:40,671 | INFO | __main__ | Found 303 link(s) on page: https://productdetail-web-stage.g5p.pcf.dell.com/en-us/work/shop/cty/pdp/spd/dell-km5555-kbd-mouse
-2026-07-01 14:11:46,923 | INFO | __main__ | Scan completed | crawl_id=34498912-8117-4c48-8afa-4263fa679217 | page=https://productdetail-web-stage.g5p.pcf.dell.com/en-us/work/shop/cty/pdp/spd/dell-km5555-kbd-mouse | checked_links=303
-2026-07-01 14:11:46,923 | INFO | __main__ | Link Checker finished
