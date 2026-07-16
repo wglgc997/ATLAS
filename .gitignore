@@ -1,16 +1,45 @@
-.venv/
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
 
-build/
-dist/
-playwright-browsers/
-ms-playwright/
+# Virtual environment
+.venv/
+venv/
+env/
 
-*.exe
-*.dll
-*.zip
-
+# Environment variables
 .env
+.env.*
+!.env.example
+
+# IDEs
 .idea/
 .vscode/
+
+# Tests and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Build and packaging
+build/
+dist/
+*.spec
+
+# Playwright browsers
+playwright-browsers/
+.local-browsers/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
