@@ -1,3 +1,22 @@
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
+</p>
+
+<p align="center">
+
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
+![Version](https://img.shields.io/badge/Version-2.0-informational?style=flat-square)
+
+</p>
+
 # 🔗 Link Checker
 
 A Python-based web application that automatically crawls a webpage, extracts all available hyperlinks, validates each one, and presents the results through a simple web interface.
