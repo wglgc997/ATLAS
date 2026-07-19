@@ -12,27 +12,38 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20260719"
     >
 </head>
 
 <body>
+    <header class="app-bar">
+        <div class="app-bar-inner">
+            <div>
+                <p class="app-kicker">Local scanner</p>
+                <h1>Link Checker</h1>
+            </div>
+
+            <div class="app-status">
+                <span class="status-dot"></span>
+                Ready
+            </div>
+        </div>
+    </header>
+
     <main class="container">
 
-        <header class="page-header">
-            <h1>Link Checker</h1>
+        <section class="scan-panel" aria-labelledby="scan-title">
+            <div class="scan-copy">
+                <h2 id="scan-title">Analyze a page</h2>
 
-            <p>
-                Enter a page URL to identify valid, redirected and broken links.
-            </p>
-        </header>
+                <p>
+                    Render a page, extract links and resources, then classify each target by status.
+                </p>
+            </div>
 
-        <section class="scan-panel">
-            <form id="scan-form">
-
-                <label for="page-url">
-                    Page URL
-                </label>
+            <form id="scan-form" class="scan-form">
+                <label for="page-url">Page URL</label>
 
                 <div class="form-row">
                     <input
@@ -40,11 +51,12 @@
                         name="url"
                         type="url"
                         placeholder="https://example.com/page"
+                        autocomplete="url"
                         required
                     >
 
                     <button id="scan-button" type="submit">
-                        Analyze links
+                        Analyze
                     </button>
                 </div>
 
@@ -55,9 +67,13 @@
         <section id="loading-section" class="loading-panel hidden">
             <div class="spinner"></div>
 
-            <p>
-                Analyzing page links. This may take a few moments.
-            </p>
+            <div>
+                <strong>Scanning page</strong>
+
+                <p>
+                    Rendering the page and validating discovered links.
+                </p>
+            </div>
         </section>
 
         <section id="results-section" class="hidden">
@@ -100,13 +116,17 @@
                         <p id="source-page"></p>
                     </div>
 
-                    <select id="status-filter">
-                        <option value="all">All statuses</option>
-                        <option value="good">Valid</option>
-                        <option value="redirected">Redirected</option>
-                        <option value="broken">Broken</option>
-                        <option value="error">Errors</option>
-                    </select>
+                    <label class="filter-control">
+                        <span>Status</span>
+
+                        <select id="status-filter">
+                            <option value="all">All statuses</option>
+                            <option value="good">Valid</option>
+                            <option value="redirected">Redirected</option>
+                            <option value="broken">Broken</option>
+                            <option value="error">Errors</option>
+                        </select>
+                    </label>
                 </div>
 
                 <div class="table-wrapper">
@@ -135,6 +155,6 @@
 
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260719"></script>
 </body>
 </html>
