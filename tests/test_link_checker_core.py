@@ -70,6 +70,33 @@ def test_classify_status_categories() -> None:
     assert classify_status(None, False) == "Broken"
 
 
+def test_filter_links_normalizes_urls_and_skips_non_navigable_links() -> None:
+    links = [
+        {"url": "/about#team", "link_type": "anchor"},
+        {"url": "https://example.com/about", "link_type": "anchor"},
+        {"url": "#content", "link_type": "anchor"},
+        {"url": "mailto:test@example.com", "link_type": "anchor"},
+        {"url": "tel:+5511999999999", "link_type": "anchor"},
+        {"url": "javascript:void(0)", "link_type": "anchor"},
+        {"url": "https://example.com/logo.png", "link_type": "image"},
+        {"url": "https://other.example/page", "link_type": "anchor"},
+    ]
+
+    filtered_links = scan_service.filter_links(
+        links=links,
+        page_url="https://example.com/path/page",
+        include_assets=False,
+        include_external=False,
+    )
+
+    assert filtered_links == [
+        {
+            "url": "https://example.com/about",
+            "link_type": "anchor",
+        },
+    ]
+
+
 def test_scan_page_builds_summary(monkeypatch) -> None:
     def fake_extract_links(page_url: str):
         assert page_url == "https://example.com"
@@ -139,3 +166,6 @@ def test_scan_page_builds_summary(monkeypatch) -> None:
     assert scan.error == 1
     assert scan.results[0].link_text == "OK"
     assert scan.results[2].source_location == "CTA: Broken"
+    assert classify_status(301, False) == "Redirected"
+    assert classify_status(302, False) == "Redirected"
+    assert classify_status(308, False) == "Redirected"

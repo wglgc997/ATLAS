@@ -2,7 +2,7 @@ from src.checker.link_checker import check_link
 from src.crawler.browser_extractor import extract_links_with_browser
 from src.schemas.scan import LinkResult, LinkStatus, ScanResponse
 from concurrent.futures import ThreadPoolExecutor
-from urllib.parse import urlparse
+from urllib.parse import urldefrag, urljoin, urlparse
 
 def normalize_link_status(status: object) -> LinkStatus:
     if status == "Good":
@@ -48,7 +48,9 @@ def build_link_result(
         source_location=link.get("source_location"),
     )
 
-TECHNICAL_LINK_TYPES = {"resource", "script"}
+TECHNICAL_LINK_TYPES = {"resource", "script", "image", "iframe"}
+SKIP_SCHEMES = {"mailto", "tel", "javascript", "data", "vbscript"}
+ALLOWED_SCHEMES = {"http", "https"}
 IGNORED_DOMAINS = {
     "googletagmanager.com",
     "google-analytics.com",
@@ -69,6 +71,28 @@ def is_ignored_domain(url: str) -> bool:
         for domain in IGNORED_DOMAINS
     )
 
+def normalize_link_url(link_url: object, page_url: str) -> str | None:
+    if not isinstance(link_url, str):
+        return None
+
+    link_url = link_url.strip()
+
+    if not link_url or link_url.startswith("#"):
+        return None
+
+    parsed_url = urlparse(link_url)
+
+    if parsed_url.scheme.lower() in SKIP_SCHEMES:
+        return None
+
+    absolute_url, _fragment = urldefrag(urljoin(page_url, link_url))
+    absolute_scheme = urlparse(absolute_url).scheme.lower()
+
+    if absolute_scheme not in ALLOWED_SCHEMES:
+        return None
+
+    return absolute_url
+
 def filter_links(
         links: list[dict],
         page_url: str,
@@ -77,9 +101,10 @@ def filter_links(
 ) -> list[dict]:
 
     filtered_links = []
+    seen_urls: set[str] = set()
 
     for link in links:
-        link_url = link.get("url")
+        link_url = normalize_link_url(link.get("url"), page_url)
 
         if not link_url:
             continue
@@ -93,7 +118,17 @@ def filter_links(
         if not include_external and not is_same_domain(link_url, page_url):
             continue
 
-        filtered_links.append(link)
+        if link_url in seen_urls:
+            continue
+
+        seen_urls.add(link_url)
+
+        filtered_link = {
+            **link,
+            "url": link_url,
+        }
+
+        filtered_links.append(filtered_link)
 
     return filtered_links
 

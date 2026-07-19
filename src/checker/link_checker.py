@@ -18,7 +18,7 @@ def classify_status(http_status: int | None, was_redirected: bool) -> str:
         return "Good"
 
     if 300 <= http_status <= 399:
-        return "Redirected"
+        return "Good"
 
     if 400 <= http_status <= 599:
         return "Broken"
