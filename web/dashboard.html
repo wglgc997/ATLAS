@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta http-equiv="refresh" content="0; url=http://127.0.0.1:8000/">
+
+    <title>Link Checker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            place-items: center;
+            background: #f4f6f8;
+            color: #111827;
+            font-family:
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+        }
+
+        main {
+            width: min(520px, calc(100% - 32px));
+            padding: 28px;
+            border: 1px solid #dde3ea;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 0 0 20px;
+            color: #5b6675;
+            line-height: 1.5;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0 16px;
+            border-radius: 8px;
+            background: #0f6cbd;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background: #0b5cab;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Link Checker</h1>
+
+        <p>
+            The dashboard runs through the local FastAPI server.
+            Start the app, then open the dashboard.
+        </p>
+
+        <a href="http://127.0.0.1:8000/">Open dashboard</a>
+    </main>
+</body>
+</html>
