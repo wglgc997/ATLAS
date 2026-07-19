@@ -35,8 +35,7 @@ def extract_links_with_browser(page_url: str) -> list[dict]:
             links = page.locator("a[href]").evaluate_all(
                 """
                 elements => elements.map(element => ({
-                    url: element.getAttribute("href"),
-                    abs_url: element.href,
+                    url: element.href,
                     link_text: element.innerText?.trim() || null,
                     link_type: "anchor",
                     source_attribute: "href"
