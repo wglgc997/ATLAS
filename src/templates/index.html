@@ -12,7 +12,7 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}?v=20260719"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20260719-9"
     >
 </head>
 
@@ -24,9 +24,9 @@
                 <h1>Link Checker</h1>
             </div>
 
-            <div class="app-status">
+            <div id="app-status" class="app-status">
                 <span class="status-dot"></span>
-                Ready
+                <span id="app-status-text">Ready</span>
             </div>
         </div>
     </header>
@@ -64,6 +64,32 @@
             </form>
         </section>
 
+        <section id="empty-section" class="empty-panel">
+            <div class="empty-icon" aria-hidden="true">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3a13.6 13.6 0 0 1 0 18"></path>
+                    <path d="M12 3a13.6 13.6 0 0 0 0 18"></path>
+                </svg>
+            </div>
+
+            <div>
+                <h2>No scan yet</h2>
+
+                <p>
+                    Enter a URL above to validate page links, redirects, assets, and request errors.
+                </p>
+            </div>
+        </section>
+
         <section id="loading-section" class="loading-panel hidden">
             <div class="spinner"></div>
 
@@ -71,7 +97,7 @@
                 <strong>Scanning page</strong>
 
                 <p>
-                    Rendering the page and validating discovered links.
+                    Rendering and validating <span id="loading-url"></span>
                 </p>
             </div>
         </section>
@@ -116,30 +142,79 @@
                         <p id="source-page"></p>
                     </div>
 
-                    <label class="filter-control">
-                        <span>Status</span>
+                    <div class="table-actions">
+                        <label class="filter-control search-control">
+                            <span>Search</span>
 
-                        <select id="status-filter">
-                            <option value="all">All statuses</option>
-                            <option value="good">Valid</option>
-                            <option value="redirected">Redirected</option>
-                            <option value="broken">Broken</option>
-                            <option value="error">Errors</option>
-                        </select>
-                    </label>
+                            <input
+                                id="results-search"
+                                type="search"
+                                placeholder="URL, location, error..."
+                                autocomplete="off"
+                            >
+                        </label>
+
+                        <label class="filter-control">
+                            <span>Status</span>
+
+                            <select id="status-filter">
+                                <option value="all">All statuses</option>
+                                <option value="good">Valid</option>
+                                <option value="redirected">Redirected</option>
+                                <option value="broken">Broken</option>
+                                <option value="error">Errors</option>
+                            </select>
+                        </label>
+
+                        <button
+                            id="export-csv-button"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Export CSV
+                        </button>
+                    </div>
                 </div>
 
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th>Status</th>
-                                <th>HTTP</th>
-                                <th>Link</th>
-                                <th>Final URL</th>
-                                <th>Response time</th>
-                                <th>Location</th>
-                                <th>Type</th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="status">
+                                        Status
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="http_status">
+                                        HTTP
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="url">
+                                        Link
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="final_url">
+                                        Final URL
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="response_time_ms">
+                                        Response time
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="source_location">
+                                        Location
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-button" type="button" data-sort-key="link_type">
+                                        Type
+                                    </button>
+                                </th>
                                 <th>Source attribute</th>
                                 <th>Error</th>
                             </tr>
@@ -155,6 +230,6 @@
 
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260719"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260719-9"></script>
 </body>
 </html>
