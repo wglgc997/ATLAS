@@ -32,7 +32,9 @@ def extract_links_with_browser(page_url: str) -> list[dict]:
                 timeout=30_000,
             )
 
-            links = page.locator("a[href]").evaluate_all(
+            links = page.locator(
+                "a[href]:not(footer a):not(nav a):not([role='navigation'] a)"
+            ).evaluate_all(
                 """
                 elements => elements.map(element => ({
                     url: element.href,
