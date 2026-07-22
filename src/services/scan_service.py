@@ -1,26 +1,22 @@
 from src.checker.link_checker import check_link
 from src.crawler.browser_extractor import extract_links_with_browser
 from src.schemas.scan import LinkResult, LinkStatus, ScanResponse
+from src.config.settings import HTTP_TIMEOUT
+
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urldefrag, urljoin, urlparse
 
 def normalize_link_status(status: object) -> LinkStatus:
-    if status == "Good":
-        return "Good"
-
-    if status == "Redirected":
-        return "Redirected"
-
-    if status == "Broken":
-        return "Broken"
-
-    return "Error"
+    try:
+        return LinkStatus(status)
+    except ValueError:
+        return LinkStatus.UNKNOWN_ERROR
 
 
 def build_link_result(
         link: dict,
         page_url: str,
-        timeout: int,
+        timeout: int = HTTP_TIMEOUT,
 ) -> LinkResult | None:
     link_url = link.get("url")
 
@@ -41,6 +37,8 @@ def build_link_result(
         status=status,
         response_time_ms=checked_link.get("response_time_ms"),
         error_message=checked_link.get("error_message"),
+        error_description=checked_link.get("error_description"),
+        technical_details=checked_link.get("technical_details"),
         source_page=page_url,
         link_text=link.get("link_text"),
         link_type=link.get("link_type"),
@@ -134,7 +132,7 @@ def filter_links(
 
 def scan_page(
         page_url: str,
-        timeout: int = 10,
+        timeout: int = HTTP_TIMEOUT,
         max_workers: int = 12,
         include_assets: bool = False,
         include_external: bool = True,
@@ -159,10 +157,18 @@ def scan_page(
             if result is not None
         ]
 
-        good = sum(result.status == "Good" for result in results)
-        redirected = sum(result.status == "Redirected" for result in results)
-        broken = sum(result.status == "Broken" for result in results)
-        error = sum(result.status == "Error" for result in results)
+        error_statuses = {
+            LinkStatus.SSL_ERROR,
+            LinkStatus.TIMEOUT,
+            LinkStatus.CONNECTION_ERROR,
+            LinkStatus.DNS_ERROR,
+            LinkStatus.UNKNOWN_ERROR,
+        }
+
+        good = sum(result.status == LinkStatus.GOOD for result in results)
+        redirected = sum(result.status == LinkStatus.REDIRECTED for result in results)
+        broken = sum(result.status == LinkStatus.BROKEN for result in results)
+        error = sum(result.status in error_statuses for result in results)
 
         return ScanResponse(
             source_page=page_url,

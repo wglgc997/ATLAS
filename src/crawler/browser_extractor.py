@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 
 from src.utils.runtime_paths import find_chromium_executable
+from src.config.settings import PLAYWRIGHT_TIMEOUT, WAIT_UNTIL
 
 
 def extract_links_with_browser(page_url: str) -> list[dict]:
@@ -28,8 +29,13 @@ def extract_links_with_browser(page_url: str) -> list[dict]:
 
             page.goto(
                 page_url,
-                wait_until="networkidle",
-                timeout=30_000,
+                wait_until=WAIT_UNTIL,
+                timeout= PLAYWRIGHT_TIMEOUT * 1000,
+            )
+
+            page.wait_for_selector(
+                "a[href]",
+                timeout= PLAYWRIGHT_TIMEOUT * 1000,
             )
 
             links = page.locator(

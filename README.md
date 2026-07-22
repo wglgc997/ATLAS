@@ -18,8 +18,10 @@ It is useful for checking pages that need JavaScript rendering before links are 
 - HTTP status validation
 - Redirect detection
 - Response time measurement
-- Link classification: `Good`, `Redirected`, `Broken`, and `Error`
-- Optional SSL certificate verification control
+- Link classification: `Good`, `Redirected`, `Broken`, `SSL Error`, `Timeout`, `Connection Error`, `DNS Error`, and `Unknown Error`
+- Friendly error descriptions with separate technical details
+- Optional SSL certificate verification and custom CA bundle support
+- Configurable HTTP retries, timeouts, redirects, and Playwright wait strategy
 - Automated tests for core extraction, status classification, and scan summaries
 
 ## Requirements
@@ -116,13 +118,33 @@ http://127.0.0.1:8000
 
 ## Configuration
 
-The app reads optional environment variables from a local `.env` file.
+The app works without a `.env` file by using the defaults defined in `src/config/settings.py`.
+
+You can create a local `.env` file only when you need to override those defaults:
+
+```env
+HTTP_TIMEOUT=20
+HTTP_RETRIES=2
+HTTP_RETRY_BACKOFF=0.5
+PLAYWRIGHT_TIMEOUT=60
+VERIFY_SSL=true
+CA_BUNDLE_PATH=
+WAIT_UNTIL=domcontentloaded
+MAX_REDIRECTS=10
+```
+
+`HTTP_TIMEOUT` controls each HTTP request used to validate links.
+
+`PLAYWRIGHT_TIMEOUT` controls page rendering and link discovery with Playwright.
+
+Set `VERIFY_SSL=false` only when you need to scan sites with invalid or internal SSL certificates.
+
+For corporate environments, prefer keeping `VERIFY_SSL=true` and setting `CA_BUNDLE_PATH` to a PEM certificate bundle:
 
 ```env
 VERIFY_SSL=true
+CA_BUNDLE_PATH=C:\path\to\corporate-ca.pem
 ```
-
-Set `VERIFY_SSL=false` only when you need to scan sites with invalid or internal SSL certificates.
 
 Do not commit `.env` files. They are ignored by Git.
 
@@ -140,8 +162,12 @@ Do not commit `.env` files. They are ignored by Git.
 | --- | --- |
 | `Good` | Successful response, usually HTTP 2xx |
 | `Redirected` | Redirect detected or HTTP 3xx |
-| `Broken` | HTTP 4xx, HTTP 5xx, timeout, or request failure |
-| `Error` | Invalid URL or unexpected validation error |
+| `Broken` | HTTP 4xx or HTTP 5xx |
+| `SSL Error` | SSL certificate validation failed |
+| `Timeout` | The request timed out after retries |
+| `Connection Error` | The server could not be reached |
+| `DNS Error` | The domain name could not be resolved |
+| `Unknown Error` | Unexpected validation error |
 
 ## Project Structure
 
@@ -210,14 +236,11 @@ Scan endpoints are defined in `src/api/scans.py`.
 - [x] Browser rendering with Playwright
 - [x] Link and resource extraction
 - [x] HTTP validation
-- [x] Browser dashboard
 - [x] Windows launcher script
 - [x] Core automated tests
+- [x] Exportable reports
 - [ ] Progress indicator during scans
-- [ ] Historical scan results
-- [ ] Exportable reports
-- [ ] Docker support
-- [ ] GitHub Actions workflow
+
 
 ## Contributing
 
