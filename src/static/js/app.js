@@ -75,23 +75,30 @@ function normalizeStatus(status) {
         return "broken";
     }
 
-    if (normalizedStatus === "error") {
+    if (
+        normalizedStatus == "ssl error" ||
+        normalizedStatus == "timeout" ||
+        normalizedStatus == "connection error" ||
+        normalizedStatus == "dns error" ||
+        normalizedStatus == "unknown error" ||
+        normalizedStatus == "error"
+    ) {
         return "error";
     }
 
-    return "unknown";
+    return "unknown"
 }
 
 
 /**
  * Convert the internal status value into readable text.
  */
-function getStatusLabel(status) {
+function getStatusLabel(status, rawStatus = null) {
     const labels = {
         good: "Valid",
         redirected: "Redirected",
         broken: "Broken",
-        error: "Error",
+        error: rawStatus || "Error",
         unknown: "Unknown",
     };
 
@@ -226,7 +233,7 @@ function getSearchableText(result) {
  */
 function getSortValue(result, key) {
     if (key === "status") {
-        return getStatusLabel(normalizeStatus(result.status));
+        return getStatusLabel(normalizeStatus(result.status), result.status)
     }
 
     return result[key] ?? "";
@@ -379,7 +386,7 @@ function exportCurrentResultsToCsv() {
 
     const rows = filteredResults.map((result) => [
         currentSourcePage,
-        getStatusLabel(normalizeStatus(result.status)),
+        getStatusLabel(normalizeStatus(result.status), result.status),
         result.http_status ?? "",
         result.url ?? "",
         result.final_url ?? "",
@@ -455,7 +462,7 @@ function renderTable(results) {
     filteredResults.forEach((result) => {
         const normalizedStatus = normalizeStatus(result.status);
 
-        const statusLabel = getStatusLabel(normalizedStatus);
+        const statusLabel = getStatusLabel(normalizedStatus, result.status);
 
         const responseTime = result.response_time_ms !== null &&
             result.response_time_ms !== undefined

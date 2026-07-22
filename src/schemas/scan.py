@@ -1,6 +1,9 @@
-from typing import Literal, Optional
+from enum import Enum
+from typing import Optional
 
 from pydantic import BaseModel, Field, HttpUrl
+
+from src.config.settings import HTTP_TIMEOUT
 
 """
 Esse arquivo define o contrato 
@@ -8,18 +11,25 @@ da API: o que o frontend envia
 e o que o backend responde.
 """
 
-LinkStatus = Literal["Good", "Redirected", "Broken", "Error"]
-
+class LinkStatus(str, Enum):
+    GOOD = "Good"
+    REDIRECTED = "Redirected"
+    BROKEN = "Broken"
+    SSL_ERROR = "SSL Error"
+    TIMEOUT = "Timeout"
+    CONNECTION_ERROR = "Connection Error"
+    DNS_ERROR = "DNS Error"
+    UNKNOWN_ERROR = "Unknown Error"
 
 class ScanRequest(BaseModel):
     """Payload received for API"""
 
     url: HttpUrl
     timeout: int = Field(
-        default=10,
+        default=HTTP_TIMEOUT,
         ge=1,
         le=60,
-        description="Maximum request timeout in seconds",
+        description="Maximum HTTP request timeout in seconds",
     )
 
     max_workers: int = Field(
@@ -51,6 +61,8 @@ class LinkResult(BaseModel):
     status: LinkStatus
     response_time_ms: Optional[int] = None
     error_message: Optional[str] = None
+    error_description: Optional[str] = None
+    technical_details: Optional[str] = None
     source_page: str
     link_text: Optional[str] = None
     link_type: Optional[str] = None
