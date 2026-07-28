@@ -5,7 +5,7 @@ from bs4.element import PageElement, Tag
 
 SKIP_SCHEMES = ("mailto:", "tel:", "javascript:", "data:")
 LINK_SELECTORS = (
-    ("a[href]", "href", "anchor"),
+    ("a", "href", "anchor"),
     ("link[href]", "href", "resource"),
     ("script[src]", "src", "script"),
     ("img[src]", "src", "image"),
@@ -144,18 +144,32 @@ def extract_links_from_html(html: str, base_url: str) -> list[dict[str, str | No
             raw_value = tag.get(attribute)
 
             if not isinstance(raw_value, str):
-                continue
+                if link_type != "anchor":
+                    continue
 
-            link_value = raw_value.strip()
+                link_value = None
+                dedupe_key = (f"missing:{len(links)}", attribute)
+            else:
+                link_value = raw_value.strip()
 
-            if not link_value:
-                continue
+                if not link_value and link_type != "anchor":
+                    continue
 
-            if link_value.lower().startswith(SKIP_SCHEMES):
-                continue
+                if link_value.lower().startswith(SKIP_SCHEMES):
+                    if link_type != "anchor":
+                        continue
 
-            absolute_url, _fragment = urldefrag(urljoin(base_url, link_value))
-            dedupe_key = (absolute_url, attribute)
+                    absolute_url = link_value
+                    dedupe_key = (absolute_url, attribute)
+                elif not link_value:
+                    absolute_url = link_value
+                    dedupe_key = (f"empty:{len(links)}", attribute)
+                else:
+                    absolute_url, _fragment = urldefrag(urljoin(base_url, link_value))
+                    dedupe_key = (absolute_url, attribute)
+
+            if link_value is None:
+                absolute_url = None
 
             if dedupe_key in seen_urls:
                 continue
@@ -165,6 +179,7 @@ def extract_links_from_html(html: str, base_url: str) -> list[dict[str, str | No
             links.append(
                 {
                     "url": absolute_url,
+                    "raw_url": raw_value if isinstance(raw_value, str) else None,
                     "link_text": tag.get_text(" ", strip=True) or None,
                     "link_type": link_type,
                     "source_attribute": attribute,

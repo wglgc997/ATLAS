@@ -8,11 +8,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Link Checker</title>
+    <title>Quality Link Checker</title>
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}?v=20260719-9"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20260728-1"
     >
 </head>
 
@@ -21,7 +21,7 @@
         <div class="app-bar-inner">
             <div>
                 <p class="app-kicker">Local scanner</p>
-                <h1>Link Checker</h1>
+                <h1>Quality Link Checker</h1>
             </div>
 
             <div id="app-status" class="app-status">
@@ -133,6 +133,56 @@
 
             </div>
 
+            <section class="insights-panel" aria-labelledby="insights-title">
+                <div class="score-card">
+                    <span>Health score</span>
+                    <strong id="health-score">0%</strong>
+                    <p id="health-message">No scan results yet.</p>
+                </div>
+
+                <div class="distribution-card">
+                    <div class="insights-heading">
+                        <div>
+                            <h2 id="insights-title">Scan overview</h2>
+                            <p id="scan-summary-message"></p>
+                        </div>
+
+                        <button
+                            id="needs-action-filter"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Show issues
+                        </button>
+                    </div>
+
+                    <div
+                        id="distribution-bar"
+                        class="distribution-bar"
+                        aria-label="Status distribution"
+                    >
+                    </div>
+
+                    <div class="distribution-legend">
+                        <span><i class="legend-good"></i>Valid</span>
+                        <span><i class="legend-redirected"></i>Redirected</span>
+                        <span><i class="legend-broken"></i>Broken</span>
+                        <span><i class="legend-error"></i>Errors</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="issues-panel" aria-labelledby="issues-title">
+                <div class="issues-header">
+                    <div>
+                        <h2 id="issues-title">Issues to fix</h2>
+                        <p id="issues-subtitle"></p>
+                    </div>
+                </div>
+
+                <div id="issues-list" class="issues-list"></div>
+            </section>
+
             <div class="table-panel">
 
                 <div class="table-header">
@@ -200,6 +250,7 @@
                                         Final URL
                                     </button>
                                 </th>
+                                <th>Redirect chain</th>
                                 <th>
                                     <button class="sort-button" type="button" data-sort-key="response_time_ms">
                                         Response time
@@ -230,6 +281,6 @@
 
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260719-9"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260728-1"></script>
 </body>
 </html>

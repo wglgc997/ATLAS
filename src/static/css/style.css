@@ -124,7 +124,9 @@ select {
 .scan-panel,
 .table-panel,
 .empty-panel,
-.loading-panel {
+.loading-panel,
+.insights-panel,
+.issues-panel {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -353,6 +355,217 @@ select {
     border-top: 4px solid var(--neutral);
 }
 
+.insights-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.34fr) minmax(0, 0.66fr);
+    gap: 18px;
+    margin-bottom: 18px;
+    padding: 18px;
+}
+
+.score-card,
+.distribution-card {
+    min-width: 0;
+}
+
+.score-card {
+    display: grid;
+    align-content: center;
+    min-height: 162px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-muted);
+}
+
+.score-card span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.score-card strong {
+    display: block;
+    margin: 10px 0;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.score-card strong[data-health="excellent"],
+.score-card strong[data-health="good"] {
+    color: var(--success);
+}
+
+.score-card strong[data-health="warning"] {
+    color: var(--warning);
+}
+
+.score-card strong[data-health="danger"] {
+    color: var(--danger);
+}
+
+.score-card p {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.distribution-card {
+    display: grid;
+    align-content: center;
+    gap: 18px;
+    min-height: 162px;
+}
+
+.insights-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.insights-heading h2,
+.issues-header h2 {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 760;
+}
+
+.insights-heading p,
+.issues-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.secondary-button[data-active="true"] {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.distribution-bar {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 22px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--neutral-soft);
+}
+
+.distribution-segment {
+    min-width: 3%;
+}
+
+.distribution-good,
+.legend-good {
+    background: var(--success);
+}
+
+.distribution-redirected,
+.legend-redirected {
+    background: var(--warning);
+}
+
+.distribution-broken,
+.legend-broken {
+    background: var(--danger);
+}
+
+.distribution-error,
+.legend-error {
+    background: var(--neutral);
+}
+
+.distribution-empty {
+    width: 100%;
+    background: var(--neutral-soft);
+}
+
+.distribution-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.distribution-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.distribution-legend i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.issues-panel {
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.issues-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.issues-list {
+    display: grid;
+}
+
+.issue-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.issue-item:last-child {
+    border-bottom: 0;
+}
+
+.issue-content {
+    min-width: 0;
+}
+
+.issue-content strong {
+    display: block;
+    color: #273244;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.issue-content p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.issue-meta {
+    min-width: 46px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 800;
+    text-align: right;
+}
+
+.issue-empty {
+    padding: 18px 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
 .table-panel {
     overflow: hidden;
 }
@@ -467,7 +680,7 @@ select {
 
 table {
     width: 100%;
-    min-width: 1120px;
+    min-width: 1240px;
     border-collapse: collapse;
 }
 
@@ -636,6 +849,10 @@ tbody tr:hover {
         align-items: stretch;
     }
 
+    .insights-panel {
+        grid-template-columns: 1fr;
+    }
+
     .summary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -656,7 +873,8 @@ tbody tr:hover {
     }
 
     .form-row,
-    .table-header {
+    .table-header,
+    .insights-heading {
         flex-direction: column;
         align-items: stretch;
     }
@@ -677,5 +895,17 @@ tbody tr:hover {
 
     .summary-grid {
         grid-template-columns: 1fr;
+    }
+
+    .score-card strong {
+        font-size: 42px;
+    }
+
+    .issue-item {
+        grid-template-columns: 1fr;
+    }
+
+    .issue-meta {
+        text-align: left;
     }
 }

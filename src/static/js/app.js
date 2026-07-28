@@ -15,6 +15,13 @@ const goodLinksElement = document.getElementById("good-links");
 const redirectedLinksElement = document.getElementById("redirected-links");
 const brokenLinksElement = document.getElementById("broken-links");
 const errorLinksElement = document.getElementById("error-links");
+const healthScoreElement = document.getElementById("health-score");
+const healthMessageElement = document.getElementById("health-message");
+const scanSummaryMessageElement = document.getElementById("scan-summary-message");
+const distributionBar = document.getElementById("distribution-bar");
+const needsActionFilterButton = document.getElementById("needs-action-filter");
+const issuesSubtitleElement = document.getElementById("issues-subtitle");
+const issuesList = document.getElementById("issues-list");
 
 const sourcePageElement = document.getElementById("source-page");
 const resultsTableBody = document.getElementById("results-table-body");
@@ -28,6 +35,7 @@ let currentSort = {
     key: null,
     direction: "asc",
 };
+let quickFilter = "all";
 
 
 /**
@@ -56,7 +64,8 @@ function normalizeStatus(status) {
     if (
         normalizedStatus === "good" ||
         normalizedStatus === "ok" ||
-        normalizedStatus === "valid"
+        normalizedStatus === "valid" ||
+        normalizedStatus === "interactive element"
     ) {
         return "good";
     }
@@ -70,7 +79,14 @@ function normalizeStatus(status) {
 
     if (
         normalizedStatus === "broken" ||
-        normalizedStatus === "failed"
+        normalizedStatus === "failed" ||
+        normalizedStatus === "unauthorized" ||
+        normalizedStatus === "forbidden" ||
+        normalizedStatus === "gone" ||
+        normalizedStatus === "server error" ||
+        normalizedStatus === "invalid link" ||
+        normalizedStatus === "redirect loop" ||
+        normalizedStatus === "interaction error"
     ) {
         return "broken";
     }
@@ -97,12 +113,66 @@ function getStatusLabel(status, rawStatus = null) {
     const labels = {
         good: "Valid",
         redirected: "Redirected",
-        broken: "Broken",
+        broken: rawStatus || "Broken",
         error: rawStatus || "Error",
         unknown: "Unknown",
     };
 
     return labels[status] || labels.unknown;
+}
+
+
+/**
+ * Return true when a row requires user review or correction.
+ */
+function needsAction(result) {
+    const normalizedStatus = normalizeStatus(result.status);
+
+    return normalizedStatus === "broken" || normalizedStatus === "error";
+}
+
+
+/**
+ * Classify the overall result into a simple visual state.
+ */
+function getHealthState(score, actionCount) {
+    if (actionCount === 0 && score >= 95) {
+        return "excellent";
+    }
+
+    if (score >= 90) {
+        return "good";
+    }
+
+    if (score >= 70) {
+        return "warning";
+    }
+
+    return "danger";
+}
+
+
+/**
+ * Build the short executive summary shown above the table.
+ */
+function getSummaryMessage(data) {
+    const total = data.total_links ?? 0;
+    const redirected = data.redirected ?? 0;
+    const needsActionCount = (data.broken ?? 0) + (data.error ?? 0);
+
+    if (total === 0) {
+        return "No links were found in this scan.";
+    }
+
+    if (needsActionCount === 0 && redirected === 0) {
+        return `Scan completed. All ${total} links are valid.`;
+    }
+
+    if (needsActionCount === 0) {
+        return `Scan completed. No broken links found; ${redirected} redirects were detected.`;
+    }
+
+    return `Scan completed. ${needsActionCount} of ${total} links need attention.`;
 }
 
 
@@ -216,6 +286,7 @@ function getSearchableText(result) {
         result.http_status,
         result.url,
         result.final_url,
+        formatRedirectChain(result.redirect_chain),
         result.response_time_ms,
         result.source_location,
         result.link_type,
@@ -249,6 +320,11 @@ function getVisibleResults(results) {
 
     const filteredResults = results.filter((result) => {
         const normalizedStatus = normalizeStatus(result.status);
+        const matchesQuickFilter = (
+            quickFilter !== "needs-action" ||
+            needsAction(result)
+        );
+
         const matchesStatus = (
             selectedStatus === "all" ||
             normalizedStatus === selectedStatus
@@ -259,7 +335,7 @@ function getVisibleResults(results) {
             getSearchableText(result).includes(searchTerm)
         );
 
-        return matchesStatus && matchesSearch;
+        return matchesQuickFilter && matchesStatus && matchesSearch;
     });
 
     if (!currentSort.key) {
@@ -342,6 +418,20 @@ function escapeCsvValue(value) {
 
 
 /**
+ * Render the redirect status chain as compact text.
+ */
+function formatRedirectChain(redirectChain) {
+    if (!Array.isArray(redirectChain) || redirectChain.length === 0) {
+        return "";
+    }
+
+    return redirectChain
+        .map((step) => step.status_code ?? "-")
+        .join(" -> ");
+}
+
+
+/**
  * Build a portable filename for exported scan results.
  */
 function buildCsvFilename() {
@@ -377,6 +467,7 @@ function exportCurrentResultsToCsv() {
         "http_status",
         "url",
         "final_url",
+        "redirect_chain",
         "response_time_ms",
         "source_location",
         "link_type",
@@ -390,6 +481,7 @@ function exportCurrentResultsToCsv() {
         result.http_status ?? "",
         result.url ?? "",
         result.final_url ?? "",
+        formatRedirectChain(result.redirect_chain),
         result.response_time_ms ?? "",
         result.source_location ?? "",
         result.link_type ?? "",
@@ -425,15 +517,135 @@ function exportCurrentResultsToCsv() {
 function renderSummary(data) {
     currentSourcePage = data.source_page ?? "";
 
-    totalLinksElement.textContent = data.total_links ?? 0;
-    goodLinksElement.textContent = data.good ?? 0;
-    redirectedLinksElement.textContent = data.redirected ?? 0;
-    brokenLinksElement.textContent = data.broken ?? 0;
-    errorLinksElement.textContent = data.error ?? 0;
+    const total = data.total_links ?? 0;
+    const good = data.good ?? 0;
+    const redirected = data.redirected ?? 0;
+    const broken = data.broken ?? 0;
+    const error = data.error ?? 0;
+    const needsActionCount = broken + error;
+    const healthyCount = good + redirected;
+    const healthScore = total > 0
+        ? Math.round((healthyCount / total) * 100)
+        : 0;
+    const healthState = getHealthState(healthScore, needsActionCount);
+
+    totalLinksElement.textContent = total;
+    goodLinksElement.textContent = good;
+    redirectedLinksElement.textContent = redirected;
+    brokenLinksElement.textContent = broken;
+    errorLinksElement.textContent = error;
+    healthScoreElement.textContent = `${healthScore}%`;
+    healthScoreElement.dataset.health = healthState;
+    healthMessageElement.textContent = needsActionCount === 0
+        ? "No immediate fixes required."
+        : `${needsActionCount} links need review.`;
+    scanSummaryMessageElement.textContent = getSummaryMessage(data);
 
     sourcePageElement.textContent = data.source_page
         ? `Source page: ${data.source_page}`
         : "";
+
+    renderDistributionBar({
+        total,
+        good,
+        redirected,
+        broken,
+        error,
+    });
+}
+
+
+/**
+ * Render a proportional status bar so users can read quality at a glance.
+ */
+function renderDistributionBar(counts) {
+    const segments = [
+        ["good", counts.good],
+        ["redirected", counts.redirected],
+        ["broken", counts.broken],
+        ["error", counts.error],
+    ];
+
+    distributionBar.innerHTML = "";
+
+    if (!counts.total) {
+        distributionBar.innerHTML = '<span class="distribution-empty"></span>';
+
+        return;
+    }
+
+    segments.forEach(([name, count]) => {
+        if (!count) {
+            return;
+        }
+
+        const segment = document.createElement("span");
+        const percent = Math.max((count / counts.total) * 100, 3);
+
+        segment.className = `distribution-segment distribution-${name}`;
+        segment.style.width = `${percent}%`;
+        segment.title = `${count} ${name}`;
+
+        distributionBar.appendChild(segment);
+    });
+}
+
+
+/**
+ * Render the most important actionable rows above the full table.
+ */
+function renderIssues(results) {
+    const issueResults = results
+        .filter(needsAction)
+        .slice(0, 6);
+
+    const totalIssues = results.filter(needsAction).length;
+
+    issuesSubtitleElement.textContent = totalIssues === 0
+        ? "No broken links or request errors were detected."
+        : `${totalIssues} links require attention.`;
+
+    issuesList.innerHTML = "";
+
+    if (issueResults.length === 0) {
+        issuesList.innerHTML = `
+            <div class="issue-empty">
+                No priority issues in this scan.
+            </div>
+        `;
+
+        return;
+    }
+
+    issueResults.forEach((result) => {
+        const normalizedStatus = normalizeStatus(result.status);
+        const statusLabel = getStatusLabel(normalizedStatus, result.status);
+        const issueItem = document.createElement("article");
+        const detail = result.error_description ||
+            result.error_message ||
+            result.source_location ||
+            "No additional details provided.";
+
+        issueItem.className = "issue-item";
+        issueItem.innerHTML = `
+            <div>
+                <span class="status-badge status-${normalizedStatus}">
+                    ${escapeHtml(statusLabel)}
+                </span>
+            </div>
+
+            <div class="issue-content">
+                <strong>${escapeHtml(result.url || "Unknown URL")}</strong>
+                <p>${escapeHtml(detail)}</p>
+            </div>
+
+            <div class="issue-meta">
+                ${escapeHtml(result.http_status ?? result.link_type ?? "-")}
+            </div>
+        `;
+
+        issuesList.appendChild(issueItem);
+    });
 }
 
 
@@ -450,7 +662,7 @@ function renderTable(results) {
     if (filteredResults.length === 0) {
         resultsTableBody.innerHTML = `
             <tr>
-                <td colspan="9" class="empty-state">
+                <td colspan="10" class="empty-state">
                     No links found for the selected filter.
                 </td>
             </tr>
@@ -468,6 +680,7 @@ function renderTable(results) {
             result.response_time_ms !== undefined
             ? `${result.response_time_ms} ms`
             : "-";
+        const redirectChain = formatRedirectChain(result.redirect_chain);
 
         const row = document.createElement("tr");
 
@@ -488,6 +701,10 @@ function renderTable(results) {
 
             <td class="url-cell">
                 ${renderUrlCell(result.final_url, "final URL")}
+            </td>
+
+            <td>
+                ${escapeHtml(redirectChain || "-")}
             </td>
 
             <td>
@@ -582,8 +799,11 @@ scanForm.addEventListener("submit", async (event) => {
             key: null,
             direction: "asc",
         };
+        quickFilter = "all";
+        needsActionFilterButton.dataset.active = "false";
 
         renderSummary(scanData);
+        renderIssues(currentResults);
         renderTable(currentResults);
 
         resultsSection.classList.remove("hidden");
@@ -609,6 +829,8 @@ scanForm.addEventListener("submit", async (event) => {
  * Filter the existing results without executing a new scan.
  */
 statusFilter.addEventListener("change", () => {
+    quickFilter = "all";
+    needsActionFilterButton.dataset.active = "false";
     renderTable(currentResults);
 });
 
@@ -617,6 +839,22 @@ statusFilter.addEventListener("change", () => {
  * Search within the current scan results.
  */
 resultsSearchInput.addEventListener("input", () => {
+    renderTable(currentResults);
+});
+
+
+/**
+ * Focus the table on broken links and request errors.
+ */
+needsActionFilterButton.addEventListener("click", () => {
+    quickFilter = quickFilter === "needs-action"
+        ? "all"
+        : "needs-action";
+
+    statusFilter.value = "all";
+    needsActionFilterButton.dataset.active = quickFilter === "needs-action"
+        ? "true"
+        : "false";
     renderTable(currentResults);
 });
 
