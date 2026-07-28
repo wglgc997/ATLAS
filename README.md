@@ -5,32 +5,36 @@
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
-Link Checker is a local web application that renders a webpage, extracts links and page resources, validates them, and shows the scan results in a browser dashboard.
+Quality Link Checker is a local FastAPI web application for scanning a rendered web page, extracting links and page resources, validating them, and reviewing the results in a browser dashboard.
 
-It is useful for checking pages that need JavaScript rendering before links are available in the HTML.
+It is designed for pages where important links are created by JavaScript and are not available in the initial HTML.
 
 ## Features
 
-- Local FastAPI web interface
+- Local FastAPI dashboard
 - JavaScript rendering with Playwright and Chromium
 - Extraction of anchors, stylesheets, scripts, images, and iframes
-- Relative URL resolution
-- HTTP status validation
-- Redirect detection
+- Relative URL resolution and fragment removal
+- Optional filtering for external links and technical assets
+- HTTP status validation with HEAD requests and GET fallback
+- Redirect chain detection
 - Response time measurement
-- Link classification: `Good`, `Redirected`, `Broken`, `SSL Error`, `Timeout`, `Connection Error`, `DNS Error`, and `Unknown Error`
-- Friendly error descriptions with separate technical details
+- Detection of missing, empty, unsupported, and non-navigable href values
+- Interaction checks for suspicious UI controls
+- Local scan history saved in `data/scan_history.json`
+- Searchable, sortable, and filterable results table
+- CSV export for the currently visible result set
 - Optional SSL certificate verification and custom CA bundle support
-- Configurable HTTP retries, timeouts, redirects, and Playwright wait strategy
-- Automated tests for core extraction, status classification, and scan summaries
+- Configurable retries, timeouts, redirect limits, and Playwright wait strategy
+- Automated tests for extraction, filtering, status classification, scan summaries, interaction handling, and history persistence
 
 ## Requirements
 
 - Python 3.13
 - Internet access for the first Playwright Chromium download
-- Windows for the included `.bat` launcher scripts
+- Windows for the included `start.bat` launcher
 
-The app can also run on Linux and macOS through the manual Python commands below.
+The app can also run on Linux and macOS with the manual Python commands below.
 
 ## Quick Start on Windows
 
@@ -47,14 +51,7 @@ Run:
 .\start.bat
 ```
 
-The script will:
-
-- Find Python
-- Create `.venv`
-- Install dependencies from `requirements.txt`
-- Install Chromium for Playwright into `playwright-browsers`
-- Start the local app
-- Open the dashboard in your default browser
+The script creates `.venv`, installs dependencies, installs Chromium into `playwright-browsers`, starts the app, and opens the dashboard.
 
 The application runs at:
 
@@ -65,13 +62,6 @@ http://127.0.0.1:8000
 Keep the terminal window open while using the app. Press `Ctrl+C` to stop it.
 
 ## Manual Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/<your-user>/LinkChecker.git
-cd LinkChecker
-```
 
 Create and activate a virtual environment:
 
@@ -116,30 +106,49 @@ Open:
 http://127.0.0.1:8000
 ```
 
+## Usage
+
+1. Open the dashboard.
+2. Enter the page URL to scan.
+3. Click `Analyze`.
+4. Wait for Playwright to render the page and extract links.
+5. Review the summary, priority issues, and full results table.
+6. Use search, status filters, and sorting to focus the results.
+7. Export the visible rows to CSV when needed.
+
+Each scan is saved locally. Recent scans can be reloaded from the dashboard history panel.
+
 ## Configuration
 
-The app works without a `.env` file by using the defaults defined in `src/config/settings.py`.
+The app works without a `.env` file by using defaults from `src/config/settings.py`.
 
-You can create a local `.env` file only when you need to override those defaults:
+Create a local `.env` file only when you need to override those defaults:
 
 ```env
 HTTP_TIMEOUT=20
 HTTP_RETRIES=2
 HTTP_RETRY_BACKOFF=0.5
 PLAYWRIGHT_TIMEOUT=60
+PLAYWRIGHT_INTERACTION_TIMEOUT=3
 VERIFY_SSL=true
 CA_BUNDLE_PATH=
 WAIT_UNTIL=domcontentloaded
 MAX_REDIRECTS=10
 ```
 
-`HTTP_TIMEOUT` controls each HTTP request used to validate links.
+| Variable | Default | Description |
+| --- | --- | --- |
+| `HTTP_TIMEOUT` | `20` | Per-link HTTP validation timeout in seconds. |
+| `HTTP_RETRIES` | `2` | Number of retry attempts for timeout and connection failures. |
+| `HTTP_RETRY_BACKOFF` | `0.5` | Backoff multiplier between retries. |
+| `PLAYWRIGHT_TIMEOUT` | `60` | Page rendering timeout in seconds. |
+| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `3` | Timeout in seconds for interaction checks. |
+| `VERIFY_SSL` | `true` | Enables SSL certificate verification. |
+| `CA_BUNDLE_PATH` | empty | Optional path to a PEM certificate bundle. |
+| `WAIT_UNTIL` | `domcontentloaded` | Playwright page load state used before extraction. |
+| `MAX_REDIRECTS` | `10` | Maximum redirects allowed during HTTP validation. |
 
-`PLAYWRIGHT_TIMEOUT` controls page rendering and link discovery with Playwright.
-
-Set `VERIFY_SSL=false` only when you need to scan sites with invalid or internal SSL certificates.
-
-For corporate environments, prefer keeping `VERIFY_SSL=true` and setting `CA_BUNDLE_PATH` to a PEM certificate bundle:
+Set `VERIFY_SSL=false` only when scanning sites with invalid or internal certificates. For corporate environments, prefer keeping SSL verification enabled and setting `CA_BUNDLE_PATH`:
 
 ```env
 VERIFY_SSL=true
@@ -148,31 +157,72 @@ CA_BUNDLE_PATH=C:\path\to\corporate-ca.pem
 
 Do not commit `.env` files. They are ignored by Git.
 
-## Usage
-
-1. Open the dashboard.
-2. Enter the page URL to scan.
-3. Start the scan.
-4. Wait for Playwright to render the page and extract links.
-5. Review each result, including status, final URL, response time, link type, and source location.
-
 ## Status Classification
 
-| Status | Description |
+| Status | Meaning |
 | --- | --- |
-| `Good` | Successful response, usually HTTP 2xx |
-| `Redirected` | Redirect detected or HTTP 3xx |
-| `Broken` | HTTP 4xx or HTTP 5xx |
-| `SSL Error` | SSL certificate validation failed |
-| `Timeout` | The request timed out after retries |
-| `Connection Error` | The server could not be reached |
-| `DNS Error` | The domain name could not be resolved |
-| `Unknown Error` | Unexpected validation error |
+| `Valid` | HTTP 2xx response without redirects. |
+| `Redirected` | The request followed at least one redirect and ended successfully. |
+| `Redirect Loop` | Redirect handling exceeded the configured limit or ended on a 3xx response. |
+| `Unauthorized` | HTTP 401 response. |
+| `Forbidden` | HTTP 403 response. |
+| `Broken` | Other HTTP 4xx response. |
+| `Gone` | HTTP 410 response. |
+| `Server Error` | HTTP 5xx response. |
+| `Invalid Link` | Missing, empty, unsupported, or non-navigable href value. |
+| `Interactive Element` | Suspicious element changed visible page state instead of navigating. |
+| `Interaction Error` | Suspicious element did not navigate or produce a detectable interaction. |
+| `SSL Error` | SSL certificate validation failed. |
+| `Timeout` | The request timed out after retries. |
+| `Connection Error` | The server could not be reached. |
+| `DNS Error` | The domain name could not be resolved. |
+| `Unknown Error` | Unexpected validation error. |
+
+## API
+
+Health check:
+
+```text
+GET /health
+```
+
+Dashboard:
+
+```text
+GET /
+```
+
+Run a scan:
+
+```text
+POST /scans
+```
+
+Example request:
+
+```json
+{
+  "url": "https://example.com",
+  "timeout": 20,
+  "max_workers": 12,
+  "include_assets": false,
+  "include_external": true
+}
+```
+
+Scan history:
+
+```text
+GET /scans/history
+GET /scans/history/{scan_id}
+```
 
 ## Project Structure
 
 ```text
 LinkChecker/
+|-- data/
+|   `-- scan_history.json
 |-- src/
 |   |-- api/
 |   |-- checker/
@@ -188,7 +238,7 @@ LinkChecker/
 |-- web/
 |-- launcher.py
 |-- start.bat
-|-- LinkChecker.bat
+|-- LinkChecker.spec
 |-- requirements.txt
 |-- requirements-dev.txt
 `-- README.md
@@ -214,21 +264,9 @@ Run the app directly with Uvicorn:
 uvicorn src.web:app --reload --host 127.0.0.1 --port 8000
 ```
 
-## API
+## Packaging
 
-Health check:
-
-```text
-GET /health
-```
-
-Main dashboard:
-
-```text
-GET /
-```
-
-Scan endpoints are defined in `src/api/scans.py`.
+`LinkChecker.spec` is included for PyInstaller-based packaging. Build output and packaged binaries should not be committed.
 
 ## Roadmap
 
@@ -238,13 +276,11 @@ Scan endpoints are defined in `src/api/scans.py`.
 - [x] HTTP validation
 - [x] Windows launcher script
 - [x] Core automated tests
-- [x] Exportable reports
+- [x] Local scan history
+- [x] CSV export
 - [ ] Progress indicator during scans
 
-
 ## Contributing
-
-Contributions are welcome.
 
 1. Fork the repository.
 2. Create a feature branch.
