@@ -1,0 +1,445 @@
+[
+  {
+    "id": "6c5630a8-0220-4f72-8d39-d414f6b26e7f",
+    "created_at": "2026-07-28T15:04:32.257312+00:00",
+    "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+    "total_links": 11,
+    "good": 7,
+    "redirected": 3,
+    "broken": 1,
+    "error": 0,
+    "results": [
+      {
+        "url": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "final_url": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities"
+          }
+        ],
+        "response_time_ms": 3458,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Portfolio",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Portfolio"
+      },
+      {
+        "url": "https://www.dell.com/pl-pl/dt/solutions/edge-computing/edge-platform.htm",
+        "final_url": "https://www.dell.com/pl-pl/dt/solutions/edge-computing/edge-platform.htm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/pl-pl/dt/solutions/edge-computing/edge-platform.htm"
+          }
+        ],
+        "response_time_ms": 3511,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Poznaj Dell NativeEdge",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Poznaj Dell NativeEdge"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/dell-technologies-digital-twin-solution-with-augmentcity.mp4",
+        "final_url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/dell-technologies-digital-twin-solution-with-augmentcity.mp4",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/dell-technologies-digital-twin-solution-with-augmentcity.mp4"
+          }
+        ],
+        "response_time_ms": 3568,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Obejrzyj film",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Obejrzyj film"
+      },
+      {
+        "url": "https://infohub.delltechnologies.com/section-assets/h19152-dell-validated-design-for-urban-mobility-with-iss-sb?hve=read+solution+brief",
+        "final_url": "https://infohub.delltechnologies.com/section-assets/h19152-dell-validated-design-for-urban-mobility-with-iss-sb?hve=read+solution+brief",
+        "http_status": 403,
+        "status": "Forbidden",
+        "redirect_chain": [
+          {
+            "status_code": 403,
+            "url": "https://infohub.delltechnologies.com/section-assets/h19152-dell-validated-design-for-urban-mobility-with-iss-sb?hve=read+solution+brief"
+          }
+        ],
+        "response_time_ms": 2847,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Przeczytaj krótki opis rozwiązania",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Przeczytaj krótki opis rozwiązania"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/dell-validated-design-for-uoc-infographic.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/dell-validated-design-for-uoc-infographic.pdf",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/dell-validated-design-for-uoc-infographic.pdf"
+          }
+        ],
+        "response_time_ms": 3584,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Infografika",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Infografika"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/solution-brief-dell-validated-design-for-unified-operations-center.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/solution-brief-dell-validated-design-for-unified-operations-center.pdf",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/industry-solutions/briefs-summaries/solution-brief-dell-validated-design-for-unified-operations-center.pdf"
+          }
+        ],
+        "response_time_ms": 3471,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Opis rozwiązania",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Opis rozwiązania"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/business-solutions/briefs-summaries/dell-validated-deign-for-uoc-with-aveva-solution-video.mp4",
+        "final_url": "https://www.delltechnologies.com/asset/pl-pl/solutions/business-solutions/briefs-summaries/dell-validated-deign-for-uoc-with-aveva-solution-video.mp4",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/asset/pl-pl/solutions/business-solutions/briefs-summaries/dell-validated-deign-for-uoc-with-aveva-solution-video.mp4"
+          }
+        ],
+        "response_time_ms": 3529,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": "Obejrzyj film",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Obejrzyj film"
+      },
+      {
+        "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/axxonsoft.html",
+        "final_url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/axxonsoft.htm",
+        "http_status": 200,
+        "status": "Redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/axxonsoft.html"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/axxonsoft.htm"
+          }
+        ],
+        "response_time_ms": 3910,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/onemind-technologies-slu.htm",
+        "final_url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/onemind-technologies-slu.htm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/onemind-technologies-slu.htm"
+          }
+        ],
+        "response_time_ms": 3649,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/iomniscient-corporation.html",
+        "final_url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/iomniscient-corporation.htm",
+        "http_status": 200,
+        "status": "Redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/iomniscient-corporation.html"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/iomniscient-corporation.htm"
+          }
+        ],
+        "response_time_ms": 4767,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/equivital.html",
+        "final_url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/equivital.htm",
+        "http_status": 200,
+        "status": "Redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/equivital.html"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/partner/pl-pl/partner/edge-ecosystem/find-a-partner/equivital.htm"
+          }
+        ],
+        "response_time_ms": 4842,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/pl-pl/lp/dt/industry-digital-cities",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      }
+    ]
+  },
+  {
+    "id": "9330452c-913c-4df4-bb8b-c37e23b54b71",
+    "created_at": "2026-07-28T15:03:07.431155+00:00",
+    "source_page": "https://campaign-web-wip.r1.pcf.dell.com/de-ch/lp/dt/managed-services",
+    "total_links": 4,
+    "good": 3,
+    "redirected": 0,
+    "broken": 0,
+    "error": 1,
+    "results": [
+      {
+        "url": "https://campaign-web-wip.r1.pcf.dell.com/de-ch/lp/dt/managed-services",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "redirect_chain": [],
+        "response_time_ms": 6046,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='campaign-web-wip.r1.pcf.dell.com', port=443): Max retries exceeded with url: /de-ch/lp/dt/managed-services (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/de-ch/lp/dt/managed-services",
+        "link_text": "Übersicht",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Übersicht"
+      },
+      {
+        "url": "https://www.dell.com/de-ch/lp/dt/residency-services",
+        "final_url": "https://www.dell.com/de-ch/lp/dt/residency-services",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/de-ch/lp/dt/residency-services"
+          }
+        ],
+        "response_time_ms": 3036,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/de-ch/lp/dt/managed-services",
+        "link_text": "Mehr erfahren",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Mehr erfahren"
+      },
+      {
+        "url": "https://www.dell.com/de-ch/lp/dt/managed-services-for-infrastructure",
+        "final_url": "https://www.dell.com/de-ch/lp/dt/managed-services-for-infrastructure",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/de-ch/lp/dt/managed-services-for-infrastructure"
+          }
+        ],
+        "response_time_ms": 3041,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/de-ch/lp/dt/managed-services",
+        "link_text": "Mehr erfahren",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Mehr erfahren"
+      },
+      {
+        "url": "https://www.dell.com/de-ch/lp/dt/lifecycle-hub-suite",
+        "final_url": "https://www.dell.com/de-ch/lp/dt/lifecycle-hub-suite",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/de-ch/lp/dt/lifecycle-hub-suite"
+          }
+        ],
+        "response_time_ms": 2958,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/de-ch/lp/dt/managed-services",
+        "link_text": "Weitere Informationen",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Weitere Informationen"
+      }
+    ]
+  },
+  {
+    "id": "5c1c8b47-79e1-4047-8dd0-936d2bfe959b",
+    "created_at": "2026-07-28T15:01:43.400113+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/fr-ca/work/shop/cty/pdp/spd/e2726h-monitor?redirect=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "results": []
+  },
+  {
+    "id": "b0633a91-89a7-4bc4-9731-bcc865c2581e",
+    "created_at": "2026-07-28T15:01:02.297717+00:00",
+    "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+    "total_links": 4,
+    "good": 2,
+    "redirected": 0,
+    "broken": 0,
+    "error": 2,
+    "results": [
+      {
+        "url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "final_url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421"
+          }
+        ],
+        "response_time_ms": 1266,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Skip to navigation",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Skip to navigation"
+      },
+      {
+        "url": "https://www.eddymens.com/tags/misc",
+        "final_url": "https://www.eddymens.com/tags/misc",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.eddymens.com/tags/misc"
+          }
+        ],
+        "response_time_ms": 1252,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Misc",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Misc"
+      },
+      {
+        "url": "https://httpstat.us/500",
+        "final_url": null,
+        "http_status": null,
+        "status": "Timeout",
+        "redirect_chain": [],
+        "response_time_ms": 32085,
+        "error_message": "Request timed out.",
+        "error_description": "Request timed out.",
+        "technical_details": "HTTPSConnectionPool(host='httpstat.us', port=443): Max retries exceeded with url: /500 (Caused by ConnectTimeoutError(<HTTPSConnection(host='httpstat.us', port=443) at 0x16c9ee511d0>, 'Connection to httpstat.us timed out. (connect timeout=20)'))",
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Link to Status 200 [↗]",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Link to Status 200 [↗]"
+      },
+      {
+        "url": "https://httpstat.us/404",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "redirect_chain": [],
+        "response_time_ms": 11805,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='httpstat.us', port=443): Max retries exceeded with url: /404 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Link to Status 404 [↗]",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Link to Status 404 [↗]"
+      }
+    ]
+  }
+]

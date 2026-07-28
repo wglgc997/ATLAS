@@ -1,6 +1,8 @@
 from src.checker.link_checker import classify_status
 from src.crawler.extractor import extract_links_from_html
+from src.schemas.scan import ScanResponse
 from src.services import scan_service
+from src.services import scan_history
 
 
 def test_extract_links_from_html_resolves_relevant_links() -> None:
@@ -307,3 +309,37 @@ def test_suspicious_link_without_effect_is_interaction_error() -> None:
     assert result is not None
     assert result.status == "Interaction Error"
     assert result.error_message == "Click did not produce navigation or a detectable interaction."
+
+
+def test_save_scan_to_history_replaces_closed_temp_file(monkeypatch, tmp_path) -> None:
+    history_file = tmp_path / "scan_history.json"
+    monkeypatch.setattr(scan_history, "HISTORY_FILE", history_file)
+
+    scan = ScanResponse(
+        source_page="https://example.com",
+        total_links=0,
+        good=0,
+        redirected=0,
+        broken=0,
+        error=0,
+        results=[],
+    )
+
+    item = scan_history.save_scan_to_history(scan)
+
+    assert history_file.exists()
+    assert scan_history.load_scan_history()[0]["id"] == item["id"]
+    assert list(tmp_path.glob("*.tmp")) == []
+
+
+def test_get_scan_from_history_checks_all_items(monkeypatch, tmp_path) -> None:
+    history_file = tmp_path / "scan_history.json"
+    history_file.write_text(
+        '[{"id": "first", "source_page": "https://a.example"}, '
+        '{"id": "second", "source_page": "https://b.example"}]',
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(scan_history, "HISTORY_FILE", history_file)
+
+    assert scan_history.get_scan_from_history("second")["source_page"] == "https://b.example"
+    assert scan_history.get_scan_from_history("missing") is None

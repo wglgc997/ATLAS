@@ -64,6 +64,27 @@
             </form>
         </section>
 
+        <section class="history-panel" aria-labelledby="history-title">
+            <div class="history-header">
+                <div>
+                    <h2 id="history-title">Scan history</h2>
+                    <p id="history-subtitle">Recent local scans saved on this machine.</p>
+                </div>
+
+                <button
+                    id="refresh-history-button"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Refresh
+                </button>
+            </div>
+
+            <div id="history-list" class="history-list">
+                <div class="history-empty">No saved scans yet.</div>
+            </div>
+        </section>
+
         <section id="empty-section" class="empty-panel">
             <div class="empty-icon" aria-hidden="true">
                 <svg
@@ -281,6 +302,6 @@
 
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260728-1"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260728-2"></script>
 </body>
 </html>

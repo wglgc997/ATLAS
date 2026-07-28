@@ -126,7 +126,8 @@ select {
 .empty-panel,
 .loading-panel,
 .insights-panel,
-.issues-panel {
+.issues-panel,
+.history-panel {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -225,6 +226,89 @@ select {
     color: var(--danger);
     font-size: 14px;
     font-weight: 700;
+}
+
+.history-panel {
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-header h2 {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 760;
+}
+
+.history-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.history-list {
+    display: grid;
+}
+
+.history-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+.history-item:last-child {
+    border-bottom: 0;
+}
+
+.history-item:hover {
+    background: #f9fbfd;
+}
+
+.history-item:focus-visible {
+    outline: 3px solid rgba(15, 108, 189, 0.16);
+    outline-offset: -3px;
+}
+
+.history-url {
+    display: block;
+    margin-bottom: 4px;
+    color: #273244;
+    font-size: 14px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.history-meta,
+.history-counts,
+.history-empty {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.history-counts {
+    white-space: nowrap;
+}
+
+.history-empty {
+    padding: 18px 20px;
 }
 
 .loading-panel {
@@ -874,7 +958,9 @@ tbody tr:hover {
 
     .form-row,
     .table-header,
-    .insights-heading {
+    .insights-heading,
+    .history-header,
+    .history-item {
         flex-direction: column;
         align-items: stretch;
     }
@@ -907,5 +993,13 @@ tbody tr:hover {
 
     .issue-meta {
         text-align: left;
+    }
+
+    .history-item {
+        display: flex;
+    }
+
+    .history-counts {
+        white-space: normal;
     }
 }

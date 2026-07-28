@@ -4,6 +4,9 @@ const scanButton = document.getElementById("scan-button");
 const formError = document.getElementById("form-error");
 const appStatus = document.getElementById("app-status");
 const appStatusText = document.getElementById("app-status-text");
+const historyList = document.getElementById("history-list");
+const historySubtitle = document.getElementById("history-subtitle");
+const refreshHistoryButton = document.getElementById("refresh-history-button");
 
 const emptySection = document.getElementById("empty-section");
 const loadingSection = document.getElementById("loading-section");
@@ -36,6 +39,24 @@ let currentSort = {
     direction: "asc",
 };
 let quickFilter = "all";
+
+
+function formatHistoryDate(value) {
+    if (!value) {
+        return "Unknown date";
+    }
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return "Unknown date";
+    }
+
+    return date.toLocaleString(undefined, {
+        dateStyle: "medium",
+        timeStyle: "short",
+    });
+}
 
 
 /**
@@ -733,6 +754,89 @@ function renderTable(results) {
 }
 
 
+function showScanData(scanData) {
+    currentResults = scanData.results ?? [];
+
+    statusFilter.value = "all";
+    resultsSearchInput.value = "";
+    currentSort = {
+        key: null,
+        direction: "asc",
+    };
+    quickFilter = "all";
+    needsActionFilterButton.dataset.active = "false";
+
+    renderSummary(scanData);
+    renderIssues(currentResults);
+    renderTable(currentResults);
+
+    emptySection.classList.add("hidden");
+    resultsSection.classList.remove("hidden");
+}
+
+
+function renderScanHistory(history) {
+    historyList.innerHTML = "";
+
+    if (!Array.isArray(history) || history.length === 0) {
+        historySubtitle.textContent = "Recent local scans saved on this machine.";
+        historyList.innerHTML = '<div class="history-empty">No saved scans yet.</div>';
+
+        return;
+    }
+
+    historySubtitle.textContent = `${history.length} scans saved locally.`;
+
+    history.forEach((item) => {
+        const historyItem = document.createElement("button");
+        const issueCount = (item.broken ?? 0) + (item.error ?? 0);
+
+        historyItem.className = "history-item";
+        historyItem.type = "button";
+        historyItem.dataset.scanId = item.id;
+        historyItem.innerHTML = `
+            <span>
+                <span class="history-url">${escapeHtml(item.source_page ?? "Unknown page")}</span>
+                <span class="history-meta">${escapeHtml(formatHistoryDate(item.created_at))}</span>
+            </span>
+
+            <span class="history-counts">
+                ${escapeHtml(item.total_links ?? 0)} links | ${escapeHtml(issueCount)} issues
+            </span>
+        `;
+
+        historyList.appendChild(historyItem);
+    });
+}
+
+
+async function loadScanHistory() {
+    try {
+        const response = await fetch("/scans/history");
+
+        if (!response.ok) {
+            throw new Error("History could not be loaded.");
+        }
+
+        renderScanHistory(await response.json());
+    } catch {
+        historySubtitle.textContent = "History is unavailable.";
+        historyList.innerHTML = '<div class="history-empty">Could not load local scan history.</div>';
+    }
+}
+
+
+async function loadHistoryScan(scanId) {
+    const response = await fetch(`/scans/history/${encodeURIComponent(scanId)}`);
+
+    if (!response.ok) {
+        throw new Error("The selected scan could not be loaded.");
+    }
+
+    return response.json();
+}
+
+
 /**
  * Send the page URL to the FastAPI scan endpoint.
  */
@@ -791,22 +895,8 @@ scanForm.addEventListener("submit", async (event) => {
     try {
         const scanData = await executeScan(pageUrl);
 
-        currentResults = scanData.results ?? [];
-
-        statusFilter.value = "all";
-        resultsSearchInput.value = "";
-        currentSort = {
-            key: null,
-            direction: "asc",
-        };
-        quickFilter = "all";
-        needsActionFilterButton.dataset.active = "false";
-
-        renderSummary(scanData);
-        renderIssues(currentResults);
-        renderTable(currentResults);
-
-        resultsSection.classList.remove("hidden");
+        showScanData(scanData);
+        await loadScanHistory();
         setAppStatus("ready", "Ready");
     } catch (error) {
         formError.textContent =
@@ -821,6 +911,32 @@ scanForm.addEventListener("submit", async (event) => {
 
         scanButton.disabled = false;
         scanButton.textContent = "Analyze";
+    }
+});
+
+
+refreshHistoryButton.addEventListener("click", loadScanHistory);
+
+
+historyList.addEventListener("click", async (event) => {
+    const historyItem = event.target.closest(".history-item");
+
+    if (!historyItem) {
+        return;
+    }
+
+    formError.classList.add("hidden");
+    setAppStatus("scanning", "Loading");
+
+    try {
+        const scanData = await loadHistoryScan(historyItem.dataset.scanId);
+
+        showScanData(scanData);
+        setAppStatus("ready", "Ready");
+    } catch (error) {
+        formError.textContent = error.message;
+        formError.classList.remove("hidden");
+        setAppStatus("error", "Error");
     }
 });
 
@@ -921,3 +1037,6 @@ resultsTableBody.addEventListener("click", async (event) => {
         formError.classList.remove("hidden");
     }
 });
+
+
+loadScanHistory();
