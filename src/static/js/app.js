@@ -5,8 +5,10 @@ const formError = document.getElementById("form-error");
 const appStatus = document.getElementById("app-status");
 const appStatusText = document.getElementById("app-status-text");
 const historyList = document.getElementById("history-list");
+const historyPanel = document.getElementById("history-panel");
 const historySubtitle = document.getElementById("history-subtitle");
 const refreshHistoryButton = document.getElementById("refresh-history-button");
+const toggleHistoryButton = document.getElementById("toggle-history-button");
 
 const emptySection = document.getElementById("empty-section");
 const loadingSection = document.getElementById("loading-section");
@@ -25,6 +27,7 @@ const distributionBar = document.getElementById("distribution-bar");
 const needsActionFilterButton = document.getElementById("needs-action-filter");
 const issuesSubtitleElement = document.getElementById("issues-subtitle");
 const issuesList = document.getElementById("issues-list");
+const toggleIssuesButton = document.getElementById("toggle-issues-button");
 
 const sourcePageElement = document.getElementById("source-page");
 const resultsTableBody = document.getElementById("results-table-body");
@@ -34,6 +37,7 @@ const exportCsvButton = document.getElementById("export-csv-button");
 
 let currentResults = [];
 let currentSourcePage = "";
+let selectedHistoryScanId = "";
 let currentSort = {
     key: null,
     direction: "asc",
@@ -756,6 +760,7 @@ function renderTable(results) {
 
 function showScanData(scanData) {
     currentResults = scanData.results ?? [];
+    currentSourcePage = scanData.source_page ?? "";
 
     statusFilter.value = "all";
     resultsSearchInput.value = "";
@@ -772,6 +777,24 @@ function showScanData(scanData) {
 
     emptySection.classList.add("hidden");
     resultsSection.classList.remove("hidden");
+}
+
+
+function setHistoryCollapsed(isCollapsed) {
+    historyPanel.dataset.collapsed = isCollapsed ? "true" : "false";
+    historyList.classList.toggle("hidden", isCollapsed);
+    toggleHistoryButton.textContent = isCollapsed ? "Expand" : "Minimize";
+    toggleHistoryButton.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
+}
+
+
+function setIssuesCollapsed(isCollapsed) {
+    const issuesPanel = issuesList.closest(".issues-panel");
+
+    issuesPanel.dataset.collapsed = isCollapsed ? "true" : "false";
+    issuesList.classList.toggle("hidden", isCollapsed);
+    toggleIssuesButton.textContent = isCollapsed ? "Expand" : "Minimize";
+    toggleIssuesButton.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
 }
 
 
@@ -794,6 +817,9 @@ function renderScanHistory(history) {
         historyItem.className = "history-item";
         historyItem.type = "button";
         historyItem.dataset.scanId = item.id;
+        historyItem.dataset.active = item.id === selectedHistoryScanId
+            ? "true"
+            : "false";
         historyItem.innerHTML = `
             <span>
                 <span class="history-url">${escapeHtml(item.source_page ?? "Unknown page")}</span>
@@ -874,6 +900,63 @@ async function executeScan(pageUrl) {
 }
 
 
+async function refreshCurrentScanOrHistory() {
+    const pageUrl = currentSourcePage || pageUrlInput.value.trim();
+
+    formError.classList.add("hidden");
+    refreshHistoryButton.disabled = true;
+
+    if (!pageUrl) {
+        refreshHistoryButton.textContent = "Refreshing...";
+        setAppStatus("scanning", "Refreshing");
+
+        try {
+            await loadScanHistory();
+            setAppStatus("ready", "Ready");
+        } catch {
+            setAppStatus("error", "Error");
+        } finally {
+            refreshHistoryButton.disabled = false;
+            refreshHistoryButton.textContent = "Refresh";
+        }
+
+        return;
+    }
+
+    emptySection.classList.add("hidden");
+    resultsSection.classList.add("hidden");
+    loadingSection.classList.remove("hidden");
+    loadingUrlElement.textContent = pageUrl;
+    refreshHistoryButton.textContent = "Refreshing...";
+    scanButton.disabled = true;
+    setAppStatus("scanning", "Refreshing");
+
+    try {
+        const scanData = await executeScan(pageUrl);
+
+        selectedHistoryScanId = "";
+        showScanData(scanData);
+        await loadScanHistory();
+        setAppStatus("ready", "Ready");
+    } catch (error) {
+        formError.textContent =
+            error.message ||
+            "An unexpected error occurred.";
+
+        formError.classList.remove("hidden");
+        resultsSection.classList.toggle("hidden", currentResults.length === 0);
+        emptySection.classList.toggle("hidden", currentResults.length > 0);
+        setAppStatus("error", "Error");
+    } finally {
+        loadingSection.classList.add("hidden");
+        refreshHistoryButton.disabled = false;
+        refreshHistoryButton.textContent = "Refresh";
+        scanButton.disabled = false;
+        scanButton.textContent = "Analyze";
+    }
+}
+
+
 /**
  * Handle form submission without reloading the browser page.
  */
@@ -895,6 +978,7 @@ scanForm.addEventListener("submit", async (event) => {
     try {
         const scanData = await executeScan(pageUrl);
 
+        selectedHistoryScanId = "";
         showScanData(scanData);
         await loadScanHistory();
         setAppStatus("ready", "Ready");
@@ -915,7 +999,19 @@ scanForm.addEventListener("submit", async (event) => {
 });
 
 
-refreshHistoryButton.addEventListener("click", loadScanHistory);
+refreshHistoryButton.addEventListener("click", refreshCurrentScanOrHistory);
+
+
+toggleHistoryButton.addEventListener("click", () => {
+    setHistoryCollapsed(historyPanel.dataset.collapsed !== "true");
+});
+
+
+toggleIssuesButton.addEventListener("click", () => {
+    const issuesPanel = issuesList.closest(".issues-panel");
+
+    setIssuesCollapsed(issuesPanel.dataset.collapsed !== "true");
+});
 
 
 historyList.addEventListener("click", async (event) => {
@@ -931,7 +1027,9 @@ historyList.addEventListener("click", async (event) => {
     try {
         const scanData = await loadHistoryScan(historyItem.dataset.scanId);
 
+        selectedHistoryScanId = historyItem.dataset.scanId;
         showScanData(scanData);
+        await loadScanHistory();
         setAppStatus("ready", "Ready");
     } catch (error) {
         formError.textContent = error.message;

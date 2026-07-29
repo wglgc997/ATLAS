@@ -1,5 +1,5 @@
 :root {
-    --bg: #f4f6f8;
+    --bg: #f7f8fa;
     --surface: #ffffff;
     --surface-muted: #f8fafc;
     --text: #111827;
@@ -17,7 +17,7 @@
     --danger-soft: #fee2e2;
     --neutral: #4b5563;
     --neutral-soft: #eef2f7;
-    --shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+    --shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 * {
@@ -30,9 +30,7 @@ html {
 
 body {
     margin: 0;
-    background:
-        linear-gradient(180deg, #eef4fb 0, rgba(238, 244, 251, 0) 260px),
-        var(--bg);
+    background: var(--bg);
     color: var(--text);
     font-family:
         Inter,
@@ -54,8 +52,7 @@ select {
 
 .app-bar {
     border-bottom: 1px solid rgba(198, 208, 220, 0.75);
-    background: rgba(255, 255, 255, 0.86);
-    backdrop-filter: blur(14px);
+    background: var(--surface);
 }
 
 .app-bar-inner {
@@ -242,6 +239,20 @@ select {
     border-bottom: 1px solid var(--border);
 }
 
+.history-panel[data-collapsed="true"] .history-header {
+    border-bottom: 0;
+}
+
+.issues-panel[data-collapsed="true"] .issues-header {
+    border-bottom: 0;
+}
+
+.history-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .history-header h2 {
     margin: 0 0 4px;
     font-size: 20px;
@@ -279,6 +290,14 @@ select {
 
 .history-item:hover {
     background: #f9fbfd;
+}
+
+.history-item[data-active="true"] {
+    background: var(--primary-soft);
+}
+
+.history-item[data-active="true"] .history-url {
+    color: var(--primary-strong);
 }
 
 .history-item:focus-visible {
@@ -419,8 +438,9 @@ select {
 }
 
 .total-card {
-    background: linear-gradient(180deg, #ffffff, var(--primary-soft));
-    border-color: #cfe3fb;
+    background: var(--surface);
+    border-color: var(--border);
+    border-top: 4px solid var(--primary);
 }
 
 .good-card {
@@ -596,6 +616,10 @@ select {
 }
 
 .issues-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     padding: 18px 20px;
     border-bottom: 1px solid var(--border);
     background: var(--surface);
@@ -959,6 +983,7 @@ tbody tr:hover {
     .form-row,
     .table-header,
     .insights-heading,
+    .issues-header,
     .history-header,
     .history-item {
         flex-direction: column;
@@ -968,6 +993,12 @@ tbody tr:hover {
     .table-actions {
         align-items: stretch;
         flex-direction: column;
+    }
+
+    .history-actions {
+        align-items: stretch;
+        flex-direction: column;
+        width: 100%;
     }
 
     .form-row button {

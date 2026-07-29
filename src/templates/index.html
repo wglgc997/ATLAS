@@ -12,7 +12,7 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}?v=20260728-1"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20260729-1"
     >
 </head>
 
@@ -62,27 +62,6 @@
 
                 <p id="form-error" class="error-message hidden"></p>
             </form>
-        </section>
-
-        <section class="history-panel" aria-labelledby="history-title">
-            <div class="history-header">
-                <div>
-                    <h2 id="history-title">Scan history</h2>
-                    <p id="history-subtitle">Recent local scans saved on this machine.</p>
-                </div>
-
-                <button
-                    id="refresh-history-button"
-                    class="secondary-button"
-                    type="button"
-                >
-                    Refresh
-                </button>
-            </div>
-
-            <div id="history-list" class="history-list">
-                <div class="history-empty">No saved scans yet.</div>
-            </div>
         </section>
 
         <section id="empty-section" class="empty-panel">
@@ -199,6 +178,16 @@
                         <h2 id="issues-title">Issues to fix</h2>
                         <p id="issues-subtitle"></p>
                     </div>
+
+                    <button
+                        id="toggle-issues-button"
+                        class="secondary-button"
+                        type="button"
+                        aria-controls="issues-list"
+                        aria-expanded="true"
+                    >
+                        Minimize
+                    </button>
                 </div>
 
                 <div id="issues-list" class="issues-list"></div>
@@ -300,8 +289,45 @@
             </div>
         </section>
 
+        <section
+            id="history-panel"
+            class="history-panel"
+            aria-labelledby="history-title"
+        >
+            <div class="history-header">
+                <div>
+                    <h2 id="history-title">Scan history</h2>
+                    <p id="history-subtitle">Recent local scans saved on this machine.</p>
+                </div>
+
+                <div class="history-actions">
+                    <button
+                        id="refresh-history-button"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Refresh
+                    </button>
+
+                    <button
+                        id="toggle-history-button"
+                        class="secondary-button"
+                        type="button"
+                        aria-controls="history-list"
+                        aria-expanded="true"
+                    >
+                        Minimize
+                    </button>
+                </div>
+            </div>
+
+            <div id="history-list" class="history-list">
+                <div class="history-empty">No saved scans yet.</div>
+            </div>
+        </section>
+
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260728-2"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260729-1"></script>
 </body>
 </html>
