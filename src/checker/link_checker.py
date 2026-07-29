@@ -10,24 +10,45 @@ from src.config.settings import HTTP_TIMEOUT, MAX_REDIRECTS, VERIFY_SSL, CA_BUND
 
 
 def classify_status(http_status: int | None, was_redirected: bool) -> LinkStatus:
-    """Classify the link result"""
+    """Classify a link from the final HTTP status and redirect history."""
 
     if http_status is None:
         return LinkStatus.UNKNOWN_ERROR
 
-    if was_redirected:
-        return LinkStatus.REDIRECTED
-
     if 200 <= http_status <= 299:
-        return LinkStatus.GOOD
+        return LinkStatus.REDIRECTED if was_redirected else LinkStatus.GOOD
 
     if 300 <= http_status <= 399:
-        return LinkStatus.REDIRECTED
+        return LinkStatus.REDIRECT_LOOP
 
-    if 400 <= http_status <= 599:
+    if http_status == 401:
+        return LinkStatus.UNAUTHORIZED
+
+    if http_status == 403:
+        return LinkStatus.FORBIDDEN
+
+    if http_status == 410:
+        return LinkStatus.GONE
+
+    if 400 <= http_status <= 499:
         return LinkStatus.BROKEN
 
+    if 500 <= http_status <= 599:
+        return LinkStatus.SERVER_ERROR
+
     return LinkStatus.UNKNOWN_ERROR
+
+
+def build_redirect_chain(response: requests.Response) -> list[dict[str, int | str | None]]:
+    responses = [*response.history, response]
+
+    return [
+        {
+            "status_code": redirect_response.status_code,
+            "url": redirect_response.url,
+        }
+        for redirect_response in responses
+    ]
 
 def is_dns_error(error: BaseException) -> bool:
     current_error: BaseException | None = error
@@ -38,15 +59,15 @@ def is_dns_error(error: BaseException) -> bool:
 
         current_error = current_error.__cause__ or current_error.__context__
 
-        error_message = str(error).lower()
+    error_message = str(error).lower()
 
-        return(
-            "name resolution" in error_message
-            or "temporary failure in name resolution" in error_message
-            or "failed to resolve" in error_message
-            or "nodename nor servname provided" in error_message
-            or "getaddrinfo failed" in error_message
-        )
+    return (
+        "name resolution" in error_message
+        or "temporary failure in name resolution" in error_message
+        or "failed to resolve" in error_message
+        or "nodename nor servname provided" in error_message
+        or "getaddrinfo failed" in error_message
+    )
 
 def get_ssl_verify_config() -> bool | str:
     if not VERIFY_SSL:
@@ -151,6 +172,7 @@ def check_link(url: str, timeout: int = HTTP_TIMEOUT) -> dict:
             "final_url": response.url,
             "http_status": response.status_code,
             "status": status.value,
+            "redirect_chain": build_redirect_chain(response),
             "response_time_ms": response_time_ms,
             "error_message": None,
             "error_description": None,
@@ -207,12 +229,32 @@ def check_link(url: str, timeout: int = HTTP_TIMEOUT) -> dict:
             response_time_ms=response_time_ms,
         )
 
+    except exceptions.TooManyRedirects as error:
+        response_time_ms = round((time.perf_counter() - start_time) * 1000)
+
+        return build_error_result(
+            url=url,
+            status=LinkStatus.REDIRECT_LOOP,
+            error=error,
+            response_time_ms=response_time_ms,
+        )
+
     except (
-        exceptions.HTTPError,
         exceptions.InvalidSchema,
         exceptions.InvalidURL,
         exceptions.MissingSchema,
-        exceptions.TooManyRedirects,
+    ) as error:
+        response_time_ms = round((time.perf_counter() - start_time) * 1000)
+
+        return build_error_result(
+            url=url,
+            status=LinkStatus.INVALID_LINK,
+            error=error,
+            response_time_ms=response_time_ms,
+        )
+
+    except (
+        exceptions.HTTPError,
         requests.RequestException,
     ) as error:
         response_time_ms = round((time.perf_counter() - start_time) * 1000)
@@ -231,6 +273,8 @@ def get_error_description(status: LinkStatus) -> str:
         LinkStatus.TIMEOUT: "Request timed out.",
         LinkStatus.CONNECTION_ERROR: "Unable to connect to the server",
         LinkStatus.DNS_ERROR: "Unable to resolve the domain name",
+        LinkStatus.REDIRECT_LOOP: "The link exceeded the redirect limit or ended on a redirect status.",
+        LinkStatus.INVALID_LINK: "The HTML element does not contain a navigable link.",
         LinkStatus.UNKNOWN_ERROR: "The link could not be validated due to an unexpected error.",
     }
 
@@ -252,9 +296,9 @@ def build_error_result(
         "final_url": None,
         "http_status": None,
         "status": status.value,
+        "redirect_chain": [],
         "response_time_ms": response_time_ms,
         "error_message": description,
         "error_description": description,
         "technical_details": str(error),
     }
-

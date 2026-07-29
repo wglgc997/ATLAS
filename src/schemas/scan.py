@@ -12,13 +12,21 @@ e o que o backend responde.
 """
 
 class LinkStatus(str, Enum):
-    GOOD = "Good"
+    GOOD = "Valid"
     REDIRECTED = "Redirected"
     BROKEN = "Broken"
+    UNAUTHORIZED = "Unauthorized"
+    FORBIDDEN = "Forbidden"
+    GONE = "Gone"
+    SERVER_ERROR = "Server Error"
+    INVALID_LINK = "Invalid Link"
+    INTERACTIVE_ELEMENT = "Interactive Element"
+    REDIRECT_LOOP = "Redirect Loop"
     SSL_ERROR = "SSL Error"
     TIMEOUT = "Timeout"
     CONNECTION_ERROR = "Connection Error"
     DNS_ERROR = "DNS Error"
+    INTERACTION_ERROR = "Interaction Error"
     UNKNOWN_ERROR = "Unknown Error"
 
 class ScanRequest(BaseModel):
@@ -59,6 +67,7 @@ class LinkResult(BaseModel):
     final_url: Optional[str] = None
     http_status: Optional[int] = None
     status: LinkStatus
+    redirect_chain: list[dict[str, int | str | None]] = Field(default_factory=list)
     response_time_ms: Optional[int] = None
     error_message: Optional[str] = None
     error_description: Optional[str] = None

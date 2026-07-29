@@ -4,6 +4,11 @@ const scanButton = document.getElementById("scan-button");
 const formError = document.getElementById("form-error");
 const appStatus = document.getElementById("app-status");
 const appStatusText = document.getElementById("app-status-text");
+const historyList = document.getElementById("history-list");
+const historyPanel = document.getElementById("history-panel");
+const historySubtitle = document.getElementById("history-subtitle");
+const refreshHistoryButton = document.getElementById("refresh-history-button");
+const toggleHistoryButton = document.getElementById("toggle-history-button");
 
 const emptySection = document.getElementById("empty-section");
 const loadingSection = document.getElementById("loading-section");
@@ -15,6 +20,14 @@ const goodLinksElement = document.getElementById("good-links");
 const redirectedLinksElement = document.getElementById("redirected-links");
 const brokenLinksElement = document.getElementById("broken-links");
 const errorLinksElement = document.getElementById("error-links");
+const healthScoreElement = document.getElementById("health-score");
+const healthMessageElement = document.getElementById("health-message");
+const scanSummaryMessageElement = document.getElementById("scan-summary-message");
+const distributionBar = document.getElementById("distribution-bar");
+const needsActionFilterButton = document.getElementById("needs-action-filter");
+const issuesSubtitleElement = document.getElementById("issues-subtitle");
+const issuesList = document.getElementById("issues-list");
+const toggleIssuesButton = document.getElementById("toggle-issues-button");
 
 const sourcePageElement = document.getElementById("source-page");
 const resultsTableBody = document.getElementById("results-table-body");
@@ -24,10 +37,30 @@ const exportCsvButton = document.getElementById("export-csv-button");
 
 let currentResults = [];
 let currentSourcePage = "";
+let selectedHistoryScanId = "";
 let currentSort = {
     key: null,
     direction: "asc",
 };
+let quickFilter = "all";
+
+
+function formatHistoryDate(value) {
+    if (!value) {
+        return "Unknown date";
+    }
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return "Unknown date";
+    }
+
+    return date.toLocaleString(undefined, {
+        dateStyle: "medium",
+        timeStyle: "short",
+    });
+}
 
 
 /**
@@ -56,7 +89,8 @@ function normalizeStatus(status) {
     if (
         normalizedStatus === "good" ||
         normalizedStatus === "ok" ||
-        normalizedStatus === "valid"
+        normalizedStatus === "valid" ||
+        normalizedStatus === "interactive element"
     ) {
         return "good";
     }
@@ -70,7 +104,14 @@ function normalizeStatus(status) {
 
     if (
         normalizedStatus === "broken" ||
-        normalizedStatus === "failed"
+        normalizedStatus === "failed" ||
+        normalizedStatus === "unauthorized" ||
+        normalizedStatus === "forbidden" ||
+        normalizedStatus === "gone" ||
+        normalizedStatus === "server error" ||
+        normalizedStatus === "invalid link" ||
+        normalizedStatus === "redirect loop" ||
+        normalizedStatus === "interaction error"
     ) {
         return "broken";
     }
@@ -97,12 +138,66 @@ function getStatusLabel(status, rawStatus = null) {
     const labels = {
         good: "Valid",
         redirected: "Redirected",
-        broken: "Broken",
+        broken: rawStatus || "Broken",
         error: rawStatus || "Error",
         unknown: "Unknown",
     };
 
     return labels[status] || labels.unknown;
+}
+
+
+/**
+ * Return true when a row requires user review or correction.
+ */
+function needsAction(result) {
+    const normalizedStatus = normalizeStatus(result.status);
+
+    return normalizedStatus === "broken" || normalizedStatus === "error";
+}
+
+
+/**
+ * Classify the overall result into a simple visual state.
+ */
+function getHealthState(score, actionCount) {
+    if (actionCount === 0 && score >= 95) {
+        return "excellent";
+    }
+
+    if (score >= 90) {
+        return "good";
+    }
+
+    if (score >= 70) {
+        return "warning";
+    }
+
+    return "danger";
+}
+
+
+/**
+ * Build the short executive summary shown above the table.
+ */
+function getSummaryMessage(data) {
+    const total = data.total_links ?? 0;
+    const redirected = data.redirected ?? 0;
+    const needsActionCount = (data.broken ?? 0) + (data.error ?? 0);
+
+    if (total === 0) {
+        return "No links were found in this scan.";
+    }
+
+    if (needsActionCount === 0 && redirected === 0) {
+        return `Scan completed. All ${total} links are valid.`;
+    }
+
+    if (needsActionCount === 0) {
+        return `Scan completed. No broken links found; ${redirected} redirects were detected.`;
+    }
+
+    return `Scan completed. ${needsActionCount} of ${total} links need attention.`;
 }
 
 
@@ -216,6 +311,7 @@ function getSearchableText(result) {
         result.http_status,
         result.url,
         result.final_url,
+        formatRedirectChain(result.redirect_chain),
         result.response_time_ms,
         result.source_location,
         result.link_type,
@@ -249,6 +345,11 @@ function getVisibleResults(results) {
 
     const filteredResults = results.filter((result) => {
         const normalizedStatus = normalizeStatus(result.status);
+        const matchesQuickFilter = (
+            quickFilter !== "needs-action" ||
+            needsAction(result)
+        );
+
         const matchesStatus = (
             selectedStatus === "all" ||
             normalizedStatus === selectedStatus
@@ -259,7 +360,7 @@ function getVisibleResults(results) {
             getSearchableText(result).includes(searchTerm)
         );
 
-        return matchesStatus && matchesSearch;
+        return matchesQuickFilter && matchesStatus && matchesSearch;
     });
 
     if (!currentSort.key) {
@@ -342,6 +443,20 @@ function escapeCsvValue(value) {
 
 
 /**
+ * Render the redirect status chain as compact text.
+ */
+function formatRedirectChain(redirectChain) {
+    if (!Array.isArray(redirectChain) || redirectChain.length === 0) {
+        return "";
+    }
+
+    return redirectChain
+        .map((step) => step.status_code ?? "-")
+        .join(" -> ");
+}
+
+
+/**
  * Build a portable filename for exported scan results.
  */
 function buildCsvFilename() {
@@ -377,6 +492,7 @@ function exportCurrentResultsToCsv() {
         "http_status",
         "url",
         "final_url",
+        "redirect_chain",
         "response_time_ms",
         "source_location",
         "link_type",
@@ -390,6 +506,7 @@ function exportCurrentResultsToCsv() {
         result.http_status ?? "",
         result.url ?? "",
         result.final_url ?? "",
+        formatRedirectChain(result.redirect_chain),
         result.response_time_ms ?? "",
         result.source_location ?? "",
         result.link_type ?? "",
@@ -425,15 +542,135 @@ function exportCurrentResultsToCsv() {
 function renderSummary(data) {
     currentSourcePage = data.source_page ?? "";
 
-    totalLinksElement.textContent = data.total_links ?? 0;
-    goodLinksElement.textContent = data.good ?? 0;
-    redirectedLinksElement.textContent = data.redirected ?? 0;
-    brokenLinksElement.textContent = data.broken ?? 0;
-    errorLinksElement.textContent = data.error ?? 0;
+    const total = data.total_links ?? 0;
+    const good = data.good ?? 0;
+    const redirected = data.redirected ?? 0;
+    const broken = data.broken ?? 0;
+    const error = data.error ?? 0;
+    const needsActionCount = broken + error;
+    const healthyCount = good + redirected;
+    const healthScore = total > 0
+        ? Math.round((healthyCount / total) * 100)
+        : 0;
+    const healthState = getHealthState(healthScore, needsActionCount);
+
+    totalLinksElement.textContent = total;
+    goodLinksElement.textContent = good;
+    redirectedLinksElement.textContent = redirected;
+    brokenLinksElement.textContent = broken;
+    errorLinksElement.textContent = error;
+    healthScoreElement.textContent = `${healthScore}%`;
+    healthScoreElement.dataset.health = healthState;
+    healthMessageElement.textContent = needsActionCount === 0
+        ? "No immediate fixes required."
+        : `${needsActionCount} links need review.`;
+    scanSummaryMessageElement.textContent = getSummaryMessage(data);
 
     sourcePageElement.textContent = data.source_page
         ? `Source page: ${data.source_page}`
         : "";
+
+    renderDistributionBar({
+        total,
+        good,
+        redirected,
+        broken,
+        error,
+    });
+}
+
+
+/**
+ * Render a proportional status bar so users can read quality at a glance.
+ */
+function renderDistributionBar(counts) {
+    const segments = [
+        ["good", counts.good],
+        ["redirected", counts.redirected],
+        ["broken", counts.broken],
+        ["error", counts.error],
+    ];
+
+    distributionBar.innerHTML = "";
+
+    if (!counts.total) {
+        distributionBar.innerHTML = '<span class="distribution-empty"></span>';
+
+        return;
+    }
+
+    segments.forEach(([name, count]) => {
+        if (!count) {
+            return;
+        }
+
+        const segment = document.createElement("span");
+        const percent = Math.max((count / counts.total) * 100, 3);
+
+        segment.className = `distribution-segment distribution-${name}`;
+        segment.style.width = `${percent}%`;
+        segment.title = `${count} ${name}`;
+
+        distributionBar.appendChild(segment);
+    });
+}
+
+
+/**
+ * Render the most important actionable rows above the full table.
+ */
+function renderIssues(results) {
+    const issueResults = results
+        .filter(needsAction)
+        .slice(0, 6);
+
+    const totalIssues = results.filter(needsAction).length;
+
+    issuesSubtitleElement.textContent = totalIssues === 0
+        ? "No broken links or request errors were detected."
+        : `${totalIssues} links require attention.`;
+
+    issuesList.innerHTML = "";
+
+    if (issueResults.length === 0) {
+        issuesList.innerHTML = `
+            <div class="issue-empty">
+                No priority issues in this scan.
+            </div>
+        `;
+
+        return;
+    }
+
+    issueResults.forEach((result) => {
+        const normalizedStatus = normalizeStatus(result.status);
+        const statusLabel = getStatusLabel(normalizedStatus, result.status);
+        const issueItem = document.createElement("article");
+        const detail = result.error_description ||
+            result.error_message ||
+            result.source_location ||
+            "No additional details provided.";
+
+        issueItem.className = "issue-item";
+        issueItem.innerHTML = `
+            <div>
+                <span class="status-badge status-${normalizedStatus}">
+                    ${escapeHtml(statusLabel)}
+                </span>
+            </div>
+
+            <div class="issue-content">
+                <strong>${escapeHtml(result.url || "Unknown URL")}</strong>
+                <p>${escapeHtml(detail)}</p>
+            </div>
+
+            <div class="issue-meta">
+                ${escapeHtml(result.http_status ?? result.link_type ?? "-")}
+            </div>
+        `;
+
+        issuesList.appendChild(issueItem);
+    });
 }
 
 
@@ -450,7 +687,7 @@ function renderTable(results) {
     if (filteredResults.length === 0) {
         resultsTableBody.innerHTML = `
             <tr>
-                <td colspan="9" class="empty-state">
+                <td colspan="10" class="empty-state">
                     No links found for the selected filter.
                 </td>
             </tr>
@@ -468,6 +705,7 @@ function renderTable(results) {
             result.response_time_ms !== undefined
             ? `${result.response_time_ms} ms`
             : "-";
+        const redirectChain = formatRedirectChain(result.redirect_chain);
 
         const row = document.createElement("tr");
 
@@ -488,6 +726,10 @@ function renderTable(results) {
 
             <td class="url-cell">
                 ${renderUrlCell(result.final_url, "final URL")}
+            </td>
+
+            <td>
+                ${escapeHtml(redirectChain || "-")}
             </td>
 
             <td>
@@ -513,6 +755,111 @@ function renderTable(results) {
 
         resultsTableBody.appendChild(row);
     });
+}
+
+
+function showScanData(scanData) {
+    currentResults = scanData.results ?? [];
+    currentSourcePage = scanData.source_page ?? "";
+
+    statusFilter.value = "all";
+    resultsSearchInput.value = "";
+    currentSort = {
+        key: null,
+        direction: "asc",
+    };
+    quickFilter = "all";
+    needsActionFilterButton.dataset.active = "false";
+
+    renderSummary(scanData);
+    renderIssues(currentResults);
+    renderTable(currentResults);
+
+    emptySection.classList.add("hidden");
+    resultsSection.classList.remove("hidden");
+}
+
+
+function setHistoryCollapsed(isCollapsed) {
+    historyPanel.dataset.collapsed = isCollapsed ? "true" : "false";
+    historyList.classList.toggle("hidden", isCollapsed);
+    toggleHistoryButton.textContent = isCollapsed ? "Expand" : "Minimize";
+    toggleHistoryButton.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
+}
+
+
+function setIssuesCollapsed(isCollapsed) {
+    const issuesPanel = issuesList.closest(".issues-panel");
+
+    issuesPanel.dataset.collapsed = isCollapsed ? "true" : "false";
+    issuesList.classList.toggle("hidden", isCollapsed);
+    toggleIssuesButton.textContent = isCollapsed ? "Expand" : "Minimize";
+    toggleIssuesButton.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
+}
+
+
+function renderScanHistory(history) {
+    historyList.innerHTML = "";
+
+    if (!Array.isArray(history) || history.length === 0) {
+        historySubtitle.textContent = "Recent local scans saved on this machine.";
+        historyList.innerHTML = '<div class="history-empty">No saved scans yet.</div>';
+
+        return;
+    }
+
+    historySubtitle.textContent = `${history.length} scans saved locally.`;
+
+    history.forEach((item) => {
+        const historyItem = document.createElement("button");
+        const issueCount = (item.broken ?? 0) + (item.error ?? 0);
+
+        historyItem.className = "history-item";
+        historyItem.type = "button";
+        historyItem.dataset.scanId = item.id;
+        historyItem.dataset.active = item.id === selectedHistoryScanId
+            ? "true"
+            : "false";
+        historyItem.innerHTML = `
+            <span>
+                <span class="history-url">${escapeHtml(item.source_page ?? "Unknown page")}</span>
+                <span class="history-meta">${escapeHtml(formatHistoryDate(item.created_at))}</span>
+            </span>
+
+            <span class="history-counts">
+                ${escapeHtml(item.total_links ?? 0)} links | ${escapeHtml(issueCount)} issues
+            </span>
+        `;
+
+        historyList.appendChild(historyItem);
+    });
+}
+
+
+async function loadScanHistory() {
+    try {
+        const response = await fetch("/scans/history");
+
+        if (!response.ok) {
+            throw new Error("History could not be loaded.");
+        }
+
+        renderScanHistory(await response.json());
+    } catch {
+        historySubtitle.textContent = "History is unavailable.";
+        historyList.innerHTML = '<div class="history-empty">Could not load local scan history.</div>';
+    }
+}
+
+
+async function loadHistoryScan(scanId) {
+    const response = await fetch(`/scans/history/${encodeURIComponent(scanId)}`);
+
+    if (!response.ok) {
+        throw new Error("The selected scan could not be loaded.");
+    }
+
+    return response.json();
 }
 
 
@@ -553,6 +900,63 @@ async function executeScan(pageUrl) {
 }
 
 
+async function refreshCurrentScanOrHistory() {
+    const pageUrl = currentSourcePage || pageUrlInput.value.trim();
+
+    formError.classList.add("hidden");
+    refreshHistoryButton.disabled = true;
+
+    if (!pageUrl) {
+        refreshHistoryButton.textContent = "Refreshing...";
+        setAppStatus("scanning", "Refreshing");
+
+        try {
+            await loadScanHistory();
+            setAppStatus("ready", "Ready");
+        } catch {
+            setAppStatus("error", "Error");
+        } finally {
+            refreshHistoryButton.disabled = false;
+            refreshHistoryButton.textContent = "Refresh";
+        }
+
+        return;
+    }
+
+    emptySection.classList.add("hidden");
+    resultsSection.classList.add("hidden");
+    loadingSection.classList.remove("hidden");
+    loadingUrlElement.textContent = pageUrl;
+    refreshHistoryButton.textContent = "Refreshing...";
+    scanButton.disabled = true;
+    setAppStatus("scanning", "Refreshing");
+
+    try {
+        const scanData = await executeScan(pageUrl);
+
+        selectedHistoryScanId = "";
+        showScanData(scanData);
+        await loadScanHistory();
+        setAppStatus("ready", "Ready");
+    } catch (error) {
+        formError.textContent =
+            error.message ||
+            "An unexpected error occurred.";
+
+        formError.classList.remove("hidden");
+        resultsSection.classList.toggle("hidden", currentResults.length === 0);
+        emptySection.classList.toggle("hidden", currentResults.length > 0);
+        setAppStatus("error", "Error");
+    } finally {
+        loadingSection.classList.add("hidden");
+        refreshHistoryButton.disabled = false;
+        refreshHistoryButton.textContent = "Refresh";
+        scanButton.disabled = false;
+        scanButton.textContent = "Analyze";
+    }
+}
+
+
 /**
  * Handle form submission without reloading the browser page.
  */
@@ -574,19 +978,9 @@ scanForm.addEventListener("submit", async (event) => {
     try {
         const scanData = await executeScan(pageUrl);
 
-        currentResults = scanData.results ?? [];
-
-        statusFilter.value = "all";
-        resultsSearchInput.value = "";
-        currentSort = {
-            key: null,
-            direction: "asc",
-        };
-
-        renderSummary(scanData);
-        renderTable(currentResults);
-
-        resultsSection.classList.remove("hidden");
+        selectedHistoryScanId = "";
+        showScanData(scanData);
+        await loadScanHistory();
         setAppStatus("ready", "Ready");
     } catch (error) {
         formError.textContent =
@@ -605,10 +999,52 @@ scanForm.addEventListener("submit", async (event) => {
 });
 
 
+refreshHistoryButton.addEventListener("click", refreshCurrentScanOrHistory);
+
+
+toggleHistoryButton.addEventListener("click", () => {
+    setHistoryCollapsed(historyPanel.dataset.collapsed !== "true");
+});
+
+
+toggleIssuesButton.addEventListener("click", () => {
+    const issuesPanel = issuesList.closest(".issues-panel");
+
+    setIssuesCollapsed(issuesPanel.dataset.collapsed !== "true");
+});
+
+
+historyList.addEventListener("click", async (event) => {
+    const historyItem = event.target.closest(".history-item");
+
+    if (!historyItem) {
+        return;
+    }
+
+    formError.classList.add("hidden");
+    setAppStatus("scanning", "Loading");
+
+    try {
+        const scanData = await loadHistoryScan(historyItem.dataset.scanId);
+
+        selectedHistoryScanId = historyItem.dataset.scanId;
+        showScanData(scanData);
+        await loadScanHistory();
+        setAppStatus("ready", "Ready");
+    } catch (error) {
+        formError.textContent = error.message;
+        formError.classList.remove("hidden");
+        setAppStatus("error", "Error");
+    }
+});
+
+
 /**
  * Filter the existing results without executing a new scan.
  */
 statusFilter.addEventListener("change", () => {
+    quickFilter = "all";
+    needsActionFilterButton.dataset.active = "false";
     renderTable(currentResults);
 });
 
@@ -617,6 +1053,22 @@ statusFilter.addEventListener("change", () => {
  * Search within the current scan results.
  */
 resultsSearchInput.addEventListener("input", () => {
+    renderTable(currentResults);
+});
+
+
+/**
+ * Focus the table on broken links and request errors.
+ */
+needsActionFilterButton.addEventListener("click", () => {
+    quickFilter = quickFilter === "needs-action"
+        ? "all"
+        : "needs-action";
+
+    statusFilter.value = "all";
+    needsActionFilterButton.dataset.active = quickFilter === "needs-action"
+        ? "true"
+        : "false";
     renderTable(currentResults);
 });
 
@@ -683,3 +1135,6 @@ resultsTableBody.addEventListener("click", async (event) => {
         formError.classList.remove("hidden");
     }
 });
+
+
+loadScanHistory();
