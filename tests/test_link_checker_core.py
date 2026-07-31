@@ -1,9 +1,10 @@
 from src.checker.link_checker import classify_status
 from src.crawler.extractor import extract_links_from_html
 from src.schemas.scan import ScanResponse
-from src.services import scan_service
 from src.services import scan_history
-
+from src.services.link_filter import filter_links
+from src.services.link_result_builder import build_link_result
+from src.services import scan_service, link_result_builder
 
 def test_extract_links_from_html_resolves_relevant_links() -> None:
     html = """
@@ -101,7 +102,7 @@ def test_filter_links_normalizes_urls_and_skips_non_navigable_links() -> None:
         {"url": "https://other.example/page", "link_type": "anchor"},
     ]
 
-    filtered_links = scan_service.filter_links(
+    filtered_links = filter_links(
         links=links,
         page_url="https://example.com/path/page",
         include_assets=False,
@@ -175,7 +176,7 @@ def test_filter_links_ignores_page_chrome_controls() -> None:
         },
     ]
 
-    filtered_links = scan_service.filter_links(
+    filtered_links = filter_links(
         links=links,
         page_url="https://example.com/path/page",
         include_assets=False,
@@ -254,7 +255,7 @@ def test_scan_page_builds_summary(monkeypatch) -> None:
         }
 
     monkeypatch.setattr(scan_service, "extract_links_with_browser", fake_extract_links)
-    monkeypatch.setattr(scan_service, "check_link", fake_check_link)
+    monkeypatch.setattr(link_result_builder, "check_link", fake_check_link)
 
     scan = scan_service.scan_page("https://example.com", timeout=5)
 
@@ -272,7 +273,7 @@ def test_scan_page_builds_summary(monkeypatch) -> None:
 
 
 def test_interactive_suspicious_link_is_not_broken() -> None:
-    result = scan_service.build_link_result(
+    result = build_link_result(
         link={
             "url": "",
             "raw_url": None,
@@ -292,7 +293,7 @@ def test_interactive_suspicious_link_is_not_broken() -> None:
 
 
 def test_suspicious_link_without_effect_is_interaction_error() -> None:
-    result = scan_service.build_link_result(
+    result = build_link_result(
         link={
             "url": "javascript:;",
             "raw_url": "javascript:;",
