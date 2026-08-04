@@ -22,6 +22,7 @@ It is designed for pages where important links are created by JavaScript and are
 - Detection of missing, empty, unsupported, and non-navigable href values
 - Interaction checks for suspicious UI controls
 - Local scan history saved in `data/scan_history.json`
+- Backend-generated dashboard summary with health score and action counts
 - Searchable, sortable, and filterable results table
 - CSV export for the currently visible result set
 - Optional SSL certificate verification and custom CA bundle support
@@ -178,6 +179,18 @@ Do not commit `.env` files. They are ignored by Git.
 | `DNS Error` | The domain name could not be resolved. |
 | `Unknown Error` | Unexpected validation error. |
 
+### Status Groups
+
+Each result also includes `status_group`, a backend-generated category used by the dashboard for filtering and styling.
+
+| Group | Meaning |
+| --- | --- |
+| `good` | Valid links and interactive elements that behaved correctly. |
+| `redirected` | Links that redirected and ended successfully. |
+| `broken` | Invalid links, HTTP failures, permission failures, redirect loops, or interaction errors. |
+| `error` | Network, DNS, SSL, timeout, or unexpected validation errors. |
+| `unknown` | Fallback group for unrecognized statuses. |
+
 ## API
 
 Health check:
@@ -207,6 +220,54 @@ Example request:
   "max_workers": 12,
   "include_assets": false,
   "include_external": true
+}
+```
+
+Example response shape:
+
+```json
+{
+  "source_page": "https://example.com",
+  "total_links": 3,
+  "good": 1,
+  "redirected": 1,
+  "broken": 1,
+  "error": 0,
+  "summary": {
+    "total_links": 3,
+    "good": 1,
+    "redirected": 1,
+    "broken": 1,
+    "error": 0,
+    "healthy_count": 2,
+    "needs_action_count": 1,
+    "health_score": 67,
+    "health_state": "danger",
+    "health_message": "1 link needs review.",
+    "summary_message": "Scan completed. 1 of 3 links needs attention."
+  },
+  "results": [
+    {
+      "url": "https://example.com",
+      "final_url": "https://example.com",
+      "http_status": 200,
+      "status": "Valid",
+      "status_group": "good",
+      "redirect_chain": [
+        {
+          "status_code": 200,
+          "url": "https://example.com"
+        }
+      ],
+      "response_time_ms": 120,
+      "error_message": null,
+      "source_page": "https://example.com",
+      "link_text": "Example",
+      "link_type": "anchor",
+      "source_attribute": "href",
+      "source_location": "Text link: Example"
+    }
+  ]
 }
 ```
 
