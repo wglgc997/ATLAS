@@ -73,8 +73,7 @@ function setAppStatus(status, label) {
 
 
 /**
- * Normalize the API status so the frontend can apply
- * consistent styles and filters.
+ * Fallback for older scan history entries without status_group.
  */
 function normalizeStatus(status) {
     if (!status) {
@@ -131,6 +130,11 @@ function normalizeStatus(status) {
 }
 
 
+function getStatusGroup(result) {
+    return result.status_group || normalizeStatus(result.status);
+}
+
+
 /**
  * Convert the internal status value into readable text.
  */
@@ -151,53 +155,9 @@ function getStatusLabel(status, rawStatus = null) {
  * Return true when a row requires user review or correction.
  */
 function needsAction(result) {
-    const normalizedStatus = normalizeStatus(result.status);
+    const statusGroup = getStatusGroup(result);
 
-    return normalizedStatus === "broken" || normalizedStatus === "error";
-}
-
-
-/**
- * Classify the overall result into a simple visual state.
- */
-function getHealthState(score, actionCount) {
-    if (actionCount === 0 && score >= 95) {
-        return "excellent";
-    }
-
-    if (score >= 90) {
-        return "good";
-    }
-
-    if (score >= 70) {
-        return "warning";
-    }
-
-    return "danger";
-}
-
-
-/**
- * Build the short executive summary shown above the table.
- */
-function getSummaryMessage(data) {
-    const total = data.total_links ?? 0;
-    const redirected = data.redirected ?? 0;
-    const needsActionCount = (data.broken ?? 0) + (data.error ?? 0);
-
-    if (total === 0) {
-        return "No links were found in this scan.";
-    }
-
-    if (needsActionCount === 0 && redirected === 0) {
-        return `Scan completed. All ${total} links are valid.`;
-    }
-
-    if (needsActionCount === 0) {
-        return `Scan completed. No broken links found; ${redirected} redirects were detected.`;
-    }
-
-    return `Scan completed. ${needsActionCount} of ${total} links need attention.`;
+    return statusGroup === "broken" || statusGroup === "error";
 }
 
 
@@ -329,7 +289,7 @@ function getSearchableText(result) {
  */
 function getSortValue(result, key) {
     if (key === "status") {
-        return getStatusLabel(normalizeStatus(result.status), result.status)
+        return getStatusLabel(getStatusGroup(result), result.status)
     }
 
     return result[key] ?? "";
@@ -344,7 +304,7 @@ function getVisibleResults(results) {
     const searchTerm = resultsSearchInput.value.trim().toLowerCase();
 
     const filteredResults = results.filter((result) => {
-        const normalizedStatus = normalizeStatus(result.status);
+        const statusGroup = getStatusGroup(result);
         const matchesQuickFilter = (
             quickFilter !== "needs-action" ||
             needsAction(result)
@@ -352,7 +312,7 @@ function getVisibleResults(results) {
 
         const matchesStatus = (
             selectedStatus === "all" ||
-            normalizedStatus === selectedStatus
+            statusGroup === selectedStatus
         );
 
         const matchesSearch = (
@@ -502,7 +462,7 @@ function exportCurrentResultsToCsv() {
 
     const rows = filteredResults.map((result) => [
         currentSourcePage,
-        getStatusLabel(normalizeStatus(result.status), result.status),
+        getStatusLabel(getStatusGroup(result), result.status),
         result.http_status ?? "",
         result.url ?? "",
         result.final_url ?? "",
@@ -542,17 +502,18 @@ function exportCurrentResultsToCsv() {
 function renderSummary(data) {
     currentSourcePage = data.source_page ?? "";
 
-    const total = data.total_links ?? 0;
-    const good = data.good ?? 0;
-    const redirected = data.redirected ?? 0;
-    const broken = data.broken ?? 0;
-    const error = data.error ?? 0;
-    const needsActionCount = broken + error;
-    const healthyCount = good + redirected;
-    const healthScore = total > 0
-        ? Math.round((healthyCount / total) * 100)
-        : 0;
-    const healthState = getHealthState(healthScore, needsActionCount);
+    const summary = data.summary || {};
+    const total = summary.total_links ?? data.total_links ?? 0;
+    const good = summary.good ?? data.good ?? 0;
+    const redirected = summary.redirected ?? data.redirected ?? 0;
+    const broken = summary.broken ?? data.broken ?? 0;
+    const error = summary.error ?? data.error ?? 0;
+    const healthScore = summary.health_score ?? 0;
+    const healthState = summary.health_state || "unknown";
+    const healthMessage = summary.health_message ||
+        "Summary unavailable for this saved scan.";
+    const summaryMessage = summary.summary_message ||
+        "Summary unavailable for this saved scan.";
 
     totalLinksElement.textContent = total;
     goodLinksElement.textContent = good;
@@ -561,10 +522,8 @@ function renderSummary(data) {
     errorLinksElement.textContent = error;
     healthScoreElement.textContent = `${healthScore}%`;
     healthScoreElement.dataset.health = healthState;
-    healthMessageElement.textContent = needsActionCount === 0
-        ? "No immediate fixes required."
-        : `${needsActionCount} links need review.`;
-    scanSummaryMessageElement.textContent = getSummaryMessage(data);
+    healthMessageElement.textContent = healthMessage;
+    scanSummaryMessageElement.textContent = summaryMessage;
 
     sourcePageElement.textContent = data.source_page
         ? `Source page: ${data.source_page}`
@@ -643,8 +602,8 @@ function renderIssues(results) {
     }
 
     issueResults.forEach((result) => {
-        const normalizedStatus = normalizeStatus(result.status);
-        const statusLabel = getStatusLabel(normalizedStatus, result.status);
+        const statusGroup = getStatusGroup(result);
+        const statusLabel = getStatusLabel(statusGroup, result.status);
         const issueItem = document.createElement("article");
         const detail = result.error_description ||
             result.error_message ||
@@ -654,7 +613,7 @@ function renderIssues(results) {
         issueItem.className = "issue-item";
         issueItem.innerHTML = `
             <div>
-                <span class="status-badge status-${normalizedStatus}">
+                <span class="status-badge status-${statusGroup}">
                     ${escapeHtml(statusLabel)}
                 </span>
             </div>
@@ -697,9 +656,9 @@ function renderTable(results) {
     }
 
     filteredResults.forEach((result) => {
-        const normalizedStatus = normalizeStatus(result.status);
+        const statusGroup = getStatusGroup(result);
 
-        const statusLabel = getStatusLabel(normalizedStatus, result.status);
+        const statusLabel = getStatusLabel(statusGroup, result.status);
 
         const responseTime = result.response_time_ms !== null &&
             result.response_time_ms !== undefined
@@ -711,7 +670,7 @@ function renderTable(results) {
 
         row.innerHTML = `
             <td>
-                <span class="status-badge status-${normalizedStatus}">
+                <span class="status-badge status-${statusGroup}">
                     ${escapeHtml(statusLabel)}
                 </span>
             </td>

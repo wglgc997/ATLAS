@@ -10,13 +10,14 @@ from src.config.settings import (
     PLAYWRIGHT_TIMEOUT,
     WAIT_UNTIL,
 )
+from src.schemas.link import ExtractedLink, InteractionStatus
 
 SUSPICIOUS_SCHEMES = {"javascript", "mailto", "tel", "data"}
 ANCHOR_SELECTOR = "a"
 
 
-def is_suspicious_anchor(link: dict) -> bool:
-    raw_url = link.get("raw_url")
+def is_suspicious_anchor(link: ExtractedLink) -> bool:
+    raw_url = link.raw_url
 
     if raw_url is None:
         return True
@@ -72,21 +73,27 @@ def interaction_changed(before_state: dict, after_state: dict) -> bool:
     )
 
 
-def validate_suspicious_interactions(page, page_url: str, links: list[dict]) -> None:
+def validate_suspicious_interactions(
+    page,
+    page_url: str,
+    links: list[ExtractedLink],
+) -> None:
     interaction_timeout_ms = PLAYWRIGHT_INTERACTION_TIMEOUT * 1000
 
     for link in links:
-        if link.get("ignored"):
+        if link.ignored:
             continue
 
         if not is_suspicious_anchor(link):
             continue
 
-        element_index = link.get("element_index")
+        element_index = link.element_index
 
         if not isinstance(element_index, int):
-            link["interaction_status"] = "error"
-            link["interaction_error"] = "Unable to locate the element for interaction validation."
+            link.interaction_status = InteractionStatus.ERROR
+            link.interaction_error = (
+                "Unable to locate the element for interaction validation."
+            )
 
             continue
 
@@ -112,25 +119,27 @@ def validate_suspicious_interactions(page, page_url: str, links: list[dict]) -> 
             after_state = get_interaction_state(page)
 
             if len(page.context.pages) > before_pages:
-                link["interaction_status"] = "interactive"
-                link["interaction_detail"] = "Click opened a new page or popup."
+                link.interaction_status = InteractionStatus.INTERACTIVE
+                link.interaction_detail = "Click opened a new page or popup."
             elif before_state.get("url") != after_state.get("url"):
-                link["interaction_status"] = "navigated"
-                link["url"] = after_state.get("url")
-                link["interaction_detail"] = "Click changed the current page URL."
+                link.interaction_status = InteractionStatus.NAVIGATED
+                link.url = after_state.get("url")
+                link.interaction_detail = "Click changed the current page URL."
             elif interaction_changed(before_state, after_state):
-                link["interaction_status"] = "interactive"
-                link["interaction_detail"] = "Click changed visible page state."
+                link.interaction_status = InteractionStatus.INTERACTIVE
+                link.interaction_detail = "Click changed visible page state."
             else:
-                link["interaction_status"] = "error"
-                link["interaction_error"] = "Click did not produce navigation or a detectable interaction."
+                link.interaction_status = InteractionStatus.ERROR
+                link.interaction_error = (
+                    "Click did not produce navigation or a detectable interaction."
+                )
 
         except (PlaywrightTimeoutError, PlaywrightError) as error:
-            link["interaction_status"] = "error"
-            link["interaction_error"] = str(error)
+            link.interaction_status = InteractionStatus.ERROR
+            link.interaction_error = str(error)
 
 
-def extract_links_with_browser(page_url: str) -> list[dict]:
+def extract_links_with_browser(page_url: str) -> list[ExtractedLink]:
     """
     Render a web page and extract its links using bundled Chromium.
 
@@ -164,7 +173,7 @@ def extract_links_with_browser(page_url: str) -> list[dict]:
                 timeout= PLAYWRIGHT_TIMEOUT * 1000,
             )
 
-            links = page.locator(ANCHOR_SELECTOR).evaluate_all(
+            raw_links = page.locator(ANCHOR_SELECTOR).evaluate_all(
                 """
                 elements => elements.map((element, index) => ({
                     element_index: index,
@@ -205,6 +214,11 @@ def extract_links_with_browser(page_url: str) -> list[dict]:
                 }))
                 """
             )
+
+            links = [
+                ExtractedLink.model_validate(link)
+                for link in raw_links
+            ]
 
             validate_suspicious_interactions(page, page_url, links)
 

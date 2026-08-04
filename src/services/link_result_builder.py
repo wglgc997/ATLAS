@@ -1,7 +1,8 @@
 from src.checker.link_checker import check_link
-from src.schemas.scan import LinkResult, LinkStatus
-from src.services.link_normalizer import get_invalid_link_reason,get_raw_link_value
 from src.config.settings import HTTP_TIMEOUT
+from src.schemas.link import ExtractedLink, InteractionStatus
+from src.schemas.scan import LinkResult, LinkStatus
+from src.services.link_normalizer import get_invalid_link_reason, get_raw_link_value
 
 
 def normalize_link_status(status: object) -> LinkStatus:
@@ -15,7 +16,7 @@ def normalize_link_status(status: object) -> LinkStatus:
 
 
 def build_invalid_link_result(
-        link: dict,
+        link: ExtractedLink,
         page_url: str,
         reason: str,
 ) -> LinkResult:
@@ -33,25 +34,24 @@ def build_invalid_link_result(
         error_description=reason,
         technical_details=None,
         source_page=page_url,
-        link_text=link.get("link_text"),
-        link_type=link.get("link_type"),
-        source_attribute=link.get("source_attribute") or "href",
-        source_location=link.get("source_location"),
+        link_text=link.link_text,
+        link_type=link.link_type,
+        source_attribute=link.source_attribute or "href",
+        source_location=link.source_location,
     )
 
 
 def build_interaction_result(
-        link: dict,
+        link: ExtractedLink,
         page_url: str,
 ) -> LinkResult:
     raw_link_value = get_raw_link_value(link)
     display_url = raw_link_value if isinstance(raw_link_value, str) else ""
-    interaction_status = link.get("interaction_status")
-    detail = link.get("interaction_detail") or link.get("interaction_error")
+    detail = link.interaction_detail or link.interaction_error
 
     status = (
         LinkStatus.INTERACTIVE_ELEMENT
-        if interaction_status == "interactive"
+        if link.interaction_status == InteractionStatus.INTERACTIVE
         else LinkStatus.INTERACTION_ERROR
     )
 
@@ -66,27 +66,30 @@ def build_interaction_result(
         error_description=detail,
         technical_details=detail,
         source_page=page_url,
-        link_text=link.get("link_text"),
-        link_type=link.get("link_type"),
-        source_attribute=link.get("source_attribute") or "href",
-        source_location=link.get("source_location"),
+        link_text=link.link_text,
+        link_type=link.link_type,
+        source_attribute=link.source_attribute or "href",
+        source_location=link.source_location,
     )
 
 
 def build_link_result(
-        link: dict,
+        link: ExtractedLink,
         page_url: str,
         timeout: int = HTTP_TIMEOUT,
 ) -> LinkResult | None:
-    link_url = link.get("url")
+    link_url = link.url
 
-    if link.get("interaction_status") in {"interactive", "error"}:
+    if link.interaction_status in {
+        InteractionStatus.INTERACTIVE,
+        InteractionStatus.ERROR,
+    }:
         return build_interaction_result(
             link=link,
             page_url=page_url,
         )
 
-    invalid_reason = link.get("invalid_reason") or get_invalid_link_reason(
+    invalid_reason = link.invalid_reason or get_invalid_link_reason(
         get_raw_link_value(link)
     )
 
@@ -122,8 +125,8 @@ def build_link_result(
         error_description=checked_link.get("error_description"),
         technical_details=checked_link.get("technical_details"),
         source_page=page_url,
-        link_text=link.get("link_text"),
-        link_type=link.get("link_type"),
-        source_attribute=link.get("source_attribute"),
-        source_location=link.get("source_location"),
+        link_text=link.link_text,
+        link_type=link.link_type,
+        source_attribute=link.source_attribute,
+        source_location=link.source_location,
     )

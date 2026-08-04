@@ -4,8 +4,9 @@ from src.services.link_normalizer import (
     is_ignored_domain,
     is_same_domain,
     normalize_label,
-    normalize_link_url
+    normalize_link_url,
 )
+from src.schemas.link import ExtractedLink, InteractionStatus
 
 IGNORED_UI_LINK_TEXTS = {
     "account",
@@ -18,12 +19,13 @@ IGNORED_UI_LINK_TEXTS = {
 }
 TECHNICAL_LINK_TYPES = {"resource", "script", "image", "iframe"}
 
-def should_ignore_page_chrome_link(link: dict) -> bool:
-    if link.get("ignored"):
+
+def should_ignore_page_chrome_link(link: ExtractedLink) -> bool:
+    if link.ignored:
         return True
 
-    label = normalize_label(link.get("link_text"))
-    location = normalize_label(link.get("source_location"))
+    label = normalize_label(link.link_text)
+    location = normalize_label(link.source_location)
     raw_link_value = get_raw_link_value(link)
     invalid_reason = get_invalid_link_reason(raw_link_value)
 
@@ -37,51 +39,52 @@ def should_ignore_page_chrome_link(link: dict) -> bool:
 
 
 def filter_links(
-        links: list[dict],
+        links: list[ExtractedLink],
         page_url: str,
         include_assets: bool,
         include_external: bool,
-) -> list[dict]:
+) -> list[ExtractedLink]:
 
-    filtered_links = []
+    filtered_links: list[ExtractedLink] = []
     seen_urls: set[str] = set()
 
     for link in links:
         if should_ignore_page_chrome_link(link):
             continue
 
-        if not include_assets and link.get("link_type") in TECHNICAL_LINK_TYPES:
+        if not include_assets and link.link_type in TECHNICAL_LINK_TYPES:
             continue
 
         raw_link_value = get_raw_link_value(link)
         invalid_reason = get_invalid_link_reason(raw_link_value)
 
-        if link.get("interaction_status") == "navigated":
-            link_url = normalize_link_url(link.get("url"), page_url)
+        if link.interaction_status == InteractionStatus.NAVIGATED:
+            link_url = normalize_link_url(link.url, page_url)
 
             if not link_url:
                 filtered_links.append(
-                    {
-                        **link,
-                        "interaction_status": "error",
-                        "interaction_error": "Click navigated to a non-HTTP URL.",
-                    }
+                    link.model_copy(
+                        update={
+                            "interaction_status": InteractionStatus.ERROR,
+                            "interaction_error": "Click navigated to a non-HTTP URL.",
+                        }
+                    )
                 )
 
                 continue
 
             invalid_reason = None
-            link = {
-                **link,
-                "url": link_url,
-            }
-        elif link.get("interaction_status") in {"interactive", "error"}:
+            link = link.model_copy(update={"url": link_url})
+        elif link.interaction_status in {
+            InteractionStatus.INTERACTIVE,
+            InteractionStatus.ERROR,
+        }:
             dedupe_key = "|".join(
                 [
                     str(raw_link_value),
-                    str(link.get("source_attribute")),
-                    str(link.get("source_location")),
-                    str(link.get("interaction_status")),
+                    str(link.source_attribute),
+                    str(link.source_location),
+                    str(link.interaction_status),
                 ]
             )
 
@@ -97,8 +100,8 @@ def filter_links(
             dedupe_key = "|".join(
                 [
                     str(raw_link_value),
-                    str(link.get("source_attribute")),
-                    str(link.get("source_location")),
+                    str(link.source_attribute),
+                    str(link.source_location),
                 ]
             )
 
@@ -108,16 +111,17 @@ def filter_links(
             seen_urls.add(dedupe_key)
 
             filtered_links.append(
-                {
-                    **link,
-                    "url": raw_link_value if isinstance(raw_link_value, str) else "",
-                    "invalid_reason": invalid_reason,
-                }
+                link.model_copy(
+                    update={
+                        "url": raw_link_value if isinstance(raw_link_value, str) else "",
+                        "invalid_reason": invalid_reason,
+                    }
+                )
             )
 
             continue
 
-        link_url = normalize_link_url(link.get("url"), page_url)
+        link_url = normalize_link_url(link.url, page_url)
 
         if not link_url:
             continue
@@ -133,11 +137,6 @@ def filter_links(
 
         seen_urls.add(link_url)
 
-        filtered_link = {
-            **link,
-            "url": link_url,
-        }
-
-        filtered_links.append(filtered_link)
+        filtered_links.append(link.model_copy(update={"url": link_url}))
 
     return filtered_links

@@ -29,6 +29,61 @@ class LinkStatus(str, Enum):
     INTERACTION_ERROR = "Interaction Error"
     UNKNOWN_ERROR = "Unknown Error"
 
+
+class LinkStatusGroup(str, Enum):
+    GOOD = "good"
+    REDIRECTED = "redirected"
+    BROKEN = "broken"
+    ERROR = "error"
+    UNKNOWN = "unknown"
+
+
+class HealthState(str, Enum):
+    EXCELLENT = "excellent"
+    GOOD = "good"
+    WARNING = "warning"
+    DANGER = "danger"
+
+
+GOOD_STATUSES = {
+    LinkStatus.GOOD,
+    LinkStatus.INTERACTIVE_ELEMENT,
+}
+BROKEN_STATUSES = {
+    LinkStatus.BROKEN,
+    LinkStatus.UNAUTHORIZED,
+    LinkStatus.FORBIDDEN,
+    LinkStatus.GONE,
+    LinkStatus.SERVER_ERROR,
+    LinkStatus.INVALID_LINK,
+    LinkStatus.INTERACTION_ERROR,
+    LinkStatus.REDIRECT_LOOP,
+}
+ERROR_STATUSES = {
+    LinkStatus.SSL_ERROR,
+    LinkStatus.TIMEOUT,
+    LinkStatus.CONNECTION_ERROR,
+    LinkStatus.DNS_ERROR,
+    LinkStatus.UNKNOWN_ERROR,
+}
+
+
+def get_link_status_group(status: LinkStatus) -> LinkStatusGroup:
+    if status in GOOD_STATUSES:
+        return LinkStatusGroup.GOOD
+
+    if status == LinkStatus.REDIRECTED:
+        return LinkStatusGroup.REDIRECTED
+
+    if status in BROKEN_STATUSES:
+        return LinkStatusGroup.BROKEN
+
+    if status in ERROR_STATUSES:
+        return LinkStatusGroup.ERROR
+
+    return LinkStatusGroup.UNKNOWN
+
+
 class ScanRequest(BaseModel):
     """Payload received for API"""
 
@@ -67,6 +122,7 @@ class LinkResult(BaseModel):
     final_url: Optional[str] = None
     http_status: Optional[int] = None
     status: LinkStatus
+    status_group: LinkStatusGroup | None = None
     redirect_chain: list[dict[str, int | str | None]] = Field(default_factory=list)
     response_time_ms: Optional[int] = None
     error_message: Optional[str] = None
@@ -78,6 +134,23 @@ class LinkResult(BaseModel):
     source_attribute: Optional[str] = None
     source_location: Optional[str] = None
 
+    def model_post_init(self, __context: object) -> None:
+        if self.status_group is None:
+            self.status_group = get_link_status_group(self.status)
+
+class ScanSummary(BaseModel):
+    total_links: int
+    good: int
+    redirected: int
+    broken: int
+    error: int
+    healthy_count: int
+    needs_action_count: int
+    health_score: int
+    health_state: HealthState
+    health_message: str
+    summary_message: str
+
 
 class ScanResponse(BaseModel):
     """Summary of the complete analyze"""
@@ -88,4 +161,5 @@ class ScanResponse(BaseModel):
     redirected: int
     broken: int
     error: int
+    summary: ScanSummary | None = None
     results: list[LinkResult]

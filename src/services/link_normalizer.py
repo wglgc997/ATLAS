@@ -1,5 +1,7 @@
 from urllib.parse import urlparse, urljoin, urldefrag
 
+from src.schemas.link import ExtractedLink
+
 INVALID_LINK_SCHEMES = {"mailto", "tel", "javascript", "data"}
 SKIP_SCHEMES = {"vbscript"}
 ALLOWED_SCHEMES = {"http", "https"}
@@ -9,11 +11,11 @@ IGNORED_DOMAINS = {
     "doubleclick.net",
 }
 
-def get_raw_link_value(link: dict) -> object:
-    if "raw_url" in link:
-        return link.get("raw_url")
+def get_raw_link_value(link: ExtractedLink) -> object:
+    if "raw_url" in link.model_fields_set:
+        return link.raw_url
 
-    return link.get("url")
+    return link.url
 
 
 def get_invalid_link_reason(raw_link_value: object) -> str | None:

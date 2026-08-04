@@ -3,6 +3,8 @@ from urllib.parse import urldefrag, urljoin
 from bs4 import BeautifulSoup
 from bs4.element import PageElement, Tag
 
+from src.schemas.link import ExtractedLink
+
 SKIP_SCHEMES = ("mailto:", "tel:", "javascript:", "data:")
 LINK_SELECTORS = (
     ("a", "href", "anchor"),
@@ -134,9 +136,9 @@ def build_source_location(tag: Tag, attribute: str, link_type: str) -> str:
     return format_location(kind, label, section_label)
 
 
-def extract_links_from_html(html: str, base_url: str) -> list[dict[str, str | None]]:
+def extract_links_from_html(html: str, base_url: str) -> list[ExtractedLink]:
     soup = BeautifulSoup(html, "html.parser")
-    links: list[dict[str, str | None]] = []
+    links: list[ExtractedLink] = []
     seen_urls: set[tuple[str, str]] = set()
 
     for selector, attribute, link_type in LINK_SELECTORS:
@@ -177,18 +179,14 @@ def extract_links_from_html(html: str, base_url: str) -> list[dict[str, str | No
             seen_urls.add(dedupe_key)
 
             links.append(
-                {
-                    "url": absolute_url,
-                    "raw_url": raw_value if isinstance(raw_value, str) else None,
-                    "link_text": tag.get_text(" ", strip=True) or None,
-                    "link_type": link_type,
-                    "source_attribute": attribute,
-                    "source_location": build_source_location(
-                        tag,
-                        attribute,
-                        link_type,
-                    ),
-                }
+                ExtractedLink(
+                    url=absolute_url,
+                    raw_url=raw_value if isinstance(raw_value, str) else None,
+                    link_text=tag.get_text(" ", strip=True) or None,
+                    link_type=link_type,
+                    source_attribute=attribute,
+                    source_location=build_source_location(tag, attribute, link_type),
+                )
             )
 
     return links
