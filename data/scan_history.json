@@ -1,5 +1,1087 @@
 [
   {
+    "id": "91313d4d-ef3c-4519-ae27-6a9e9b18acb9",
+    "created_at": "2026-08-03T19:11:52.190284+00:00",
+    "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+    "total_links": 41,
+    "good": 40,
+    "redirected": 1,
+    "broken": 0,
+    "error": 0,
+    "results": [
+      {
+        "url": "https://www.dell.com/zh-hk/lp/promotion",
+        "final_url": "https://www.dell.com/zh-hk/lp/promotion",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/lp/promotion"
+          }
+        ],
+        "response_time_ms": 2529,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "立即購買",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 立即購買"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/lp/contact-us",
+        "final_url": "https://www.dell.com/zh-hk/lp/contact-us",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/lp/contact-us"
+          }
+        ],
+        "response_time_ms": 2377,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "請致電 2969 3115 或在線咨詢",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 請致電 2969 3115 或在線咨詢"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/work/shop/compare",
+        "final_url": "https://www.dell.com/zh-hk/shop/compare",
+        "http_status": 200,
+        "status": "Redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/zh-hk/work/shop/compare"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/compare"
+          }
+        ],
+        "response_time_ms": 2808,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "比較",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 比較"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h3850",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h3850",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h3850"
+          }
+        ],
+        "response_time_ms": 2380,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h3850?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h3850?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h3850?view=configurations"
+          }
+        ],
+        "response_time_ms": 2391,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc14250-laptop/dc14250-f5650",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc14250-laptop/dc14250-f5650",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc14250-laptop/dc14250-f5650"
+          }
+        ],
+        "response_time_ms": 2396,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc14250-laptop/dc14250-f5650?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc14250-laptop/dc14250-f5650?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc14250-laptop/dc14250-f5650?view=configurations"
+          }
+        ],
+        "response_time_ms": 2491,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h5650",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h5650",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h5650"
+          }
+        ],
+        "response_time_ms": 2490,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h5650?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h5650?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-15-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-dc15250-laptop/dc15250-h5650?view=configurations"
+          }
+        ],
+        "response_time_ms": 2385,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-d14260-laptop/d14260-f5850",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-d14260-laptop/d14260-f5850",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-d14260-laptop/d14260-f5850"
+          }
+        ],
+        "response_time_ms": 2451,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-d14260-laptop/d14260-f5850?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-d14260-laptop/d14260-f5850?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-d14260-laptop/d14260-f5850?view=configurations"
+          }
+        ],
+        "response_time_ms": 2349,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14s-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-ds14265-laptop/ds14265-a7210",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14s-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-ds14265-laptop/ds14265-a7210",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14s-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-ds14265-laptop/ds14265-a7210"
+          }
+        ],
+        "response_time_ms": 2332,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14s-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-ds14265-laptop/ds14265-a7210?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14s-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-ds14265-laptop/ds14265-a7210?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-14s-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-ds14265-laptop/ds14265-a7210?view=configurations"
+          }
+        ],
+        "response_time_ms": 2267,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da14260-laptop/da14260-f5610",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da14260-laptop/da14260-f5610",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da14260-laptop/da14260-f5610"
+          }
+        ],
+        "response_time_ms": 2282,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da14260-laptop/da14260-f5610?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da14260-laptop/da14260-f5610?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da14260-laptop/da14260-f5610?view=configurations"
+          }
+        ],
+        "response_time_ms": 2278,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da16260-laptop/da16260-b7210",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da16260-laptop/da16260-b7210",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da16260-laptop/da16260-b7210"
+          }
+        ],
+        "response_time_ms": 2272,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da16260-laptop/da16260-b7210?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da16260-laptop/da16260-b7210?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/%E6%96%B0-xps-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6-2026/spd/xps-da16260-laptop/da16260-b7210?view=configurations"
+          }
+        ],
+        "response_time_ms": 2352,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/game-laptops/alienware-16-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16250-gaming-laptop/ac16250-q7655",
+        "final_url": "https://www.dell.com/zh-hk/shop/game-laptops/alienware-16-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16250-gaming-laptop/ac16250-q7655",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/game-laptops/alienware-16-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16250-gaming-laptop/ac16250-q7655"
+          }
+        ],
+        "response_time_ms": 2312,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/game-laptops/alienware-16-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16250-gaming-laptop/ac16250-q7655?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/game-laptops/alienware-16-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16250-gaming-laptop/ac16250-q7655?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/game-laptops/alienware-16-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16250-gaming-laptop/ac16250-q7655?view=configurations"
+          }
+        ],
+        "response_time_ms": 2300,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16x-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16251-gaming-laptop/ac16251-q9x70",
+        "final_url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16x-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16251-gaming-laptop/ac16251-q9x70",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16x-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16251-gaming-laptop/ac16251-q9x70"
+          }
+        ],
+        "response_time_ms": 2394,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16x-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16251-gaming-laptop/ac16251-q9x70?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16x-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16251-gaming-laptop/ac16251-q9x70?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16x-aurora-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-aurora-ac16251-gaming-laptop/ac16251-q9x70?view=configurations"
+          }
+        ],
+        "response_time_ms": 2276,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-18-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa18250-gaming-laptop/aa18250-q9x80",
+        "final_url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-18-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa18250-gaming-laptop/aa18250-q9x80",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-18-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa18250-gaming-laptop/aa18250-q9x80"
+          }
+        ],
+        "response_time_ms": 2285,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-18-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa18250-gaming-laptop/aa18250-q9x80?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-18-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa18250-gaming-laptop/aa18250-q9x80?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-18-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa18250-gaming-laptop/aa18250-q9x80?view=configurations"
+          }
+        ],
+        "response_time_ms": 2305,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa16250-gaming-laptop/aa16250-q9x90",
+        "final_url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa16250-gaming-laptop/aa16250-q9x90",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa16250-gaming-laptop/aa16250-q9x90"
+          }
+        ],
+        "response_time_ms": 2114,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa16250-gaming-laptop/aa16250-q9x90?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa16250-gaming-laptop/aa16250-q9x90?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/alienware-16-area-51-%E9%81%8A%E6%88%B2%E5%B0%88%E7%94%A8%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/alienware-area-51-aa16250-gaming-laptop/aa16250-q9x90?view=configurations"
+          }
+        ],
+        "response_time_ms": 2218,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc16250-laptop/bto009_pc16250_xm",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc16250-laptop/bto009_pc16250_xm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc16250-laptop/bto009_pc16250_xm"
+          }
+        ],
+        "response_time_ms": 2299,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc16250-laptop/bto009_pc16250_xm?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc16250-laptop/bto009_pc16250_xm?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-16-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc16250-laptop/bto009_pc16250_xm?view=configurations"
+          }
+        ],
+        "response_time_ms": 2400,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc14250-laptop/bto113_pc14250_xm",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc14250-laptop/bto113_pc14250_xm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc14250-laptop/bto113_pc14250_xm"
+          }
+        ],
+        "response_time_ms": 2339,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc14250-laptop/bto113_pc14250_xm?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc14250-laptop/bto113_pc14250_xm?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/laptops/dell-pro-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pc14250-laptop/bto113_pc14250_xm?view=configurations"
+          }
+        ],
+        "response_time_ms": 3766,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-16-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb16250-laptop/bto104_pb16250_xm",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-16-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb16250-laptop/bto104_pb16250_xm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-16-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb16250-laptop/bto104_pb16250_xm"
+          }
+        ],
+        "response_time_ms": 2606,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-16-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb16250-laptop/bto104_pb16250_xm?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-16-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb16250-laptop/bto104_pb16250_xm?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-16-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb16250-laptop/bto104_pb16250_xm?view=configurations"
+          }
+        ],
+        "response_time_ms": 2354,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "檢視詳細資料",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 檢視詳細資料"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p714260-laptop/xcto_p714260_cs_apac_2",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p714260-laptop/xcto_p714260_cs_apac_2",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p714260-laptop/xcto_p714260_cs_apac_2"
+          }
+        ],
+        "response_time_ms": 2358,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p714260-laptop/xcto_p714260_cs_apac_2?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p714260-laptop/xcto_p714260_cs_apac_2?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-14-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p714260-laptop/xcto_p714260_cs_apac_2?view=configurations"
+          }
+        ],
+        "response_time_ms": 2340,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-13-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p713260-laptop/xcto_p713260_cs_apac_2",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-13-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p713260-laptop/xcto_p713260_cs_apac_2",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-13-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p713260-laptop/xcto_p713260_cs_apac_2"
+          }
+        ],
+        "response_time_ms": 2449,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-13-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p713260-laptop/xcto_p713260_cs_apac_2?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-13-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p713260-laptop/xcto_p713260_cs_apac_2?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-7-%E7%B3%BB%E5%88%97-13-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-p713260-laptop/xcto_p713260_cs_apac_2?view=configurations"
+          }
+        ],
+        "response_time_ms": 2510,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-13-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb13250-2-in-1-laptop/bto111_pb13250_xm",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-13-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb13250-2-in-1-laptop/bto111_pb13250_xm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-13-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb13250-2-in-1-laptop/bto111_pb13250_xm"
+          }
+        ],
+        "response_time_ms": 2357,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-13-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb13250-2-in-1-laptop/bto111_pb13250_xm?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-13-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb13250-2-in-1-laptop/bto111_pb13250_xm?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-13-plus-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pb13250-2-in-1-laptop/bto111_pb13250_xm?view=configurations"
+          }
+        ],
+        "response_time_ms": 1861,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "檢視詳細資料",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 檢視詳細資料"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14250-laptop/bto203_pa14250_xm",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14250-laptop/bto203_pa14250_xm",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14250-laptop/bto203_pa14250_xm"
+          }
+        ],
+        "response_time_ms": 1846,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14250-laptop/bto203_pa14250_xm?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14250-laptop/bto203_pa14250_xm?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14250-laptop/bto203_pa14250_xm?view=configurations"
+          }
+        ],
+        "response_time_ms": 2149,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14260-laptop/xcto_pa14260_apac_2",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14260-laptop/xcto_pa14260_apac_2",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14260-laptop/xcto_pa14260_apac_2"
+          }
+        ],
+        "response_time_ms": 1837,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14260-laptop/xcto_pa14260_apac_2?view=configurations",
+        "final_url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14260-laptop/xcto_pa14260_apac_2?view=configurations",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/zh-hk/shop/dell-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/dell-pro-14-premium-%E7%AD%86%E8%A8%98%E5%9E%8B%E9%9B%BB%E8%85%A6/spd/dell-pro-pa14260-laptop/xcto_pa14260_apac_2?view=configurations"
+          }
+        ],
+        "response_time_ms": 2010,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
+        "link_text": "自選配置",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: 自選配置"
+      }
+    ]
+  },
+  {
+    "id": "5e213e61-92e6-4d87-b194-786e78622b93",
+    "created_at": "2026-08-03T19:11:04.767646+00:00",
+    "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+    "total_links": 4,
+    "good": 2,
+    "redirected": 0,
+    "broken": 0,
+    "error": 2,
+    "results": [
+      {
+        "url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "final_url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421"
+          }
+        ],
+        "response_time_ms": 1495,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Skip to navigation",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Skip to navigation"
+      },
+      {
+        "url": "https://www.eddymens.com/tags/misc",
+        "final_url": "https://www.eddymens.com/tags/misc",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.eddymens.com/tags/misc"
+          }
+        ],
+        "response_time_ms": 1557,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Misc",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Misc"
+      },
+      {
+        "url": "https://httpstat.us/500",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "redirect_chain": [],
+        "response_time_ms": 5226,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='httpstat.us', port=443): Max retries exceeded with url: /500 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Link to Status 200 [↗]",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Link to Status 200 [↗]"
+      },
+      {
+        "url": "https://httpstat.us/404",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "redirect_chain": [],
+        "response_time_ms": 5190,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='httpstat.us', port=443): Max retries exceeded with url: /404 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Link to Status 404 [↗]",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Link to Status 404 [↗]"
+      }
+    ]
+  },
+  {
+    "id": "50c85296-12df-42ba-89b9-2f74290001f7",
+    "created_at": "2026-08-03T19:09:13.188022+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/pt-pt/work/shop/cty/pdp/spd/p4326qeb-monitor?preview=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "results": []
+  },
+  {
+    "id": "02403906-67ed-4f43-8f1e-9c1c133fb398",
+    "created_at": "2026-08-03T19:07:48.333445+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/es-mx/work/shop/cty/pdp/spd/dell-kb746-keyboard?preview=off&redirect=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "results": []
+  },
+  {
+    "id": "3de37d45-e400-4ddf-b563-42a346cec19c",
+    "created_at": "2026-08-03T19:07:29.163252+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/pt-pt/work/shop/cty/pdp/spd/p4326qeb-monitor?preview=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "results": []
+  },
+  {
+    "id": "a1c3ec2b-a8e1-482d-a2c3-7ad9c6f52637",
+    "created_at": "2026-07-31T20:18:46.912990+00:00",
+    "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+    "total_links": 4,
+    "good": 2,
+    "redirected": 0,
+    "broken": 0,
+    "error": 2,
+    "results": [
+      {
+        "url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "final_url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421"
+          }
+        ],
+        "response_time_ms": 1543,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Skip to navigation",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Skip to navigation"
+      },
+      {
+        "url": "https://www.eddymens.com/tags/misc",
+        "final_url": "https://www.eddymens.com/tags/misc",
+        "http_status": 200,
+        "status": "Valid",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.eddymens.com/tags/misc"
+          }
+        ],
+        "response_time_ms": 1521,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Misc",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Misc"
+      },
+      {
+        "url": "https://httpstat.us/500",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "redirect_chain": [],
+        "response_time_ms": 5149,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='httpstat.us', port=443): Max retries exceeded with url: /500 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Link to Status 200 [↗]",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Link to Status 200 [↗]"
+      },
+      {
+        "url": "https://httpstat.us/404",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "redirect_chain": [],
+        "response_time_ms": 5526,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='httpstat.us', port=443): Max retries exceeded with url: /404 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://www.eddymens.com/blog/page-with-broken-pages-for-testing-53049e870421",
+        "link_text": "Link to Status 404 [↗]",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Link to Status 404 [↗]"
+      }
+    ]
+  },
+  {
     "id": "4b366c76-6c43-46ea-8fd2-8674fb2b81fe",
     "created_at": "2026-07-29T15:15:27.002596+00:00",
     "source_page": "https://www.dell.com/hu-hu/lp/dt/managed-detection-response",
