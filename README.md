@@ -1,98 +1,86 @@
-# Quality Link Checker
+# ATLAS
 
-![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
-![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+> A link checker and website quality analysis tool focused on reliability, accessibility, relevance, authority, and performance.
 
-Quality Link Checker is a local FastAPI web application for scanning a rendered web page, extracting links and page resources, validating them, and reviewing the results in a browser dashboard.
+![Python](https://img.shields.io/badge/Python-3.13%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
+![Pytest](https://img.shields.io/badge/Tests-Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
-It is designed for pages where important links are created by JavaScript and are not available in the initial HTML.
 
-## Features
 
-- Local FastAPI dashboard
-- JavaScript rendering with Playwright and Chromium
-- Extraction of anchors, stylesheets, scripts, images, and iframes
-- Relative URL resolution and fragment removal
-- Optional filtering for external links and technical assets
-- HTTP status validation with HEAD requests and GET fallback
-- Redirect chain detection
-- Response time measurement
-- Detection of missing, empty, unsupported, and non-navigable href values
-- Interaction checks for suspicious UI controls
-- Local scan history saved in `data/scan_history.json`
-- Backend-generated dashboard summary with health score and action counts
-- Searchable, sortable, and filterable results table
-- CSV export for the currently visible result set
-- Optional SSL certificate verification and custom CA bundle support
-- Configurable retries, timeouts, redirect limits, and Playwright wait strategy
-- Automated tests for extraction, filtering, status classification, scan summaries, interaction handling, and history persistence
 
-## Requirements
 
-- Python 3.13
-- Internet access for the first Playwright Chromium download
-- Windows for the included `start.bat` launcher
+ATLAS helps developers, QA teams, and content owners find broken links, redirects, certificate problems, timeouts, and unreachable resources without checking every URL manually.
 
-The app can also run on Linux and macOS with the manual Python commands below.
+Unlike a basic HTML crawler, it uses Playwright to render JavaScript-powered pages before extracting and validating their content. Results are presented in a searchable local dashboard with a health score, scan history, and CSV export.
 
-## Quick Start on Windows
+## ✨ Highlights
 
-Clone the repository:
+- **JavaScript-aware scanning** with Playwright and Chromium
+- **Actionable classification** for valid, redirected, broken, and unreachable links
+- **Page health score** with a summary of items that need attention
+- **Detailed diagnostics** including response time, final URL, redirect chain, and error details
+- **Flexible scope** with optional external-link and technical-asset scanning
+- **Local-first workflow** with browser dashboard, scan history, and CSV export
+- **Simple Windows launcher** that prepares the environment and opens the application
+
+## 🚀 Quick Start
+
+### Requirements
+
+- Windows 10 or later, or a supported Linux distribution
+- Python 3.13 or later available on `PATH`
+- Internet access during the first setup to download Chromium
+
+### Windows
+
+Clone the repository and open its directory:
 
 ```powershell
-git clone https://github.com/<your-user>/LinkChecker.git
-cd LinkChecker
+git clone [https://github.com/wglgc997/ATLAS.git]
+cd ATLAS
 ```
 
-Run:
+Start the application:
 
 ```powershell
 .\start.bat
 ```
 
-The script creates `.venv`, installs dependencies, installs Chromium into `playwright-browsers`, starts the app, and opens the dashboard.
+The launcher automatically:
 
-The application runs at:
+1. Creates a local virtual environment.
+2. Installs the Python dependencies.
+3. Downloads or verifies Playwright Chromium.
+4. Starts the FastAPI application.
+5. Opens the dashboard in your default browser.
 
-```text
-http://127.0.0.1:8000
+The application is available at `http://127.0.0.1:8000`. Keep the terminal open while using it and press `Ctrl+C` to stop the server.
+
+### Linux
+
+Clone the repository and open its directory:
+
+```bash
+git clone [https://github.com/wglgc997/ATLAS.git]
+cd ATLAS
 ```
-
-Keep the terminal window open while using the app. Press `Ctrl+C` to stop it.
-
-## Manual Installation
 
 Create and activate a virtual environment:
 
 ```bash
-python -m venv .venv
-```
-
-Windows:
-
-```powershell
-.\.venv\Scripts\activate
-```
-
-Linux/macOS:
-
-```bash
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Install dependencies:
+Install the application dependencies and Playwright Chromium:
 
 ```bash
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-```
-
-Install Chromium for Playwright:
-
-```bash
-python -m playwright install chromium
+python -m playwright install --with-deps chromium
 ```
 
 Start the application:
@@ -101,29 +89,75 @@ Start the application:
 python launcher.py
 ```
 
-Open:
+Open `http://127.0.0.1:8000` if the dashboard does not open automatically. Keep the terminal running and press `Ctrl+C` to stop the application.
 
-```text
-http://127.0.0.1:8000
+## 🖥️ Using the Dashboard
+
+1. Enter the complete URL of the page you want to inspect.
+2. Choose whether to include external links and technical assets.
+3. Start the analysis.
+4. Review the health score and prioritized summary.
+5. Filter, search, or sort the detailed results.
+6. Export the visible result set to CSV when needed.
+
+Every completed scan is stored locally in `data/scan_history.json` and can be reopened from the dashboard.
+
+## 🔍 What the Scanner Detects
+
+| Category | Examples |
+| --- | --- |
+| Healthy | Successful HTTP 2xx responses and working interactive elements |
+| Redirected | Links that follow one or more redirects and reach a valid destination |
+| Broken | HTTP 4xx/5xx responses, invalid links, permission failures, and redirect loops |
+| Connection errors | DNS failures, timeouts, SSL errors, and unreachable servers |
+| Page resources | Anchors, images, scripts, stylesheets, and iframes |
+
+Each result may include its original URL, final URL, HTTP status, redirect chain, response time, source element, and a human-readable explanation.
+
+## 🏗️ How It Works
+
+```mermaid
+flowchart TD
+    A["URL submitted"] --> B["Page rendered with Playwright"]
+    B --> C["Links and resources extracted"]
+    C --> D["URLs validated in parallel"]
+    D --> E["Dashboard, history, and CSV"]
 ```
 
-## Usage
+The application follows a layered design: the FastAPI routes receive scan requests, the crawler renders and extracts page content, services normalize and filter URLs, and the checker validates each resource before the summary is generated.
 
-1. Open the dashboard.
-2. Enter the page URL to scan.
-3. Click `Analyze`.
-4. Wait for Playwright to render the page and extract links.
-5. Review the summary, priority issues, and full results table.
-6. Use search, status filters, and sorting to focus the results.
-7. Export the visible rows to CSV when needed.
+## 🛠️ Manual Installation
 
-Each scan is saved locally. Recent scans can be reloaded from the dashboard history panel.
+The Windows launcher is the simplest setup option. The application can also be configured manually on Windows, Linux, or macOS:
 
-## Configuration
+```bash
+python -m venv .venv
+```
 
-The app works without a `.env` file by using defaults from `src/config/settings.py`.
+Activate the environment:
 
-Create a local `.env` file only when you need to override those defaults:
+```powershell
+# Windows
+.\.venv\Scripts\activate
+```
+
+```bash
+# Linux or macOS
+source .venv/bin/activate
+```
+
+Install the application and Chromium:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m playwright install chromium
+python launcher.py
+```
+
+## ⚙️ Configuration
+
+The application works without a `.env` file. Create one in the project root only when you need to override the defaults:
 
 ```env
 HTTP_TIMEOUT=20
@@ -137,81 +171,40 @@ WAIT_UNTIL=domcontentloaded
 MAX_REDIRECTS=10
 ```
 
-| Variable | Default | Description |
+| Variable | Default | Purpose |
 | --- | --- | --- |
-| `HTTP_TIMEOUT` | `20` | Per-link HTTP validation timeout in seconds. |
-| `HTTP_RETRIES` | `2` | Number of retry attempts for timeout and connection failures. |
-| `HTTP_RETRY_BACKOFF` | `0.5` | Backoff multiplier between retries. |
-| `PLAYWRIGHT_TIMEOUT` | `60` | Page rendering timeout in seconds. |
-| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `3` | Timeout in seconds for interaction checks. |
-| `VERIFY_SSL` | `true` | Enables SSL certificate verification. |
-| `CA_BUNDLE_PATH` | empty | Optional path to a PEM certificate bundle. |
-| `WAIT_UNTIL` | `domcontentloaded` | Playwright page load state used before extraction. |
-| `MAX_REDIRECTS` | `10` | Maximum redirects allowed during HTTP validation. |
+| `HTTP_TIMEOUT` | `20` | Maximum time for each HTTP validation request |
+| `HTTP_RETRIES` | `2` | Retry attempts for connection failures and timeouts |
+| `HTTP_RETRY_BACKOFF` | `0.5` | Delay multiplier between retries |
+| `PLAYWRIGHT_TIMEOUT` | `60` | Maximum page rendering time |
+| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `3` | Maximum time for an interaction check |
+| `VERIFY_SSL` | `true` | Enables SSL certificate verification |
+| `CA_BUNDLE_PATH` | Empty | Optional path to a trusted PEM certificate bundle |
+| `WAIT_UNTIL` | `domcontentloaded` | Playwright page-load state used before extraction |
+| `MAX_REDIRECTS` | `10` | Maximum redirects followed during validation |
 
-Set `VERIFY_SSL=false` only when scanning sites with invalid or internal certificates. For corporate environments, prefer keeping SSL verification enabled and setting `CA_BUNDLE_PATH`:
+For internal websites with a private certificate authority, keep verification enabled and configure the certificate bundle:
 
 ```env
 VERIFY_SSL=true
 CA_BUNDLE_PATH=C:\path\to\corporate-ca.pem
 ```
 
-Do not commit `.env` files. They are ignored by Git.
+Use `VERIFY_SSL=false` only in a controlled environment. Never commit `.env` files or private certificates.
 
-## Status Classification
+## 🔌 API
 
-| Status | Meaning |
-| --- | --- |
-| `Valid` | HTTP 2xx response without redirects. |
-| `Redirected` | The request followed at least one redirect and ended successfully. |
-| `Redirect Loop` | Redirect handling exceeded the configured limit or ended on a 3xx response. |
-| `Unauthorized` | HTTP 401 response. |
-| `Forbidden` | HTTP 403 response. |
-| `Broken` | Other HTTP 4xx response. |
-| `Gone` | HTTP 410 response. |
-| `Server Error` | HTTP 5xx response. |
-| `Invalid Link` | Missing, empty, unsupported, or non-navigable href value. |
-| `Interactive Element` | Suspicious element changed visible page state instead of navigating. |
-| `Interaction Error` | Suspicious element did not navigate or produce a detectable interaction. |
-| `SSL Error` | SSL certificate validation failed. |
-| `Timeout` | The request timed out after retries. |
-| `Connection Error` | The server could not be reached. |
-| `DNS Error` | The domain name could not be resolved. |
-| `Unknown Error` | Unexpected validation error. |
+FastAPI provides interactive API documentation at `http://127.0.0.1:8000/docs` while the application is running.
 
-### Status Groups
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/health` | Check application availability |
+| `GET` | `/` | Open the dashboard |
+| `POST` | `/scans` | Analyze a page |
+| `GET` | `/scans/history` | List locally stored scans |
+| `GET` | `/scans/history/{scan_id}` | Retrieve a stored scan |
 
-Each result also includes `status_group`, a backend-generated category used by the dashboard for filtering and styling.
-
-| Group | Meaning |
-| --- | --- |
-| `good` | Valid links and interactive elements that behaved correctly. |
-| `redirected` | Links that redirected and ended successfully. |
-| `broken` | Invalid links, HTTP failures, permission failures, redirect loops, or interaction errors. |
-| `error` | Network, DNS, SSL, timeout, or unexpected validation errors. |
-| `unknown` | Fallback group for unrecognized statuses. |
-
-## API
-
-Health check:
-
-```text
-GET /health
-```
-
-Dashboard:
-
-```text
-GET /
-```
-
-Run a scan:
-
-```text
-POST /scans
-```
-
-Example request:
+Example scan request:
 
 ```json
 {
@@ -223,132 +216,82 @@ Example request:
 }
 ```
 
-Example response shape:
-
-```json
-{
-  "source_page": "https://example.com",
-  "total_links": 3,
-  "good": 1,
-  "redirected": 1,
-  "broken": 1,
-  "error": 0,
-  "summary": {
-    "total_links": 3,
-    "good": 1,
-    "redirected": 1,
-    "broken": 1,
-    "error": 0,
-    "healthy_count": 2,
-    "needs_action_count": 1,
-    "health_score": 67,
-    "health_state": "danger",
-    "health_message": "1 link needs review.",
-    "summary_message": "Scan completed. 1 of 3 links needs attention."
-  },
-  "results": [
-    {
-      "url": "https://example.com",
-      "final_url": "https://example.com",
-      "http_status": 200,
-      "status": "Valid",
-      "status_group": "good",
-      "redirect_chain": [
-        {
-          "status_code": 200,
-          "url": "https://example.com"
-        }
-      ],
-      "response_time_ms": 120,
-      "error_message": null,
-      "source_page": "https://example.com",
-      "link_text": "Example",
-      "link_type": "anchor",
-      "source_attribute": "href",
-      "source_location": "Text link: Example"
-    }
-  ]
-}
-```
-
-Scan history:
+## 📁 Project Structure
 
 ```text
-GET /scans/history
-GET /scans/history/{scan_id}
+Quality-Link-Checker/
+├── data/                   # Local scan history
+├── src/
+│   ├── api/                # FastAPI routes
+│   ├── checker/            # HTTP validation
+│   ├── config/             # Runtime settings
+│   ├── crawler/            # HTML and browser extraction
+│   ├── schemas/            # API data models
+│   ├── services/           # Scan orchestration and summaries
+│   ├── static/             # Dashboard CSS and JavaScript
+│   ├── templates/          # Dashboard templates
+│   └── web.py              # FastAPI application
+├── tests/                  # Automated tests
+├── launcher.py             # Local application launcher
+├── start.bat               # Windows setup and startup script
+├── requirements.txt        # Runtime dependencies
+└── requirements-dev.txt    # Development tools
 ```
 
-## Project Structure
+## 🧪 Development
 
-```text
-LinkChecker/
-|-- data/
-|   `-- scan_history.json
-|-- src/
-|   |-- api/
-|   |-- checker/
-|   |-- config/
-|   |-- crawler/
-|   |-- schemas/
-|   |-- services/
-|   |-- static/
-|   |-- templates/
-|   |-- utils/
-|   `-- web.py
-|-- tests/
-|-- web/
-|-- launcher.py
-|-- start.bat
-|-- LinkChecker.spec
-|-- requirements.txt
-|-- requirements-dev.txt
-`-- README.md
-```
-
-## Development
-
-Install development dependencies:
+Install the development dependencies:
 
 ```bash
 python -m pip install -r requirements-dev.txt
 ```
 
-Run tests:
+Run the tests:
 
 ```bash
-pytest
+python -m pytest
 ```
 
-Run the app directly with Uvicorn:
+Start the application with automatic reload:
 
 ```bash
 uvicorn src.web:app --reload --host 127.0.0.1 --port 8000
 ```
 
-## Packaging
+## ⚠️ Current Limitations
 
-`LinkChecker.spec` is included for PyInstaller-based packaging. Build output and packaged binaries should not be committed.
+- The application scans one page per request; it does not crawl an entire website recursively.
+- Some websites may block automated HTTP requests or browser automation.
+- Scan history is stored locally and is not synchronized between computers.
+- Windows provides the automated `start.bat` setup; Linux and macOS currently use the documented manual setup.
 
-## Roadmap
+## 🗺️ Roadmap
 
-- [x] FastAPI backend
-- [x] Browser rendering with Playwright
-- [x] Link and resource extraction
-- [x] HTTP validation
-- [x] Windows launcher script
-- [x] Core automated tests
+- [x] JavaScript-rendered page scanning
+- [x] Link and resource validation
+- [x] Page health score and prioritized summary
+- [x] Searchable and filterable dashboard
 - [x] Local scan history
 - [x] CSV export
-- [ ] Progress indicator during scans
+- [x] Core automated tests
+- [ ] Live progress feedback during long scans
+- [ ] Packaged Windows release
 
-## Contributing
+## 🤝 Contributing
+
+Bug reports, ideas, and pull requests are welcome. To contribute:
 
 1. Fork the repository.
 2. Create a feature branch.
-3. Make your changes.
-4. Run the tests.
-5. Open a pull request.
+3. Implement and test your changes.
+4. Open a pull request describing the problem and your solution.
 
-## License
+You can also [open an issue](https://github.com/wglgc997/Quality-Link-Checker/issues) to report a bug or suggest an improvement.
 
-This project is released under the MIT License. See `LICENSE` for details.
+## 👤 Author
+
+Created by [Wagner Carvalho](https://github.com/wglgc997) as a practical project in Python backend development, browser automation, web quality analysis, and local application distribution.
+
+## 📄 License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
