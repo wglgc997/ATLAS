@@ -2,15 +2,13 @@
 
 > A link checker and website quality analysis tool focused on reliability, accessibility, relevance, authority, and performance.
 
+![demo](docs/images/gif-ezgif.com-video-to-gif-converter.gif)
+
 ![Python](https://img.shields.io/badge/Python-3.13%2B-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Tests-Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
-
-
-
-
 
 ATLAS helps developers, QA teams, and content owners find broken links, redirects, certificate problems, timeouts, and unreachable resources without checking every URL manually.
 

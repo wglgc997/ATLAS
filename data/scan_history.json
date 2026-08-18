@@ -1,5 +1,1018 @@
 [
   {
+    "id": "b4eed38b-96aa-4a25-a0d6-91391a6b3e38",
+    "created_at": "2026-08-04T14:13:57.604459+00:00",
+    "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+    "total_links": 33,
+    "good": 10,
+    "redirected": 3,
+    "broken": 10,
+    "error": 10,
+    "summary": {
+      "total_links": 33,
+      "good": 10,
+      "redirected": 3,
+      "broken": 10,
+      "error": 10,
+      "healthy_count": 13,
+      "needs_action_count": 20,
+      "health_score": 39,
+      "health_state": "danger",
+      "health_message": "20 links need review.",
+      "summary_message": "Scan completed. 20 of 33 links need attention."
+    },
+    "results": [
+      {
+        "url": "https://www-wip.dell.com/en-us/dt/services/support-services/prosupport-client-suite.htm",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 8215,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /en-us/dt/services/support-services/prosupport-client-suite.htm (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "ProSupport Suite for PCs",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: ProSupport Suite for PCs"
+      },
+      {
+        "url": "https://www-wip.dell.com/en-us/lp/dt/supportassist-business-PC",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 8249,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /en-us/lp/dt/supportassist-business-PC (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "SupportAssist for Business PCs",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: SupportAssist for Business PCs"
+      },
+      {
+        "url": "https://tdm.dell.com/portal",
+        "final_url": "https://tdm.dell.com/portal",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://tdm.dell.com/portal"
+          }
+        ],
+        "response_time_ms": 2902,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "TechDirect",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: TechDirect"
+      },
+      {
+        "url": "https://downloads.dell.com/serviceability/catalog/SupportAssistBusinessInstaller.exe",
+        "final_url": "https://downloads.dell.com/serviceability/catalog/SupportAssistBusinessInstaller.exe",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://downloads.dell.com/serviceability/catalog/SupportAssistBusinessInstaller.exe"
+          }
+        ],
+        "response_time_ms": 3161,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Download SupportAssist for Business PCs",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Download SupportAssist for Business PCs"
+      },
+      {
+        "url": "https://www-wip.dell.com/support/product-details/product/supportassist-business-pcs/resources/manuals",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 8273,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /support/product-details/product/supportassist-business-pcs/resources/manuals (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "SupportAssist for Business Release Notes",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: SupportAssist for Business Release Notes"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/en-us/services/support/industry-market/principled-technologies-comparison-report-of-prosupport-plus-vs-manual-approach.pdf.external",
+        "final_url": "https://www.delltechnologies.com/assetlink/doc/en-us/principled-technologies-comparison-report-of-prosupport-plus-vs-manual-approach-en-dl1ibvn-original.pdf.external",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/asset/en-us/services/support/industry-market/principled-technologies-comparison-report-of-prosupport-plus-vs-manual-approach.pdf.external"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/assetlink/doc/en-us/principled-technologies-comparison-report-of-prosupport-plus-vs-manual-approach-en-dl1ibvn-original.pdf.external"
+          }
+        ],
+        "response_time_ms": 7667,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "recent report from Principled Technologies",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: recent report from Principled Technologies"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/en-us/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/en-us/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/en-us/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2945,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Getting Started Guide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Getting Started Guide"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/ko-kr/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/ko-kr/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/ko-kr/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2952,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Korean",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Korean"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/zh-cn/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/zh-cn/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/zh-cn/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2936,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Chinese",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Chinese"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/pt-br/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/pt-br/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/pt-br/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2954,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Portuguese",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Portuguese"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/it-it/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/it-it/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/it-it/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2955,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Italian",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Italian"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/fr-fr/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/fr-fr/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/fr-fr/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2927,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "French",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: French"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/ja-jp/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/ja-jp/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/ja-jp/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2511,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Japanese",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Japanese"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/es-es/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/es-es/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/es-es/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2564,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Spanish",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Spanish"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/de-de/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/de-de/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/de-de/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2570,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "German",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: German"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/es-mx/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "final_url": "https://www.delltechnologies.com/asset/es-mx/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 404,
+            "url": "https://www.delltechnologies.com/asset/es-mx/services/deployment/educational-training/getting-started-connect-manage-with-techdirect.pdf"
+          }
+        ],
+        "response_time_ms": 2525,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Spanish (LATAM)",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Spanish (LATAM)"
+      },
+      {
+        "url": "https://democenter.dell.com/hol/HOLR/HOL-1428-01",
+        "final_url": "https://democenter.dell.com/hol/HOLR/HOL-1428-01",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://democenter.dell.com/hol/HOLR/HOL-1428-01"
+          }
+        ],
+        "response_time_ms": 3632,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Experience TechDirect simulator",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Experience TechDirect simulator"
+      },
+      {
+        "url": "https://www-wip.dell.com/dt/events",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 7490,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /dt/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "webinars",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: webinars"
+      },
+      {
+        "url": "https://events.dell.com/event/d2b229cc-473f-4500-9eba-ed69d40c0f85/regProcessStep1",
+        "final_url": "https://events.dell.com/event/d2b229cc-473f-4500-9eba-ed69d40c0f85/regProcessStep1",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://events.dell.com/event/d2b229cc-473f-4500-9eba-ed69d40c0f85/regProcessStep1"
+          }
+        ],
+        "response_time_ms": 3225,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "register to view a recording",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: register to view a recording"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/en-us/services/support/industry-market/supportassist-for-business-pcs-security-white-paper.pdf",
+        "final_url": "https://www.delltechnologies.com/assetlink/doc/en-us/supportassist-for-business-pcs-security-white-paper-en-dl1h1j7-original.pdf",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/asset/en-us/services/support/industry-market/supportassist-for-business-pcs-security-white-paper.pdf"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/assetlink/doc/en-us/supportassist-for-business-pcs-security-white-paper-en-dl1h1j7-original.pdf"
+          }
+        ],
+        "response_time_ms": 8565,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "security white paper",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: security white paper"
+      },
+      {
+        "url": "https://www-wip.dell.com/en-us/dt/case-studies-customer-stories/index.htm",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6820,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /en-us/dt/case-studies-customer-stories/index.htm (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "customer case study",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: customer case study"
+      },
+      {
+        "url": "https://www.delltechnologies.com/partner/en-us/auth/services/portfolio/services-technology.htm",
+        "final_url": "https://www.delltechnologies.com/oaks/api/auth/8ae0470f-4b3b-49e7-acef-9e6388b5c9ff?request=aHR0cHM6Ly93d3cuZGVsbHRlY2hub2xvZ2llcy5jb20vcGFydG5lci9lbi11cy9hdXRoL3NlcnZpY2VzL3BvcnRmb2xpby5odG0=",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/partner/en-us/auth/services/portfolio/services-technology.htm"
+          },
+          {
+            "status_code": 302,
+            "url": "https://www.delltechnologies.com/partner/en-us/auth/services/portfolio.htm"
+          },
+          {
+            "status_code": 302,
+            "url": "https://www.delltechnologies.com/partner/en-us/auth/services/portfolio.htm?idp=partners"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/oaks/api/auth/8ae0470f-4b3b-49e7-acef-9e6388b5c9ff?request=aHR0cHM6Ly93d3cuZGVsbHRlY2hub2xvZ2llcy5jb20vcGFydG5lci9lbi11cy9hdXRoL3NlcnZpY2VzL3BvcnRmb2xpby5odG0="
+          }
+        ],
+        "response_time_ms": 3006,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Partner Portal",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Partner Portal"
+      },
+      {
+        "url": "https://events.dell.com/event/64be39ab-0da7-494e-b94c-a49f67a29a64/websitePage:d79d49b9-33bb-4f62-b798-c1a705b0d69d?RefId=529954",
+        "final_url": "https://events.dell.com/event/64be39ab-0da7-494e-b94c-a49f67a29a64/websitePage:d79d49b9-33bb-4f62-b798-c1a705b0d69d?RefId=529954",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://events.dell.com/event/64be39ab-0da7-494e-b94c-a49f67a29a64/websitePage:d79d49b9-33bb-4f62-b798-c1a705b0d69d?RefId=529954"
+          }
+        ],
+        "response_time_ms": 2691,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Partner Experience Webinar",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Partner Experience Webinar"
+      },
+      {
+        "url": "https://dl.dell.com/content/manual5997837-supportassist-for-business-pcs-quick-setup-guide-for-partners.pdf?language=en-us",
+        "final_url": "https://dl.dell.com/content/manual5997837-supportassist-for-business-pcs-quick-setup-guide-for-partners.pdf?language=en-us",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://dl.dell.com/content/manual5997837-supportassist-for-business-pcs-quick-setup-guide-for-partners.pdf?language=en-us"
+          }
+        ],
+        "response_time_ms": 2947,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Quick Setup Guide for Partners",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Quick Setup Guide for Partners"
+      },
+      {
+        "url": "https://dl.dell.com/content/manual31479303-supportassist-for-business-pcs-with-windows-os-quick-setup-guide-for-partners.pdf?language=en-us",
+        "final_url": "https://dl.dell.com/content/manual31479303-supportassist-for-business-pcs-with-windows-os-quick-setup-guide-for-partners.pdf?language=en-us",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://dl.dell.com/content/manual31479303-supportassist-for-business-pcs-with-windows-os-quick-setup-guide-for-partners.pdf?language=en-us"
+          }
+        ],
+        "response_time_ms": 2816,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "Quick Setup Guide for Clients Managed by Partners",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Quick Setup Guide for Clients Managed by Partners"
+      },
+      {
+        "url": "https://dl.dell.com/content/manual23807332-supportassist-for-business-pcs-administrator-guide.pdf",
+        "final_url": "https://dl.dell.com/content/manual23807332-supportassist-for-business-pcs-administrator-guide.pdf",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://dl.dell.com/content/manual23807332-supportassist-for-business-pcs-administrator-guide.pdf"
+          }
+        ],
+        "response_time_ms": 2698,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "SupportAssist for Business PCs Administrator Guide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: SupportAssist for Business PCs Administrator Guide"
+      },
+      {
+        "url": "https://dl.dell.com/content/manual27365606-supportassist-for-business-pcs-deployment-guide.pdf",
+        "final_url": "https://dl.dell.com/content/manual27365606-supportassist-for-business-pcs-deployment-guide.pdf",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://dl.dell.com/content/manual27365606-supportassist-for-business-pcs-deployment-guide.pdf"
+          }
+        ],
+        "response_time_ms": 1916,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "SupportAssist for Business PCs Deployment Guide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: SupportAssist for Business PCs Deployment Guide"
+      },
+      {
+        "url": "https://dl.dell.com/content/manual29412989-supportassist-for-business-pcs-with-windows-os-quick-setup-guide.pdf",
+        "final_url": "https://dl.dell.com/content/manual29412989-supportassist-for-business-pcs-with-windows-os-quick-setup-guide.pdf",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://dl.dell.com/content/manual29412989-supportassist-for-business-pcs-with-windows-os-quick-setup-guide.pdf"
+          }
+        ],
+        "response_time_ms": 2924,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "SupportAssist for Business PCs Quick Setup Guide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: SupportAssist for Business PCs Quick Setup Guide"
+      },
+      {
+        "url": "https://www.principledtechnologies.com/Dell/ProSupport-Plus-comparison-0620.pdf",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 4801,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www.principledtechnologies.com', port=443): Max retries exceeded with url: /Dell/ProSupport-Plus-comparison-0620.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "https://www.principledtechnologies.com/Dell/ProSupport-Plus-comparison-0620.pdf",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: https://www.principledtechnologies.com/Dell/ProSupport-Plus-comparison-0620.pdf"
+      },
+      {
+        "url": "https://www-wip.dell.com/support/product-details/product/dell-supportassist-pcs-tablets/resources/manuals",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6100,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /support/product-details/product/dell-supportassist-pcs-tablets/resources/manuals (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": "user guide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: user guide"
+      },
+      {
+        "url": "https://www-wip.dell.com/support/contents/en-us/videos/videoplayer/how-to-connect-to-supportassist-for-business-pcs-in-techdirect/6337082449112",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6157,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /support/contents/en-us/videos/videoplayer/how-to-connect-to-supportassist-for-business-pcs-in-techdirect/6337082449112 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www-wip.dell.com/support/contents/en-us/videos/videoplayer/dell-techdirect-overview/6337363737112",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6074,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /support/contents/en-us/videos/videoplayer/dell-techdirect-overview/6337363737112 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www-wip.dell.com/support/contents/en-us/videos/videoplayer/smarter-support-with-dell-prosupport-plus-for-pcs/6345876511112",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6069,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /support/contents/en-us/videos/videoplayer/smarter-support-with-dell-prosupport-plus-for-pcs/6345876511112 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))",
+        "source_page": "https://www-wip.dell.com/support/contents/article/product-support/self-support-knowledgebase/software-and-downloads/support-assist/supportassist-for-business-pc",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      }
+    ]
+  },
+  {
+    "id": "0434ccaa-80df-45a6-91b0-89467bd0ecf7",
+    "created_at": "2026-08-04T14:12:41.462962+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/cs-cz/work/shop/cty/pdp/spd/dell-pro-precision-pw9t4260-desktop?preview=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "summary": {
+      "total_links": 0,
+      "good": 0,
+      "redirected": 0,
+      "broken": 0,
+      "error": 0,
+      "healthy_count": 0,
+      "needs_action_count": 0,
+      "health_score": 0,
+      "health_state": "danger",
+      "health_message": "No immediate fixes required.",
+      "summary_message": "No links were found in this scan."
+    },
+    "results": []
+  },
+  {
+    "id": "8f35eaa4-4358-406d-9188-fca19d129c03",
+    "created_at": "2026-08-04T13:49:46.151715+00:00",
+    "source_page": "https://campaign-web-wip.r1.pcf.dell.com/da-dk/lp/dt/deployment-services",
+    "total_links": 5,
+    "good": 2,
+    "redirected": 3,
+    "broken": 0,
+    "error": 0,
+    "summary": {
+      "total_links": 5,
+      "good": 2,
+      "redirected": 3,
+      "broken": 0,
+      "error": 0,
+      "healthy_count": 5,
+      "needs_action_count": 0,
+      "health_score": 100,
+      "health_state": "excellent",
+      "health_message": "No immediate fixes required.",
+      "summary_message": "Scan completed. No broken links found; 3 redirects were detected."
+    },
+    "results": [
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/prodeploy-infrastructure-suite",
+        "final_url": "https://www.dell.com/da-dk/lp/dt/prodeploy-infrastructure-suite",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/lp/dt/prodeploy-infrastructure-suite"
+          }
+        ],
+        "response_time_ms": 1778,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/da-dk/lp/dt/deployment-services",
+        "link_text": "Udforsk",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Udforsk"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/prodeploy-suite-for-pcs",
+        "final_url": "https://www.dell.com/da-dk?showmessage=1",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 302,
+            "url": "https://www.dell.com/da-dk/lp/dt/prodeploy-suite-for-pcs"
+          },
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/?showmessage=1"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk?showmessage=1"
+          }
+        ],
+        "response_time_ms": 2089,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/da-dk/lp/dt/deployment-services",
+        "link_text": "Udforsk",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Udforsk"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/ai-infrastructure-deployment",
+        "final_url": "https://www.dell.com/da-dk/lp/dt/ai-infrastructure-deployment",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/lp/dt/ai-infrastructure-deployment"
+          }
+        ],
+        "response_time_ms": 1744,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/da-dk/lp/dt/deployment-services",
+        "link_text": "Udforsk",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Udforsk"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/da-dk/services/deployment/technical-support/prodeploy-and-prodeploy-plus-for-client-datasheet.pdf.external",
+        "final_url": "https://www.delltechnologies.com/assetlink/doc/da-dk/prodeploy-and-prodeploy-plus-for-client-datasheet-en-dl1ltqc-original.pdf.external",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/asset/da-dk/services/deployment/technical-support/prodeploy-and-prodeploy-plus-for-client-datasheet.pdf.external"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/assetlink/doc/da-dk/prodeploy-and-prodeploy-plus-for-client-datasheet-en-dl1ltqc-original.pdf.external"
+          }
+        ],
+        "response_time_ms": 4037,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/da-dk/lp/dt/deployment-services",
+        "link_text": "Læs datablad",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Læs datablad"
+      },
+      {
+        "url": "https://www.delltechnologies.com/asset/da-dk/services/deployment/briefs-summaries/ProDeploy-Enterprise-Brochure.pdf.external",
+        "final_url": "https://www.delltechnologies.com/assetlink/doc/da-dk/prodeploy-enterprise-brochure-en-dl1gr9y-original.pdf.external",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.delltechnologies.com/asset/da-dk/services/deployment/briefs-summaries/ProDeploy-Enterprise-Brochure.pdf.external"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.delltechnologies.com/assetlink/doc/da-dk/prodeploy-enterprise-brochure-en-dl1gr9y-original.pdf.external"
+          }
+        ],
+        "response_time_ms": 4131,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://campaign-web-wip.r1.pcf.dell.com/da-dk/lp/dt/deployment-services",
+        "link_text": "Læs brochure",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Læs brochure"
+      }
+    ]
+  },
+  {
+    "id": "8122740e-a567-4ae7-97a2-6fb70b0154f2",
+    "created_at": "2026-08-04T13:45:27.069379+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/da-dk/work/shop/cty/pdp/spd/dell-pro-precision-pw9t6260-desktop?preview=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "summary": {
+      "total_links": 0,
+      "good": 0,
+      "redirected": 0,
+      "broken": 0,
+      "error": 0,
+      "healthy_count": 0,
+      "needs_action_count": 0,
+      "health_score": 0,
+      "health_state": "danger",
+      "health_message": "No immediate fixes required.",
+      "summary_message": "No links were found in this scan."
+    },
+    "results": []
+  },
+  {
+    "id": "91f5b7f7-b1a7-4290-bff9-10e11c436489",
+    "created_at": "2026-08-04T13:39:34.698100+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/de-de/work/shop/cty/pdp/spd/dell-pro-precision-pw714260-laptop?redirect=off",
+    "total_links": 2,
+    "good": 2,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "summary": {
+      "total_links": 2,
+      "good": 2,
+      "redirected": 0,
+      "broken": 0,
+      "error": 0,
+      "healthy_count": 2,
+      "needs_action_count": 0,
+      "health_score": 100,
+      "health_state": "excellent",
+      "health_message": "No immediate fixes required.",
+      "summary_message": "Scan completed. All 2 links are valid."
+    },
+    "results": [
+      {
+        "url": "https://www.dell.com/de-de/lp/windows-11",
+        "final_url": "https://www.dell.com/de-de/lp/windows-11",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/de-de/lp/windows-11"
+          }
+        ],
+        "response_time_ms": 1420,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/de-de/work/shop/cty/pdp/spd/dell-pro-precision-pw714260-laptop?redirect=off",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/de-de/lp/latest-intel-processors",
+        "final_url": "https://www.dell.com/de-de/lp/latest-intel-processors",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/de-de/lp/latest-intel-processors"
+          }
+        ],
+        "response_time_ms": 1457,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/de-de/work/shop/cty/pdp/spd/dell-pro-precision-pw714260-laptop?redirect=off",
+        "link_text": "Weitere Informationen über Intel",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Weitere Informationen über Intel"
+      }
+    ]
+  },
+  {
+    "id": "5d820750-42ea-47cd-9b78-4819fc7e221c",
+    "created_at": "2026-08-04T13:38:32.409639+00:00",
+    "source_page": "https://productdetail-web-stage.g5p.pcf.dell.com/fr-ca/work/shop/cty/pdp/spd/e2726h-monitor?redirect=off",
+    "total_links": 0,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 0,
+    "summary": {
+      "total_links": 0,
+      "good": 0,
+      "redirected": 0,
+      "broken": 0,
+      "error": 0,
+      "healthy_count": 0,
+      "needs_action_count": 0,
+      "health_score": 0,
+      "health_state": "danger",
+      "health_message": "No immediate fixes required.",
+      "summary_message": "No links were found in this scan."
+    },
+    "results": []
+  },
+  {
     "id": "91313d4d-ef3c-4519-ae27-6a9e9b18acb9",
     "created_at": "2026-08-03T19:11:52.190284+00:00",
     "source_page": "https://www.dell.com/zh-hk/shop/deals/laptop-deals",
