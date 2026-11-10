@@ -1,6 +1,7 @@
 from src.services.link_normalizer import (
     get_invalid_link_reason,
     get_raw_link_value,
+    is_in_page_anchor,
     is_ignored_domain,
     is_same_domain,
     normalize_label,
@@ -56,6 +57,12 @@ def filter_links(
             continue
 
         raw_link_value = get_raw_link_value(link)
+
+        # Fragment-only anchors are local page navigation, not URLs that can
+        # be validated with an HTTP request. They must not count as broken.
+        if link.link_type == "anchor" and is_in_page_anchor(raw_link_value):
+            continue
+
         invalid_reason = get_invalid_link_reason(raw_link_value)
 
         if link.interaction_status == InteractionStatus.NAVIGATED:

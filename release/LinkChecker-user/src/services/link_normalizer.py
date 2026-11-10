@@ -30,9 +30,6 @@ def get_invalid_link_reason(raw_link_value: object) -> str | None:
     if not link_value:
         return "Empty href attribute."
 
-    if link_value == "#":
-        return 'The href attribute points only to "#".'
-
     scheme = urlparse(link_value).scheme.lower()
 
     if scheme in INVALID_LINK_SCHEMES:
@@ -42,6 +39,14 @@ def get_invalid_link_reason(raw_link_value: object) -> str | None:
         return f"The href uses an unsupported URL scheme: {scheme}:."
 
     return None
+
+
+def is_in_page_anchor(raw_link_value: object) -> bool:
+    """Return whether an anchor only navigates within the current document."""
+    return (
+        isinstance(raw_link_value, str)
+        and raw_link_value.strip().startswith("#")
+    )
 
 def normalize_label(value: object) -> str:
     if not isinstance(value, str):

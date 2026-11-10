@@ -186,6 +186,29 @@ select {
     outline: 3px solid rgba(15, 108, 189, 0.16);
 }
 
+.scan-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border-strong);
+}
+
+.scan-tab {
+    padding: 10px 14px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font: inherit;
+}
+
+.scan-tab[data-active="true"] {
+    border-bottom-color: var(--primary);
+    color: var(--text);
+    font-weight: 760;
+}
+
 .form-row button {
     min-width: 116px;
     padding: 0 20px;

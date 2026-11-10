@@ -12,7 +12,7 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}?v=20260804-1"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20261110-1"
     >
 </head>
 
@@ -43,7 +43,7 @@
             </div>
 
             <form id="scan-form" class="scan-form">
-                <label for="page-url">Page URL</label>
+                <label for="page-url">Page URL 1</label>
 
                 <div class="form-row">
                     <input
@@ -53,6 +53,14 @@
                         placeholder="https://example.com/page"
                         autocomplete="url"
                         required
+                    >
+
+                    <input
+                        id="page-url-2"
+                        name="url_2"
+                        type="url"
+                        placeholder="Second URL (optional)"
+                        autocomplete="url"
                     >
 
                     <button id="scan-button" type="submit">
@@ -153,6 +161,8 @@
         </section>
 
         <section id="results-section" class="hidden">
+
+            <div id="scan-tabs" class="scan-tabs hidden" role="tablist" aria-label="Scan results"></div>
 
             <div class="summary-grid">
 
@@ -353,6 +363,14 @@
                     </button>
 
                     <button
+                        id="clear-history-button"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Clear history
+                    </button>
+
+                    <button
                         id="toggle-history-button"
                         class="secondary-button"
                         type="button"
@@ -371,6 +389,6 @@
 
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v=20260804-1"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20261110-2"></script>
 </body>
 </html>
