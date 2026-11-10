@@ -8,6 +8,7 @@ from src.utils.runtime_paths import find_chromium_executable
 from src.config.settings import (
     PLAYWRIGHT_INTERACTION_TIMEOUT,
     MAX_INTERACTION_CHECKS,
+    BROWSER_CHANNEL,
     PLAYWRIGHT_TIMEOUT,
     WAIT_UNTIL,
 )
@@ -15,6 +16,37 @@ from src.schemas.link import ExtractedLink, InteractionStatus
 
 SUSPICIOUS_SCHEMES = {"javascript"}
 ANCHOR_SELECTOR = "a"
+
+
+def launch_browser(playwright):
+    """Launch Playwright Chromium, falling back to managed Microsoft Edge."""
+    bundled_error: Exception | None = None
+
+    if BROWSER_CHANNEL != "msedge":
+        try:
+            chromium_executable = find_chromium_executable()
+            print(f"Using bundled Chromium: {chromium_executable}")
+            return playwright.chromium.launch(
+                headless=True,
+                executable_path=str(chromium_executable),
+            )
+        except (FileNotFoundError, PlaywrightError) as error:
+            bundled_error = error
+            print(f"Bundled Chromium could not start: {error}")
+
+            if BROWSER_CHANNEL == "chromium":
+                raise
+
+    try:
+        print("Using installed Microsoft Edge.")
+        return playwright.chromium.launch(channel="msedge", headless=True)
+    except PlaywrightError as edge_error:
+        if bundled_error:
+            raise RuntimeError(
+                "The bundled Chromium and Microsoft Edge could not start. "
+                f"Bundled Chromium: {bundled_error}. Microsoft Edge: {edge_error}"
+            ) from edge_error
+        raise
 
 
 def is_suspicious_anchor(link: ExtractedLink) -> bool:
@@ -166,15 +198,8 @@ def extract_links_with_browser(page_url: str) -> list[ExtractedLink]:
     Returns:
         A list containing the links found on the rendered page.
     """
-    chromium_executable = find_chromium_executable()
-
-    print(f"Using bundled Chromium: {chromium_executable}")
-
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(
-            headless=True,
-            executable_path=str(chromium_executable),
-        )
+        browser = launch_browser(playwright)
 
         try:
             page = browser.new_page()

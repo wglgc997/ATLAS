@@ -163,6 +163,42 @@ function stopLoadingState() {
 }
 
 
+function updateLiveScanProgress(job) {
+    window.clearInterval(loadingTimer);
+    loadingTimer = null;
+
+    const stageLabels = {
+        queued: "Queued",
+        starting: "Starting scan",
+        rendering: "Rendering page",
+        extracting: "Extracting links",
+        checking: "Checking links",
+        building: "Building report",
+        completed: "Scan completed",
+        failed: "Scan failed",
+    };
+    const stepIndexes = {
+        rendering: 0,
+        extracting: 1,
+        checking: 2,
+        building: 3,
+        completed: 3,
+    };
+    const label = stageLabels[job.stage] || "Scanning";
+    const progress = job.total_links > 0
+        ? ` (${job.checked_links} of ${job.total_links} links)`
+        : "";
+
+    loadingStepElement.textContent = `${label}${progress}`;
+    loadingUrlElement.textContent = job.active_url || "Preparing scan";
+
+    if (stepIndexes[job.stage] !== undefined) {
+        updateLoadingStep(stepIndexes[job.stage]);
+        loadingStepElement.textContent = `${label}${progress}`;
+    }
+}
+
+
 /**
  * Fallback for older scan history entries without status_group.
  */
@@ -1070,7 +1106,7 @@ async function loadHistoryScan(scanId) {
 async function executeScan(pageUrl, pageUrl2 = "") {
     const scanOptions = getScanOptions();
 
-    const response = await fetch("/scans", {
+    const response = await fetch("/scans/jobs", {
         method: "POST",
 
         headers: {
@@ -1101,7 +1137,39 @@ async function executeScan(pageUrl, pageUrl2 = "") {
         throw new Error(errorMessage);
     }
 
-    return response.json();
+    const job = await response.json();
+
+    return new Promise((resolve, reject) => {
+        let settled = false;
+        const events = new EventSource(
+            `/scans/jobs/${encodeURIComponent(job.id)}/events`,
+        );
+
+        events.onmessage = (event) => {
+            const update = JSON.parse(event.data);
+            updateLiveScanProgress(update);
+
+            if (update.status === "completed") {
+                settled = true;
+                events.close();
+                resolve(update.result);
+            } else if (update.status === "failed") {
+                settled = true;
+                events.close();
+                reject(new Error(update.error || "The scan could not be completed."));
+            }
+        };
+
+        events.onerror = () => {
+            if (settled) {
+                return;
+            }
+
+            settled = true;
+            events.close();
+            reject(new Error("The live scan connection was interrupted."));
+        };
+    });
 }
 
 

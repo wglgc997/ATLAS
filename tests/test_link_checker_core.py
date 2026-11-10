@@ -8,6 +8,7 @@ from src.services.link_result_builder import build_link_result
 from src.services.scan_summary import build_scan_response
 from src.api import scans as scans_api
 from src.schemas.scan import ScanRequest
+from src.services.scan_jobs import ScanJobStore
 
 
 def link(**values) -> ExtractedLink:
@@ -196,6 +197,46 @@ def test_single_url_scan_keeps_legacy_response_shape(monkeypatch) -> None:
     response = scans_api.run_scan(ScanRequest(url="https://example.com"))
 
     assert isinstance(response, ScanResponse)
+
+
+def test_local_scan_job_reports_progress_and_result() -> None:
+    store = ScanJobStore()
+    scan = ScanResponse(
+        source_page="https://example.com",
+        total_links=0,
+        good=0,
+        redirected=0,
+        broken=0,
+        error=0,
+        results=[],
+    )
+
+    def runner(_request, progress) -> ScanResponse:
+        progress({
+            "url": "https://example.com",
+            "stage": "checking",
+            "total_links": 2,
+            "checked_links": 1,
+        })
+        progress({
+            "url": "https://example.com",
+            "stage": "building",
+            "total_links": 2,
+            "checked_links": 2,
+        })
+        return scan
+
+    created_job = store.create(ScanRequest(url="https://example.com"), runner)
+    job = store.get(created_job.id)
+    revision = -1
+
+    while job is not None and job.status.value not in {"completed", "failed"}:
+        job, revision = store.wait_for_update(created_job.id, revision)
+
+    assert job is not None
+    assert job.status.value == "completed"
+    assert job.checked_links == 2
+    assert job.result == scan
 
 
 def test_build_scan_response_includes_ui_summary() -> None:

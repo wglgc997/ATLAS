@@ -12,7 +12,7 @@
 
 ATLAS helps developers, QA teams, and content owners find broken links, redirects, certificate problems, timeouts, and unreachable resources without checking every URL manually.
 
-Unlike a basic HTML crawler, it uses Playwright to render JavaScript-powered pages before extracting and validating their content. Results are presented in a searchable local dashboard with a health score, scan history, and CSV export.
+Unlike a basic HTML crawler, it uses Playwright to render JavaScript-powered pages before extracting and validating their content. One or two pages can be analyzed per request, with independent results presented in a searchable local dashboard.
 
 ## ✨ Highlights
 
@@ -21,7 +21,9 @@ Unlike a basic HTML crawler, it uses Playwright to render JavaScript-powered pag
 - **Page health score** with a summary of items that need attention
 - **Detailed diagnostics** including response time, final URL, redirect chain, and error details
 - **Flexible scope** with optional external-link and technical-asset scanning
-- **Local-first workflow** with browser dashboard, scan history, and CSV export
+- **Two-page scans** with separate result tabs and independent failure handling
+- **Local-first workflow** with grouped scan history, history cleanup, and CSV export
+- **Performance safeguards** for browser interactions and reusable HTTP connections
 - **Simple Windows launcher** that prepares the environment and opens the application
 
 ## 🚀 Quick Start
@@ -57,6 +59,8 @@ The launcher automatically:
 
 The application is available at `http://127.0.0.1:8000`. Keep the terminal open while using it and press `Ctrl+C` to stop the server.
 
+For the ready-to-use Windows package, extract `release/LinkChecker-user.zip` and run its `start.bat`. The script creates its own virtual environment and downloads Chromium on first use.
+
 ### Linux
 
 Clone the repository and open its directory:
@@ -91,14 +95,14 @@ Open `http://127.0.0.1:8000` if the dashboard does not open automatically. Keep 
 
 ## 🖥️ Using the Dashboard
 
-1. Enter the complete URL of the page you want to inspect.
-2. Choose whether to include external links and technical assets.
-3. Start the analysis.
-4. Review the health score and prioritized summary.
-5. Filter, search, or sort the detailed results.
-6. Export the visible result set to CSV when needed.
+1. Enter URL 1 (required) and, optionally, URL 2.
+2. Choose whether to include external links and technical assets; the same settings apply to both URLs.
+3. Start the analysis. The pages run independently, so a failure in one does not prevent the other result.
+4. Use the result tabs to switch between URL 1 and URL 2.
+5. Review the health score and prioritized summary, then filter, search, sort, or export the visible result set to CSV.
+6. Reopen a saved scan from the local history, or use **Clear history** to permanently remove all local entries after confirmation.
 
-Every completed scan is stored locally in `data/scan_history.json` and can be reopened from the dashboard.
+Every successful scan is stored locally in `data/scan_history.json`. Scans submitted together share a `batch_id`, which makes them identifiable as one user-initiated batch.
 
 ## 🔍 What the Scanner Detects
 
@@ -110,16 +114,17 @@ Every completed scan is stored locally in `data/scan_history.json` and can be re
 | Connection errors | DNS failures, timeouts, SSL errors, and unreachable servers |
 | Page resources | Anchors, images, scripts, stylesheets, and iframes |
 
-Each result may include its original URL, final URL, HTTP status, redirect chain, response time, source element, and a human-readable explanation.
+Fragment-only anchors such as `#section` are local page navigation and are excluded from HTTP validation, so they do not appear as invalid links. Each result may include its original URL, final URL, HTTP status, redirect chain, response time, source element, and a human-readable explanation.
 
 ## 🏗️ How It Works
 
 ```mermaid
 flowchart TD
-    A["URL submitted"] --> B["Page rendered with Playwright"]
-    B --> C["Links and resources extracted"]
-    C --> D["URLs validated in parallel"]
-    D --> E["Dashboard, history, and CSV"]
+    A["One or two URLs submitted"] --> B["Pages analyzed independently"]
+    B --> C["Each page rendered with Playwright"]
+    C --> D["Links and resources extracted"]
+    D --> E["URLs validated in parallel"]
+    E --> F["Separate tabs, grouped history, and CSV"]
 ```
 
 The application follows a layered design: the FastAPI routes receive scan requests, the crawler renders and extracts page content, services normalize and filter URLs, and the checker validates each resource before the summary is generated.
@@ -164,6 +169,7 @@ HTTP_RETRY_BACKOFF=0.5
 PLAYWRIGHT_TIMEOUT=60
 PLAYWRIGHT_INTERACTION_TIMEOUT=1
 MAX_INTERACTION_CHECKS=5
+BROWSER_CHANNEL=auto
 VERIFY_SSL=true
 CA_BUNDLE_PATH=
 WAIT_UNTIL=domcontentloaded
@@ -176,8 +182,9 @@ MAX_REDIRECTS=10
 | `HTTP_RETRIES` | `2` | Retry attempts for connection failures and timeouts |
 | `HTTP_RETRY_BACKOFF` | `0.5` | Delay multiplier between retries |
 | `PLAYWRIGHT_TIMEOUT` | `60` | Maximum page rendering time |
-| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `1` | Maximum time for an interaction check |
-| `MAX_INTERACTION_CHECKS` | `5` | Maximum number of script-like controls checked per page |
+| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `1` | Maximum time for an interaction check; lower values improve scan speed |
+| `MAX_INTERACTION_CHECKS` | `5` | Maximum number of JavaScript-like controls checked per page; caps sequential browser work |
+| `BROWSER_CHANNEL` | `auto` | Uses bundled Chromium first, then Microsoft Edge if Chromium is blocked; set to `msedge` to force Edge |
 | `VERIFY_SSL` | `true` | Enables SSL certificate verification |
 | `CA_BUNDLE_PATH` | Empty | Optional path to a trusted PEM certificate bundle |
 | `WAIT_UNTIL` | `domcontentloaded` | Playwright page-load state used before extraction |
@@ -201,7 +208,11 @@ FastAPI provides interactive API documentation at `http://127.0.0.1:8000/docs` w
 | `GET` | `/health` | Check application availability |
 | `GET` | `/` | Open the dashboard |
 | `POST` | `/scans` | Analyze a page |
+| `POST` | `/scans/jobs` | Start a scan job and return its ID immediately |
+| `GET` | `/scans/jobs/{job_id}` | Retrieve the latest job status |
+| `GET` | `/scans/jobs/{job_id}/events` | Stream live job updates via Server-Sent Events |
 | `GET` | `/scans/history` | List locally stored scans |
+| `DELETE` | `/scans/history` | Permanently clear the local scan history |
 | `GET` | `/scans/history/{scan_id}` | Retrieve a stored scan |
 
 Example scan request:
@@ -209,12 +220,15 @@ Example scan request:
 ```json
 {
   "url": "https://example.com",
+  "url_2": "https://example.org",
   "timeout": 20,
   "max_workers": 12,
   "include_assets": false,
   "include_external": true
 }
 ```
+
+`url` is required and `url_2` is optional. A request with only `url` retains the original single-scan response format. With two URLs, the response contains a `batch_id` and one independent outcome for each page.
 
 ## 📁 Project Structure
 
@@ -260,7 +274,7 @@ uvicorn src.web:app --reload --host 127.0.0.1 --port 8000
 
 ## ⚠️ Current Limitations
 
-- The application scans one page per request; it does not crawl an entire website recursively.
+- The application scans up to two pages per request; it does not crawl an entire website recursively.
 - Some websites may block automated HTTP requests or browser automation.
 - Scan history is stored locally and is not synchronized between computers.
 - Windows provides the automated `start.bat` setup; Linux and macOS currently use the documented manual setup.
@@ -272,10 +286,12 @@ uvicorn src.web:app --reload --host 127.0.0.1 --port 8000
 - [x] Page health score and prioritized summary
 - [x] Searchable and filterable dashboard
 - [x] Local scan history
+- [x] Two-page scans with separate result tabs
+- [x] Local history cleanup
 - [x] CSV export
 - [x] Core automated tests
-- [ ] Live progress feedback during long scans
-- [ ] Packaged Windows release
+- [x] Live progress feedback during long scans
+- [x] Packaged Windows release
 
 ## 🤝 Contributing
 
