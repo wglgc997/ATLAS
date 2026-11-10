@@ -38,6 +38,7 @@ MAX_INTERACTION_CHECKS = str_to_int(
     os.getenv("MAX_INTERACTION_CHECKS", "5"),
     5,
 )
+BROWSER_CHANNEL = os.getenv("BROWSER_CHANNEL", "auto").strip().lower()
 
 VERIFY_SSL = str_to_bool(os.getenv("VERIFY_SSL", "true"))
 CA_BUNDLE_PATH = os.getenv("CA_BUNDLE_PATH")

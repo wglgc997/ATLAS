@@ -182,3 +182,25 @@ class ScanBatchResponse(BaseModel):
 
     batch_id: str
     scans: list[ScanBatchItem]
+
+
+class ScanJobStatus(str, Enum):
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+
+class ScanJobResponse(BaseModel):
+    """Progress and eventual result of a local background scan."""
+
+    id: str
+    status: ScanJobStatus
+    stage: str
+    active_url: str | None = None
+    total_urls: int
+    completed_urls: int
+    total_links: int
+    checked_links: int
+    error: str | None = None
+    result: ScanResponse | ScanBatchResponse | None = None
