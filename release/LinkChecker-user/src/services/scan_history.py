@@ -22,6 +22,7 @@ def list_scan_history() -> list[dict]:
     return [
         {
             "id": item.get("id"),
+            "batch_id": item.get("batch_id"),
             "created_at": item.get("created_at"),
             "source_page": item.get("source_page"),
             "total_links": item.get("total_links", 0),
@@ -43,11 +44,23 @@ def get_scan_from_history(scan_id: str) -> dict | None:
 
     return None
 
-def save_scan_to_history(scan: ScanResponse) -> dict:
+
+def clear_scan_history() -> None:
+    """Replace the local scan history with an empty list."""
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    temporary_file = HISTORY_FILE.with_name(f"{HISTORY_FILE.stem}.{uuid4()}.tmp")
+
+    with temporary_file.open("w", encoding="utf-8") as file:
+        json.dump([], file)
+
+    temporary_file.replace(HISTORY_FILE)
+
+def save_scan_to_history(scan: ScanResponse, batch_id: str | None = None) -> dict:
     HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     item = {
         "id": str(uuid4()),
+        "batch_id": batch_id or str(uuid4()),
         "created_at": datetime.now(timezone.utc).isoformat(),
         **scan.model_dump(mode="json")
     }

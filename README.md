@@ -162,7 +162,8 @@ HTTP_TIMEOUT=20
 HTTP_RETRIES=2
 HTTP_RETRY_BACKOFF=0.5
 PLAYWRIGHT_TIMEOUT=60
-PLAYWRIGHT_INTERACTION_TIMEOUT=3
+PLAYWRIGHT_INTERACTION_TIMEOUT=1
+MAX_INTERACTION_CHECKS=5
 VERIFY_SSL=true
 CA_BUNDLE_PATH=
 WAIT_UNTIL=domcontentloaded
@@ -175,7 +176,8 @@ MAX_REDIRECTS=10
 | `HTTP_RETRIES` | `2` | Retry attempts for connection failures and timeouts |
 | `HTTP_RETRY_BACKOFF` | `0.5` | Delay multiplier between retries |
 | `PLAYWRIGHT_TIMEOUT` | `60` | Maximum page rendering time |
-| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `3` | Maximum time for an interaction check |
+| `PLAYWRIGHT_INTERACTION_TIMEOUT` | `1` | Maximum time for an interaction check |
+| `MAX_INTERACTION_CHECKS` | `5` | Maximum number of script-like controls checked per page |
 | `VERIFY_SSL` | `true` | Enables SSL certificate verification |
 | `CA_BUNDLE_PATH` | Empty | Optional path to a trusted PEM certificate bundle |
 | `WAIT_UNTIL` | `domcontentloaded` | Playwright page-load state used before extraction |

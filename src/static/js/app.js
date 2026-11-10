@@ -1,5 +1,6 @@
 const scanForm = document.getElementById("scan-form");
 const pageUrlInput = document.getElementById("page-url");
+const pageUrl2Input = document.getElementById("page-url-2");
 const scanButton = document.getElementById("scan-button");
 const includeExternalInput = document.getElementById("include-external");
 const includeAssetsInput = document.getElementById("include-assets");
@@ -12,6 +13,7 @@ const historyList = document.getElementById("history-list");
 const historyPanel = document.getElementById("history-panel");
 const historySubtitle = document.getElementById("history-subtitle");
 const refreshHistoryButton = document.getElementById("refresh-history-button");
+const clearHistoryButton = document.getElementById("clear-history-button");
 const toggleHistoryButton = document.getElementById("toggle-history-button");
 
 const emptySection = document.getElementById("empty-section");
@@ -20,6 +22,7 @@ const loadingUrlElement = document.getElementById("loading-url");
 const loadingStepElement = document.getElementById("loading-step");
 const loadingStepsElement = document.getElementById("loading-steps");
 const resultsSection = document.getElementById("results-section");
+const scanTabs = document.getElementById("scan-tabs");
 
 const totalLinksElement = document.getElementById("total-links");
 const goodLinksElement = document.getElementById("good-links");
@@ -51,6 +54,8 @@ let currentSort = {
 let quickFilter = "all";
 let loadingTimer = null;
 let loadingStepIndex = 0;
+let batchScans = [];
+let activeBatchScanIndex = 0;
 
 const loadingSteps = [
     "Rendering page",
@@ -110,6 +115,8 @@ function getScanOptions() {
 
 function setScanControlsDisabled(isDisabled) {
     scanButton.disabled = isDisabled;
+    pageUrlInput.disabled = isDisabled;
+    pageUrl2Input.disabled = isDisabled;
     includeExternalInput.disabled = isDisabled;
     includeAssetsInput.disabled = isDisabled;
     scanTimeoutInput.disabled = isDisabled;
@@ -887,6 +894,57 @@ function showScanData(scanData) {
 }
 
 
+function renderScanTabs() {
+    scanTabs.innerHTML = "";
+    scanTabs.classList.toggle("hidden", batchScans.length < 2);
+
+    batchScans.forEach((item, index) => {
+        const tab = document.createElement("button");
+        tab.type = "button";
+        tab.className = "scan-tab";
+        tab.dataset.index = index;
+        tab.dataset.active = index === activeBatchScanIndex ? "true" : "false";
+        tab.setAttribute("role", "tab");
+        tab.setAttribute("aria-selected", index === activeBatchScanIndex ? "true" : "false");
+        tab.textContent = item.error ? `URL ${index + 1} (failed)` : `URL ${index + 1}`;
+        scanTabs.appendChild(tab);
+    });
+}
+
+
+function showBatchScan(index) {
+    activeBatchScanIndex = index;
+    const item = batchScans[index];
+    renderScanTabs();
+
+    if (item.scan) {
+        showScanData(item.scan);
+        return;
+    }
+
+    showScanData({
+        source_page: item.url,
+        total_links: 0,
+        good: 0,
+        redirected: 0,
+        broken: 0,
+        error: 0,
+        results: [],
+    });
+    formError.textContent = `Could not scan ${item.url}: ${item.error || "Unknown error."}`;
+    formError.classList.remove("hidden");
+}
+
+
+function showScanResponse(response) {
+    batchScans = Array.isArray(response.scans)
+        ? response.scans
+        : [{ url: response.source_page, scan: response }];
+    activeBatchScanIndex = 0;
+    showBatchScan(0);
+}
+
+
 function setHistoryCollapsed(isCollapsed) {
     historyPanel.dataset.collapsed = isCollapsed ? "true" : "false";
     historyList.classList.toggle("hidden", isCollapsed);
@@ -965,6 +1023,36 @@ async function loadScanHistory() {
 }
 
 
+async function clearScanHistory() {
+    if (!window.confirm("Clear all locally saved scan history? This cannot be undone.")) {
+        return;
+    }
+
+    formError.classList.add("hidden");
+    clearHistoryButton.disabled = true;
+    clearHistoryButton.textContent = "Clearing...";
+
+    try {
+        const response = await fetch("/scans/history", { method: "DELETE" });
+
+        if (!response.ok) {
+            throw new Error("History could not be cleared.");
+        }
+
+        selectedHistoryScanId = "";
+        await loadScanHistory();
+        setAppStatus("ready", "Ready");
+    } catch (error) {
+        formError.textContent = error.message || "History could not be cleared.";
+        formError.classList.remove("hidden");
+        setAppStatus("error", "Error");
+    } finally {
+        clearHistoryButton.disabled = false;
+        clearHistoryButton.textContent = "Clear history";
+    }
+}
+
+
 async function loadHistoryScan(scanId) {
     const response = await fetch(`/scans/history/${encodeURIComponent(scanId)}`);
 
@@ -979,7 +1067,7 @@ async function loadHistoryScan(scanId) {
 /**
  * Send the page URL to the FastAPI scan endpoint.
  */
-async function executeScan(pageUrl) {
+async function executeScan(pageUrl, pageUrl2 = "") {
     const scanOptions = getScanOptions();
 
     const response = await fetch("/scans", {
@@ -991,6 +1079,7 @@ async function executeScan(pageUrl) {
 
         body: JSON.stringify({
             url: pageUrl,
+            ...(pageUrl2 ? { url_2: pageUrl2 } : {}),
             ...scanOptions,
         }),
     });
@@ -1047,7 +1136,7 @@ async function refreshCurrentScanOrHistory() {
         const scanData = await executeScan(pageUrl);
 
         selectedHistoryScanId = "";
-        showScanData(scanData);
+        showScanResponse(scanData);
         await loadScanHistory();
         setAppStatus("ready", "Ready");
     } catch (error) {
@@ -1076,6 +1165,7 @@ scanForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const pageUrl = pageUrlInput.value.trim();
+    const pageUrl2 = pageUrl2Input.value.trim();
 
     formError.classList.add("hidden");
     startLoadingState(pageUrl, "Scanning");
@@ -1084,10 +1174,10 @@ scanForm.addEventListener("submit", async (event) => {
     scanButton.textContent = "Analyzing...";
 
     try {
-        const scanData = await executeScan(pageUrl);
+        const scanData = await executeScan(pageUrl, pageUrl2);
 
         selectedHistoryScanId = "";
-        showScanData(scanData);
+        showScanResponse(scanData);
         await loadScanHistory();
         setAppStatus("ready", "Ready");
     } catch (error) {
@@ -1107,7 +1197,17 @@ scanForm.addEventListener("submit", async (event) => {
 });
 
 
+scanTabs.addEventListener("click", (event) => {
+    const tab = event.target.closest(".scan-tab");
+    if (tab) {
+        formError.classList.add("hidden");
+        showBatchScan(Number(tab.dataset.index));
+    }
+});
+
+
 refreshHistoryButton.addEventListener("click", refreshCurrentScanOrHistory);
+clearHistoryButton.addEventListener("click", clearScanHistory);
 
 
 toggleHistoryButton.addEventListener("click", () => {
@@ -1136,7 +1236,7 @@ historyList.addEventListener("click", async (event) => {
         const scanData = await loadHistoryScan(historyItem.dataset.scanId);
 
         selectedHistoryScanId = historyItem.dataset.scanId;
-        showScanData(scanData);
+        showScanResponse(scanData);
         await loadScanHistory();
         setAppStatus("ready", "Ready");
     } catch (error) {

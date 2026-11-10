@@ -31,8 +31,12 @@ HTTP_RETRY_BACKOFF = str_to_float(os.getenv("HTTP_RETRY_BACKOFF", "0.5"), 0.5)
 
 PLAYWRIGHT_TIMEOUT = str_to_int(os.getenv("PLAYWRIGHT_TIMEOUT", "60"), 60)
 PLAYWRIGHT_INTERACTION_TIMEOUT = str_to_int(
-    os.getenv("PLAYWRIGHT_INTERACTION_TIMEOUT", "3"),
-    3,
+    os.getenv("PLAYWRIGHT_INTERACTION_TIMEOUT", "1"),
+    1,
+)
+MAX_INTERACTION_CHECKS = str_to_int(
+    os.getenv("MAX_INTERACTION_CHECKS", "5"),
+    5,
 )
 
 VERIFY_SSL = str_to_bool(os.getenv("VERIFY_SSL", "true"))

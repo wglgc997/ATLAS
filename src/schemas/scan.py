@@ -88,6 +88,10 @@ class ScanRequest(BaseModel):
     """Payload received for API"""
 
     url: HttpUrl
+    url_2: HttpUrl | None = Field(
+        default=None,
+        description="Optional second page URL to scan with the same settings",
+    )
     timeout: int = Field(
         default=HTTP_TIMEOUT,
         ge=1,
@@ -163,3 +167,18 @@ class ScanResponse(BaseModel):
     error: int
     summary: ScanSummary | None = None
     results: list[LinkResult]
+
+
+class ScanBatchItem(BaseModel):
+    """Outcome for one URL in a two-page scan."""
+
+    url: str
+    scan: ScanResponse | None = None
+    error: str | None = None
+
+
+class ScanBatchResponse(BaseModel):
+    """Results that belong to one user-initiated scan batch."""
+
+    batch_id: str
+    scans: list[ScanBatchItem]

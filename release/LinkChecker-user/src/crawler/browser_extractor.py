@@ -7,12 +7,13 @@ from playwright.sync_api import sync_playwright
 from src.utils.runtime_paths import find_chromium_executable
 from src.config.settings import (
     PLAYWRIGHT_INTERACTION_TIMEOUT,
+    MAX_INTERACTION_CHECKS,
     PLAYWRIGHT_TIMEOUT,
     WAIT_UNTIL,
 )
 from src.schemas.link import ExtractedLink, InteractionStatus
 
-SUSPICIOUS_SCHEMES = {"javascript", "mailto", "tel", "data"}
+SUSPICIOUS_SCHEMES = {"javascript"}
 ANCHOR_SELECTOR = "a"
 
 
@@ -27,8 +28,13 @@ def is_suspicious_anchor(link: ExtractedLink) -> bool:
 
     href = raw_url.strip()
 
-    if not href or href == "#":
+    if not href:
         return True
+
+    # A fragment-only href navigates inside the loaded document. It is not a
+    # remote target and should be filtered out instead of treated as an error.
+    if href.startswith("#"):
+        return False
 
     scheme = urlparse(href).scheme.lower()
 
@@ -80,12 +86,23 @@ def validate_suspicious_interactions(
 ) -> None:
     interaction_timeout_ms = PLAYWRIGHT_INTERACTION_TIMEOUT * 1000
 
+    checked_interactions = 0
+
     for link in links:
         if link.ignored:
             continue
 
         if not is_suspicious_anchor(link):
             continue
+
+        # Browser interaction checks are deliberately capped. A page may
+        # contain many script controls, but checking every one serially makes
+        # the full scan unacceptably slow.
+        if checked_interactions >= MAX_INTERACTION_CHECKS:
+            link.ignored = True
+            continue
+
+        checked_interactions += 1
 
         element_index = link.element_index
 

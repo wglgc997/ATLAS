@@ -3,9 +3,25 @@ import requests
 from requests import exceptions
 
 import socket
+import threading
 
 from src.schemas.scan import LinkStatus
 from src.config.settings import HTTP_TIMEOUT, MAX_REDIRECTS, VERIFY_SSL, CA_BUNDLE_PATH, HTTP_RETRIES, HTTP_RETRY_BACKOFF
+
+
+_thread_local = threading.local()
+
+
+def get_http_session() -> requests.Session:
+    """Reuse one HTTP connection pool per scan worker thread."""
+    session = getattr(_thread_local, "session", None)
+
+    if session is None:
+        session = requests.Session()
+        session.max_redirects = MAX_REDIRECTS
+        _thread_local.session = session
+
+    return session
 
 
 
@@ -132,8 +148,7 @@ def check_link(url: str, timeout: int = HTTP_TIMEOUT) -> dict:
     ssl_verify = get_ssl_verify_config()
 
     try:
-        session = requests.Session()
-        session.max_redirects = MAX_REDIRECTS
+        session = get_http_session()
 
         headers = {
             "User-Agent": "Mozilla/5.0 LinkChecker/1.0",

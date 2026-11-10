@@ -6,6 +6,8 @@ from src.services import link_result_builder, scan_history, scan_service
 from src.services.link_filter import filter_links
 from src.services.link_result_builder import build_link_result
 from src.services.scan_summary import build_scan_response
+from src.api import scans as scans_api
+from src.schemas.scan import ScanRequest
 
 
 def link(**values) -> ExtractedLink:
@@ -144,6 +146,58 @@ def test_link_result_derives_status_group_for_legacy_data() -> None:
     assert result.status_group == LinkStatusGroup.BROKEN
 
 
+def test_two_url_scan_keeps_the_successful_result_when_the_other_fails(monkeypatch) -> None:
+    saved_batches: list[str] = []
+
+    def fake_scan_page(page_url: str, **_kwargs) -> ScanResponse:
+        if "failed" in page_url:
+            raise RuntimeError("Page could not be rendered")
+        return ScanResponse(
+            source_page=page_url,
+            total_links=0,
+            good=0,
+            redirected=0,
+            broken=0,
+            error=0,
+            results=[],
+        )
+
+    def fake_save(scan: ScanResponse, batch_id: str) -> dict:
+        saved_batches.append(batch_id)
+        return {"id": "saved", "batch_id": batch_id, **scan.model_dump()}
+
+    monkeypatch.setattr(scans_api, "scan_page", fake_scan_page)
+    monkeypatch.setattr(scans_api, "save_scan_to_history", fake_save)
+
+    response = scans_api.run_scan(ScanRequest(
+        url="https://example.com",
+        url_2="https://failed.example.com",
+    ))
+
+    assert response.scans[0].scan is not None
+    assert response.scans[1].error == "Page could not be rendered"
+    assert len(saved_batches) == 1
+    assert saved_batches[0] == response.batch_id
+
+
+def test_single_url_scan_keeps_legacy_response_shape(monkeypatch) -> None:
+    scan = ScanResponse(
+        source_page="https://example.com",
+        total_links=0,
+        good=0,
+        redirected=0,
+        broken=0,
+        error=0,
+        results=[],
+    )
+    monkeypatch.setattr(scans_api, "scan_page", lambda **_kwargs: scan)
+    monkeypatch.setattr(scans_api, "save_scan_to_history", lambda *_args, **_kwargs: {})
+
+    response = scans_api.run_scan(ScanRequest(url="https://example.com"))
+
+    assert isinstance(response, ScanResponse)
+
+
 def test_build_scan_response_includes_ui_summary() -> None:
     results = [
         LinkResult(
@@ -274,6 +328,29 @@ def test_filter_links_normalizes_urls_and_skips_non_navigable_links() -> None:
         },
     ]
 
+
+def test_filter_links_ignores_fragment_only_anchors() -> None:
+    filtered_links = filter_links(
+        links=[
+            link(
+                url="https://example.com/page#details",
+                raw_url="#details",
+                link_text="Details",
+                link_type=LinkType.ANCHOR,
+            ),
+            link(
+                url="https://example.com/page#",
+                raw_url="#",
+                link_text="Top",
+                link_type=LinkType.ANCHOR,
+            ),
+        ],
+        page_url="https://example.com/page",
+        include_assets=False,
+        include_external=True,
+    )
+
+    assert filtered_links == []
 
 def test_filter_links_ignores_page_chrome_controls() -> None:
     links = [
@@ -482,6 +559,17 @@ def test_save_scan_to_history_replaces_closed_temp_file(monkeypatch, tmp_path) -
 
     assert history_file.exists()
     assert scan_history.load_scan_history()[0]["id"] == item["id"]
+    assert list(tmp_path.glob("*.tmp")) == []
+
+
+def test_clear_scan_history_replaces_saved_entries(monkeypatch, tmp_path) -> None:
+    history_file = tmp_path / "scan_history.json"
+    monkeypatch.setattr(scan_history, "HISTORY_FILE", history_file)
+    history_file.write_text('[{"id": "saved"}]', encoding="utf-8")
+
+    scan_history.clear_scan_history()
+
+    assert scan_history.load_scan_history() == []
     assert list(tmp_path.glob("*.tmp")) == []
 
 
