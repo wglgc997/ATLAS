@@ -1,0 +1,711 @@
+[
+  {
+    "id": "625d3c0d-0eab-4f63-bd73-89ca9b983330",
+    "batch_id": "f92c32be-e802-470e-88e4-34bea61d615f",
+    "created_at": "2026-11-11T13:44:26.971373+00:00",
+    "source_page": "https://www-wip.dell.com/pt-br/lp/console-gaming-monitors",
+    "total_links": 5,
+    "good": 0,
+    "redirected": 0,
+    "broken": 0,
+    "error": 5,
+    "summary": {
+      "total_links": 5,
+      "good": 0,
+      "redirected": 0,
+      "broken": 0,
+      "error": 5,
+      "healthy_count": 0,
+      "needs_action_count": 5,
+      "health_score": 0,
+      "health_state": "danger",
+      "health_message": "5 links need review.",
+      "summary_message": "Scan completed. 5 of 5 links need attention."
+    },
+    "results": [
+      {
+        "url": "https://www-wip.dell.com/pt-br/lp/windows-11",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6773,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /pt-br/lp/windows-11 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)')))",
+        "source_page": "https://www-wip.dell.com/pt-br/lp/console-gaming-monitors",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www-wip.dell.com/pt-br/lp/latest-intel-processors",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6745,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /pt-br/lp/latest-intel-processors (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)')))",
+        "source_page": "https://www-wip.dell.com/pt-br/lp/console-gaming-monitors",
+        "link_text": "Saiba mais sobre a Intel",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Saiba mais sobre a Intel"
+      },
+      {
+        "url": "https://www-wip.dell.com/pt-br/shop/monitor-alienware-de-32-gamer-curvo-4k-qd-oled-aw3225qf/apd/210-bnvr/monitores-e-acess%C3%B3rios",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6745,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /pt-br/shop/monitor-alienware-de-32-gamer-curvo-4k-qd-oled-aw3225qf/apd/210-bnvr/monitores-e-acess%C3%B3rios (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)')))",
+        "source_page": "https://www-wip.dell.com/pt-br/lp/console-gaming-monitors",
+        "link_text": "Confira",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Confira"
+      },
+      {
+        "url": "https://www-wip.dell.com/pt-br/shop/monitor-alienware-de-27-gamer-qd-oled-aw2725df/apd/210-bljd/monitores-e-acess%C3%B3rios",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6770,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /pt-br/shop/monitor-alienware-de-27-gamer-qd-oled-aw2725df/apd/210-bljd/monitores-e-acess%C3%B3rios (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)')))",
+        "source_page": "https://www-wip.dell.com/pt-br/lp/console-gaming-monitors",
+        "link_text": "Confira",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Confira"
+      },
+      {
+        "url": "https://www-wip.dell.com/pt-br/shop/monitor-alienware-27-para-jogos-aw2725dm/apd/210-brct/monitores-e-acess%C3%B3rios",
+        "final_url": null,
+        "http_status": null,
+        "status": "SSL Error",
+        "status_group": "error",
+        "redirect_chain": [],
+        "response_time_ms": 6739,
+        "error_message": "Unable to validate the SSL certificate.",
+        "error_description": "Unable to validate the SSL certificate.",
+        "technical_details": "HTTPSConnectionPool(host='www-wip.dell.com', port=443): Max retries exceeded with url: /pt-br/shop/monitor-alienware-27-para-jogos-aw2725dm/apd/210-brct/monitores-e-acess%C3%B3rios (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)')))",
+        "source_page": "https://www-wip.dell.com/pt-br/lp/console-gaming-monitors",
+        "link_text": "Confira",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Confira"
+      }
+    ]
+  },
+  {
+    "id": "1571f6f6-7ee5-4100-9da5-a0d9ebba45ee",
+    "batch_id": "275de3e7-5d89-4680-9a74-8c3afbe538a5",
+    "created_at": "2026-11-11T13:07:41.083644+00:00",
+    "source_page": "https://www.dell.com/da-dk",
+    "total_links": 25,
+    "good": 16,
+    "redirected": 5,
+    "broken": 4,
+    "error": 0,
+    "summary": {
+      "total_links": 25,
+      "good": 16,
+      "redirected": 5,
+      "broken": 4,
+      "error": 0,
+      "healthy_count": 21,
+      "needs_action_count": 4,
+      "health_score": 84,
+      "health_state": "warning",
+      "health_message": "4 links need review.",
+      "summary_message": "Scan completed. 4 of 25 links need attention."
+    },
+    "results": [
+      {
+        "url": "https://www.dell.com/da-dk/shop/laptop-computers/spd/dell14sds14270",
+        "final_url": "https://www.dell.com/da-dk/shop/laptop-computers/spd/dell14sds14270",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/laptop-computers/spd/dell14sds14270"
+          }
+        ],
+        "response_time_ms": 2631,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Køb nu",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Køb nu"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/deals/dc",
+        "final_url": "https://www.dell.com/da-dk/shop/deals/dc",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/deals/dc"
+          }
+        ],
+        "response_time_ms": 6499,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals",
+        "final_url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals"
+          }
+        ],
+        "response_time_ms": 2891,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-alienware-aw3226q-32-class-4k-uhd-gaming-oled-monitor-16-9-nova-black/aw3226q_monitor/-",
+        "final_url": "https://www.dell.com/en-us/internalservererror",
+        "http_status": 500,
+        "status": "Server Error",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 302,
+            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-alienware-aw3226q-32-class-4k-uhd-gaming-oled-monitor-16-9-nova-black/aw3226q_monitor/-"
+          },
+          {
+            "status_code": 302,
+            "url": "https://www.dell.com/content/public/error.aspx"
+          },
+          {
+            "status_code": 500,
+            "url": "https://www.dell.com/en-us/internalservererror"
+          }
+        ],
+        "response_time_ms": 25568,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/copilot/lp/copilotpc",
+        "final_url": "https://www.dell.com/da-dk/shop/copilot/lp/copilotpc",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/copilot/lp/copilotpc"
+          }
+        ],
+        "response_time_ms": 2447,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/laptops-2-in-1-pcs/spd/dellplus14laptopdb14250",
+        "final_url": "https://www.dell.com/da-dk/shop/laptops-2-in-1-pcs/spd/dellplus14laptopdb14250",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/laptops-2-in-1-pcs/spd/dellplus14laptopdb14250"
+          }
+        ],
+        "response_time_ms": 2587,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision514spw514260",
+        "final_url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision514spw514260",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision514spw514260"
+          }
+        ],
+        "response_time_ms": 2510,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision516spw516260",
+        "final_url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision516spw516260",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision516spw516260"
+          }
+        ],
+        "response_time_ms": 3069,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/scc/sc/servers",
+        "final_url": "https://www.dell.com/da-dk/shop/scc/sc/servers",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/scc/sc/servers"
+          }
+        ],
+        "response_time_ms": 2426,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/scc/sc/storage-products",
+        "final_url": "https://www.dell.com/da-dk/shop/scc/sc/storage-products",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/scc/sc/storage-products"
+          }
+        ],
+        "response_time_ms": 3404,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/support-services-for-home",
+        "final_url": "https://www.dell.com/da-dk/learn/services/lp/support-services-for-home",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/lp/dt/support-services-for-home"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/learn/services/lp/support-services-for-home"
+          }
+        ],
+        "response_time_ms": 2706,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/support/home/da-dk",
+        "final_url": "https://www.dell.com/support/home/da-dk",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/home/da-dk"
+          }
+        ],
+        "response_time_ms": 2771,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Supportforside",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Supportforside"
+      },
+      {
+        "url": "https://www.dell.com/support/home/da-dk?app=drivers",
+        "final_url": "https://www.dell.com/support/home/da-dk?app=drivers",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/home/da-dk?app=drivers"
+          }
+        ],
+        "response_time_ms": 679,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Drivere og downloads",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Drivere og downloads"
+      },
+      {
+        "url": "https://www.dell.com/support/contents/da-dk/category/esupport-order-support",
+        "final_url": "https://www.dell.com/support/contents/da-dk/category/esupport-order-support",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/contents/da-dk/category/esupport-order-support"
+          }
+        ],
+        "response_time_ms": 689,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Ordresupport",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Ordresupport"
+      },
+      {
+        "url": "https://www.dell.com/support/contractservices/da-dk/?msockid=20ad3c1dede06cce392c2f4fece86df8",
+        "final_url": "https://www.dell.com/support/contractservices/da-dk/?msockid=20ad3c1dede06cce392c2f4fece86df8",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/contractservices/da-dk/?msockid=20ad3c1dede06cce392c2f4fece86df8"
+          }
+        ],
+        "response_time_ms": 264,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Garanti og kontrakter",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Garanti og kontrakter"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/dell-parts/partsforyourdell",
+        "final_url": "https://www.dell.com/da-dk/shop/dell-parts/partsforyourdell",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/dell-parts/partsforyourdell"
+          }
+        ],
+        "response_time_ms": 274,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Dele og opgraderinger",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Dele og opgraderinger"
+      },
+      {
+        "url": "https://www.dell.com/dci/idp/dwa/authorize?response_type=id_token&client_id=228467e4-d9b6-4b04-8a11-45e1cc9f786d&redirect_uri=https://www.dell.com/identity/global/in/228467e4-d9b6-4b04-8a11-45e1cc9f786d&scope=openid&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&tag=cid%3d5e975851-be15-4359-a3f3-81a86588161d%2caid%3d7280de75-1511-4c5f-b7f9-3e9d9b1ded28&nonce=uu0uohohkjk0aqw2fii4a15h&state=aHR0cHM6Ly93d3cuZGVsbC5jb20vaWRlbnRpdHkvZ2xvYmFsL2luLzVlOTc1ODUxLWJlMTUtNDM1OS1hM2YzLTgxYTg2NTg4MTYxZD9jPWRrJmw9ZGEmcj1lbWVhJnM9YnNkJmNzPWRrYnNkdDEmcmVkaXJlY3RVcmw9aHR0cHM6JTJGJTJGd3d3LmRlbGwuY29tJTJGZGEtZGslMkZscCUyRndlbGNvbWUtdG8tbm93JnBuPUxvZ2luT3JSZWdpc3Rlcg%3d%3d",
+        "final_url": null,
+        "http_status": null,
+        "status": "Redirect Loop",
+        "status_group": "broken",
+        "redirect_chain": [],
+        "response_time_ms": 2704,
+        "error_message": "The link exceeded the redirect limit or ended on a redirect status.",
+        "error_description": "The link exceeded the redirect limit or ended on a redirect status.",
+        "technical_details": "Exceeded 10 redirects.",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Log på",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Log på"
+      },
+      {
+        "url": "https://www.dell.com/dci/idp/dwa/register?response_type=id_token&client_id=228467e4-d9b6-4b04-8a11-45e1cc9f786d&redirect_uri=https://www.dell.com/identity/global/in/228467e4-d9b6-4b04-8a11-45e1cc9f786d&scope=openid&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&tag=cid%3d5e975851-be15-4359-a3f3-81a86588161d%2caid%3d7280de75-1511-4c5f-b7f9-3e9d9b1ded28&nonce=uu0uohohkjk0aqw2fii4a15h&state=aHR0cHM6Ly93d3cuZGVsbC5jb20vaWRlbnRpdHkvZ2xvYmFsL2luLzVlOTc1ODUxLWJlMTUtNDM1OS1hM2YzLTgxYTg2NTg4MTYxZD9jPWRrJmw9ZGEmcj1lbWVhJnM9Y29ycCZyZWRpcmVjdFVybD1odHRwczolMkYlMkZ3d3cuZGVsbC5jb20lMkZkYS1kayZwbj1Mb2dpbk9yUmVnaXN0ZXI%3d",
+        "final_url": null,
+        "http_status": null,
+        "status": "Redirect Loop",
+        "status_group": "broken",
+        "redirect_chain": [],
+        "response_time_ms": 2629,
+        "error_message": "The link exceeded the redirect limit or ended on a redirect status.",
+        "error_description": "The link exceeded the redirect limit or ended on a redirect status.",
+        "technical_details": "Exceeded 10 redirects.",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Opret en konto",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Opret en konto"
+      },
+      {
+        "url": "https://www.dell.com/premier/home",
+        "final_url": "https://www.dell.com/premier/shop",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 302,
+            "url": "https://www.dell.com/premier/home"
+          },
+          {
+            "status_code": 404,
+            "url": "https://www.dell.com/premier/shop"
+          }
+        ],
+        "response_time_ms": 515,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Log på",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Log på"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/dell-premier",
+        "final_url": "https://www.dell.com/da-dk/shop/lp/dell-premier",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/lp/dt/dell-premier"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/lp/dell-premier"
+          }
+        ],
+        "response_time_ms": 3111,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Få mere at vide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Få mere at vide"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/students",
+        "final_url": "https://www.dell.com/da-dk/shop/member/lp/students",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/lp/students"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/member/lp/students"
+          }
+        ],
+        "response_time_ms": 557,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Få mere at vide",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Få mere at vide"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/delltechnologiesworld/lp/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up",
+        "final_url": "https://www.dell.com/da-dk/learn/events/lp/dell-technologies-world/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/delltechnologiesworld/lp/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/learn/events/lp/dell-technologies-world/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up"
+          }
+        ],
+        "response_time_ms": 554,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Arbejd hurtigere og smartere. Find ud af, hvad der er næste skridt for din virksomhed.",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Arbejd hurtigere og smartere. Find ud af, hvad der er næste skridt for din virksomhed."
+      },
+      {
+        "url": "https://www.dell.com/da-dk/dt/corporate/newsroom.htm",
+        "final_url": "https://www.dell.com/da-dk/dt/corporate/newsroom.htm",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/dt/corporate/newsroom.htm"
+          }
+        ],
+        "response_time_ms": 266,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Se alle nyheder",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Se alle nyheder"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/dt/events/index.htm",
+        "final_url": "https://www.dell.com/da-dk/dt/events/index.htm",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/dt/events/index.htm"
+          }
+        ],
+        "response_time_ms": 2476,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Dell Technologies-begivenheder",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Dell Technologies-begivenheder"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/corporate-impact",
+        "final_url": "https://www.dell.com/da-dk/learn/lp/corporate-impact",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/lp/dt/corporate-impact"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/learn/lp/corporate-impact"
+          }
+        ],
+        "response_time_ms": 2764,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Vores Mission i Aktion",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Vores Mission i Aktion"
+      }
+    ]
+  }
+]

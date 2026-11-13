@@ -1,154 +1,71 @@
 [
   {
-    "id": "a05ef300-613d-4549-bca8-5a3758d6a598",
-    "batch_id": "080a0374-0429-4c0e-8a17-84c6a182f54d",
-    "created_at": "2026-11-10T14:02:32.172202+00:00",
-    "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-    "total_links": 48,
-    "good": 39,
-    "redirected": 8,
-    "broken": 1,
+    "id": "bb293ce9-7939-4151-90f9-4d474bcd2044",
+    "batch_id": "fcbd2498-70d6-4012-aefa-e7ca2fbbf6ce",
+    "created_at": "2026-11-13T15:34:08.890953+00:00",
+    "source_page": "https://www.dell.com/da-dk",
+    "total_links": 25,
+    "good": 15,
+    "redirected": 7,
+    "broken": 3,
     "error": 0,
     "summary": {
-      "total_links": 48,
-      "good": 39,
-      "redirected": 8,
-      "broken": 1,
+      "total_links": 25,
+      "good": 15,
+      "redirected": 7,
+      "broken": 3,
       "error": 0,
-      "healthy_count": 47,
-      "needs_action_count": 1,
-      "health_score": 98,
-      "health_state": "good",
-      "health_message": "1 link needs review.",
-      "summary_message": "Scan completed. 1 of 48 links needs attention."
+      "healthy_count": 22,
+      "needs_action_count": 3,
+      "health_score": 88,
+      "health_state": "warning",
+      "health_message": "3 links need review.",
+      "summary_message": "Scan completed. 3 of 25 links need attention."
     },
     "results": [
       {
-        "url": "",
-        "final_url": null,
-        "http_status": null,
-        "status": "Interactive Element",
-        "status_group": "good",
-        "redirect_chain": [],
-        "response_time_ms": 0,
-        "error_message": null,
-        "error_description": "Click changed visible page state.",
-        "technical_details": "Click changed visible page state.",
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "*",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: *"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=5-star-eye-comfort-certification-eye-comfort-certification,4-star-eye-comfort-certification-eye-comfort-certification,3-star-eye-comfort-certification-eye-comfort-certification",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=5-star-eye-comfort-certification-eye-comfort-certification,4-star-eye-comfort-certification-eye-comfort-certification,3-star-eye-comfort-certification-eye-comfort-certification",
+        "url": "https://www.dell.com/da-dk/shop/laptop-computers/spd/dell14sds14270",
+        "final_url": "https://www.dell.com/da-dk/shop/laptop-computers/spd/dell14sds14270",
         "http_status": 200,
         "status": "Valid",
         "status_group": "good",
         "redirect_chain": [
           {
             "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=5-star-eye-comfort-certification-eye-comfort-certification,4-star-eye-comfort-certification-eye-comfort-certification,3-star-eye-comfort-certification-eye-comfort-certification"
+            "url": "https://www.dell.com/da-dk/shop/laptop-computers/spd/dell14sds14270"
           }
         ],
-        "response_time_ms": 5311,
+        "response_time_ms": 3782,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
+        "source_page": "https://www.dell.com/da-dk",
         "link_text": "Køb nu",
         "link_type": "anchor",
         "source_attribute": "href",
         "source_location": "Text link: Køb nu"
       },
       {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors-alienware-gaming",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors-alienware-gaming",
+        "url": "https://www.dell.com/da-dk/shop/deals/dc",
+        "final_url": "https://www.dell.com/da-dk/shop/deals/dc",
         "http_status": 200,
         "status": "Valid",
         "status_group": "good",
         "redirect_chain": [
           {
             "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors-alienware-gaming"
+            "url": "https://www.dell.com/da-dk/shop/deals/dc"
           }
         ],
-        "response_time_ms": 5218,
+        "response_time_ms": 3901,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware og gaming",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
         "link_type": "anchor",
         "source_attribute": "href",
-        "source_location": "Text link: Alienware og gaming"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=6k-6144-x-3456-screen-resolution,wuhd-5120-x-2160-screen-resolution,dual-qhd-5120-x-1440-screen-resolution,4k-uhd-3840-x-2160-screen-resolution",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=6k-6144-x-3456-screen-resolution,wuhd-5120-x-2160-screen-resolution,dual-qhd-5120-x-1440-screen-resolution,4k-uhd-3840-x-2160-screen-resolution",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=6k-6144-x-3456-screen-resolution,wuhd-5120-x-2160-screen-resolution,dual-qhd-5120-x-1440-screen-resolution,4k-uhd-3840-x-2160-screen-resolution"
-          }
-        ],
-        "response_time_ms": 5061,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "4K-opløsning og derover",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: 4K-opløsning og derover"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=ultrawide-features",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=ultrawide-features",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=ultrawide-features"
-          }
-        ],
-        "response_time_ms": 5023,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Ultrabred",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Ultrabred"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=curved-features",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=curved-features",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=curved-features"
-          }
-        ],
-        "response_time_ms": 6261,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Buet",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Buet"
+        "source_location": "Text link: without visible text"
       },
       {
         "url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals",
@@ -162,922 +79,195 @@
             "url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals"
           }
         ],
-        "response_time_ms": 5352,
+        "response_time_ms": 4112,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Tilbud på Black Friday",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Tilbud på Black Friday"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/compare",
-        "final_url": "https://www.dell.com/da-dk/shop/compare",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/compare"
-          }
-        ],
-        "response_time_ms": 4597,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Sammenlign Alienware 39 5K OLED-gamingskærm - AW3926QW Compare your selections side by side",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Sammenlign Alienware 39 5K OLED-gamingskærm - AW3926QW Compare your selections side by side"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-39-5k-oled-gamingsk%C3%A6rm-aw3926qw/aw3926qw/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-39-5k-oled-gamingsk%C3%A6rm-aw3926qw/aw3926qw/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-39-5k-oled-gamingsk%C3%A6rm-aw3926qw/aw3926qw/-"
-          }
-        ],
-        "response_time_ms": 4849,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 39 5K OLED-gamingskærm - AW3926QW",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 39 5K OLED-gamingskærm - AW3926QW"
-      },
-      {
-        "url": "https://i.dell.com/assetlink/img/en/aw3926qw-eu-label-dl112x70-original.png?hei=2252&wid=1134",
-        "final_url": "https://i.dell.com/assetlink/img/en/aw3926qw-eu-label-dl112x70-original.png?hei=2252&wid=1134",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/assetlink/img/en/aw3926qw-eu-label-dl112x70-original.png?hei=2252&wid=1134"
-          }
-        ],
-        "response_time_ms": 3129,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
+        "source_page": "https://www.dell.com/da-dk",
         "link_text": null,
         "link_type": "anchor",
         "source_attribute": "href",
         "source_location": "Text link: without visible text"
       },
       {
-        "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2726294_DA.pdf",
-        "final_url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2726294_DA.pdf",
+        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-alienware-aw3226q-32-class-4k-uhd-gaming-oled-monitor-16-9-nova-black/aw3226q_monitor/-",
+        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-alienware-aw3226q-32-class-4k-uhd-gaming-oled-monitor-16-9-nova-black/aw3226q_monitor/-",
         "http_status": 200,
         "status": "Valid",
         "status_group": "good",
         "redirect_chain": [
           {
             "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2726294_DA.pdf"
+            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-alienware-aw3226q-32-class-4k-uhd-gaming-oled-monitor-16-9-nova-black/aw3226q_monitor/-"
           }
         ],
-        "response_time_ms": 3226,
+        "response_time_ms": 4115,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-oled-gamingsk%C3%A6rm-aw3226q/aw3226q_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-oled-gamingsk%C3%A6rm-aw3226q/aw3226q_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-oled-gamingsk%C3%A6rm-aw3226q/aw3226q_monitor/-"
-          }
-        ],
-        "response_time_ms": 6100,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 32 4K OLED-gamingskærm - AW3226Q",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 32 4K OLED-gamingskærm - AW3226Q"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-qd-oled-gamingsk%C3%A6rm-aw3225qf/aw3225qf_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-qd-oled-gamingsk%C3%A6rm-aw3225qf/aw3225qf_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-qd-oled-gamingsk%C3%A6rm-aw3225qf/aw3225qf_monitor/-"
-          }
-        ],
-        "response_time_ms": 5911,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 32 4K QD-OLED-gamingskærm – AW3225QF",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 32 4K QD-OLED-gamingskærm – AW3225QF"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw3225qf-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw3225qf-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw3225qf-eu-energy.png?fmt=jpg&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 294,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
+        "source_page": "https://www.dell.com/da-dk",
         "link_text": null,
         "link_type": "anchor",
         "source_attribute": "href",
         "source_location": "Text link: without visible text"
       },
       {
-        "url": "https://eprel.ec.europa.eu/qr/1830139",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1830139?navigatingFrom=qr",
+        "url": "https://www.dell.com/da-dk/shop/copilot/lp/copilotpc",
+        "final_url": "https://www.dell.com/da-dk/shop/copilot/lp/copilotpc",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/copilot/lp/copilotpc"
+          }
+        ],
+        "response_time_ms": 3696,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/laptops-2-in-1-pcs/spd/dellplus14laptopdb14250",
+        "final_url": "https://www.dell.com/da-dk/shop/laptops-2-in-1-pcs/spd/dellplus14laptopdb14250",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/laptops-2-in-1-pcs/spd/dellplus14laptopdb14250"
+          }
+        ],
+        "response_time_ms": 3771,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision514spw514260",
+        "final_url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision514spw514260",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision514spw514260"
+          }
+        ],
+        "response_time_ms": 3804,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision516spw516260",
+        "final_url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision516spw516260",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/cty/spd/dellproprecision516spw516260"
+          }
+        ],
+        "response_time_ms": 3767,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/scc/sc/servers",
+        "final_url": "https://www.dell.com/da-dk/shop/scc/sc/servers",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/scc/sc/servers"
+          }
+        ],
+        "response_time_ms": 3730,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/scc/sc/storage-products",
+        "final_url": "https://www.dell.com/da-dk/shop/scc/sc/storage-products",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/scc/sc/storage-products"
+          }
+        ],
+        "response_time_ms": 4699,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": null,
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: without visible text"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/support-services-for-home",
+        "final_url": "https://www.dell.com/da-dk/learn/services/lp/support-services-for-home",
         "http_status": 200,
         "status": "Redirected",
         "status_group": "redirected",
         "redirect_chain": [
           {
             "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1830139"
+            "url": "https://www.dell.com/da-dk/lp/dt/support-services-for-home"
           },
           {
             "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1830139?navigatingFrom=qr"
+            "url": "https://www.dell.com/da-dk/learn/services/lp/support-services-for-home"
           }
         ],
-        "response_time_ms": 342,
+        "response_time_ms": 3874,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-4k-qd-oled-gamingsk%C3%A6rm-aw2725q/aw2725q_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-4k-qd-oled-gamingsk%C3%A6rm-aw2725q/aw2725q_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-4k-qd-oled-gamingsk%C3%A6rm-aw2725q/aw2725q_monitor/-"
-          }
-        ],
-        "response_time_ms": 3577,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 27 4k QD-OLED gamingskærm – AW2725Q",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 27 4k QD-OLED gamingskærm – AW2725Q"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725q-eu-energy-lbl-without-dimension.png?fmt=png-alpha&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725q-eu-energy-lbl-without-dimension.png?fmt=png-alpha&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725q-eu-energy-lbl-without-dimension.png?fmt=png-alpha&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 1482,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
+        "source_page": "https://www.dell.com/da-dk",
         "link_text": null,
         "link_type": "anchor",
         "source_attribute": "href",
         "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/2219070",
-        "final_url": "https://eprel.ec.europa.eu/qr/2219070",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/qr/2219070"
-          }
-        ],
-        "response_time_ms": 1084,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-360-hz-qd-oled-gamingsk%C3%A6rm-aw2725df/aw2725df/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-360-hz-qd-oled-gamingsk%C3%A6rm-aw2725df/aw2725df/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-360-hz-qd-oled-gamingsk%C3%A6rm-aw2725df/aw2725df/-"
-          }
-        ],
-        "response_time_ms": 1942,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 27 360 Hz QD-OLED gamingskærm – AW2725DF",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 27 360 Hz QD-OLED gamingskærm – AW2725DF"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725df-eu-energy-lbl.png?fmt=png-alpha&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725df-eu-energy-lbl.png?fmt=png-alpha&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725df-eu-energy-lbl.png?fmt=png-alpha&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 1677,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1833147",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1833147?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1833147"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1833147?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 1945,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-s-27-qhd-usb-c-sk%C3%A6rm-s2725dc/s2725dc/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-s-27-qhd-usb-c-sk%C3%A6rm-s2725dc/s2725dc/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-s-27-qhd-usb-c-sk%C3%A6rm-s2725dc/s2725dc/-"
-          }
-        ],
-        "response_time_ms": 3204,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Dell S 27 QHD USB-C-skærm – S2725DC",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Dell S 27 QHD USB-C-skærm – S2725DC"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/s2725dc-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/s2725dc-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/s2725dc-eu-label.png?fmt=png-alpha&wid=714&hei=1423"
-          }
-        ],
-        "response_time_ms": 1799,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2390300_DA.pdf",
-        "final_url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2390300_DA.pdf",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2390300_DA.pdf"
-          }
-        ],
-        "response_time_ms": 1792,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/b%C3%A6rbar-dell-pro-p-14-sk%C3%A6rm-p1425/p1425/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/b%C3%A6rbar-dell-pro-p-14-sk%C3%A6rm-p1425/p1425/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/b%C3%A6rbar-dell-pro-p-14-sk%C3%A6rm-p1425/p1425/-"
-          }
-        ],
-        "response_time_ms": 1477,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Bærbar Dell Pro P 14-skærm – P1425",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Bærbar Dell Pro P 14-skærm – P1425"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/p1425-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/p1425-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/p1425-eu-label.png?fmt=png-alpha&wid=714&hei=1423"
-          }
-        ],
-        "response_time_ms": 1842,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/2169254",
-        "final_url": "https://eprel.ec.europa.eu/qr/2169254",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/qr/2169254"
-          }
-        ],
-        "response_time_ms": 1820,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-34-sk%C3%A6rm-med-thunderbolt-hub-u3425we/u3425we_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-34-sk%C3%A6rm-med-thunderbolt-hub-u3425we/u3425we_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-34-sk%C3%A6rm-med-thunderbolt-hub-u3425we/u3425we_monitor/-"
-          }
-        ],
-        "response_time_ms": 2242,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Kurvet Dell UltraSharp 34-skærm med Thunderbolt™-hub – U3425WE",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Kurvet Dell UltraSharp 34-skærm med Thunderbolt™-hub – U3425WE"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3425we-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3425we-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3425we-eu-energy.png?fmt=jpg&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 1715,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1777749",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1777749?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1777749"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1777749?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 1757,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-34-usb-c-hub-sk%C3%A6rm-p3425we/p3425we_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-34-usb-c-hub-sk%C3%A6rm-p3425we/p3425we_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-34-usb-c-hub-sk%C3%A6rm-p3425we/p3425we_monitor/-"
-          }
-        ],
-        "response_time_ms": 1626,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Dell Pro P 34 USB-C hub-skærm – P3425WE",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Dell Pro P 34 USB-C hub-skærm – P3425WE"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/p3425we-eu-lbl.png?fmt=png-alpha&wid=711&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/p3425we-eu-lbl.png?fmt=png-alpha&wid=711&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/p3425we-eu-lbl.png?fmt=png-alpha&wid=711&hei=1419"
-          }
-        ],
-        "response_time_ms": 1573,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/2141837",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/2141837?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/2141837"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/2141837?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 345,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-38-sk%C3%A6rm-med-usb-c-hub-u3824dw/u3824dw_withstand/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-38-sk%C3%A6rm-med-usb-c-hub-u3824dw/u3824dw_withstand/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-38-sk%C3%A6rm-med-usb-c-hub-u3824dw/u3824dw_withstand/-"
-          }
-        ],
-        "response_time_ms": 1565,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Kurvet Dell UltraSharp 38-skærm med USB-C-hub – U3824DW",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Kurvet Dell UltraSharp 38-skærm med USB-C-hub – U3824DW"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3824dw-eu.png?fmt=png-alpha&wid=711&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3824dw-eu.png?fmt=png-alpha&wid=711&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3824dw-eu.png?fmt=png-alpha&wid=711&hei=1419"
-          }
-        ],
-        "response_time_ms": 177,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1361189",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1361189?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1361189"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1361189?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 314,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-34-280-hz-qd-oled-gamingsk%C3%A6rm-aw3426dw/aw3426dw/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-34-280-hz-qd-oled-gamingsk%C3%A6rm-aw3426dw/aw3426dw/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-34-280-hz-qd-oled-gamingsk%C3%A6rm-aw3426dw/aw3426dw/-"
-          }
-        ],
-        "response_time_ms": 2008,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 34 280 Hz QD-OLED gamingskærm – AW3426DW",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 34 280 Hz QD-OLED gamingskærm – AW3426DW"
-      },
-      {
-        "url": "https://i.dell.com/assetlink/img/en/aw3426dw-eu-label-dl112x6x-original.png?hei=2252&wid=1134",
-        "final_url": "https://i.dell.com/assetlink/img/en/aw3426dw-eu-label-dl112x6x-original.png?hei=2252&wid=1134",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/assetlink/img/en/aw3426dw-eu-label-dl112x6x-original.png?hei=2252&wid=1134"
-          }
-        ],
-        "response_time_ms": 1342,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2609824_DA.pdf",
-        "final_url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2609824_DA.pdf",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2609824_DA.pdf"
-          }
-        ],
-        "response_time_ms": 158,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-sk%C3%A6rm-p1917s/p1917s_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-sk%C3%A6rm-p1917s/p1917s_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-sk%C3%A6rm-p1917s/p1917s_monitor/-"
-          }
-        ],
-        "response_time_ms": 1789,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Dell Pro P 19-skærm - P1917S",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Dell Pro P 19-skærm - P1917S"
-      },
-      {
-        "url": "https://i.dell.com/assetlink/img/global/eei-label-eu-dell-p1917s-dl1aadx-original.png?hei=1419&wid=711",
-        "final_url": "https://i.dell.com/assetlink/img/global/eei-label-eu-dell-p1917s-dl1aadx-original.png?hei=1419&wid=711",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/assetlink/img/global/eei-label-eu-dell-p1917s-dl1aadx-original.png?hei=1419&wid=711"
-          }
-        ],
-        "response_time_ms": 1255,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/344219",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/344219?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/344219"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/344219?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 345,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors"
-          }
-        ],
-        "response_time_ms": 1302,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Vis alle",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Vis alle"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/gaming-monitors/appref=alienware-product-line",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/gaming-monitors/appref=alienware-product-line",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/gaming-monitors/appref=alienware-product-line"
-          }
-        ],
-        "response_time_ms": 1532,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Få mere at vide",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Få mere at vide"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/lp/console-gaming-monitors",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/lp/console-gaming-monitors",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://www.dell.com/da-dk/lp/console-gaming-monitors"
-          },
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/lp/console-gaming-monitors"
-          }
-        ],
-        "response_time_ms": 531,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Få mere at vide",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Få mere at vide"
-      },
-      {
-        "url": "",
-        "final_url": null,
-        "http_status": null,
-        "status": "Interaction Error",
-        "status_group": "broken",
-        "redirect_chain": [],
-        "response_time_ms": 0,
-        "error_message": "Locator.click: Timeout 1000ms exceeded.\nCall log:\n  - waiting for locator(\"a\").nth(370)\n    - locator resolved to <a class=\"technote microcontent\" rel=\"technotes:monitor-technote-1\">*</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not visible\n  - retrying click action\n    - waiting 500ms\n",
-        "error_description": "Locator.click: Timeout 1000ms exceeded.\nCall log:\n  - waiting for locator(\"a\").nth(370)\n    - locator resolved to <a class=\"technote microcontent\" rel=\"technotes:monitor-technote-1\">*</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not visible\n  - retrying click action\n    - waiting 500ms\n",
-        "technical_details": "Locator.click: Timeout 1000ms exceeded.\nCall log:\n  - waiting for locator(\"a\").nth(370)\n    - locator resolved to <a class=\"technote microcontent\" rel=\"technotes:monitor-technote-1\">*</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is not visible\n  - retrying click action\n    - waiting 500ms\n",
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "*",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: *"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/lp/dt/recovery-recycling-services",
-        "final_url": "https://www.dell.com/da-dk/learn/our-company/lp/recycling/recovery-recycling-services",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://www.dell.com/da-dk/lp/dt/recovery-recycling-services"
-          },
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/learn/our-company/lp/recycling/recovery-recycling-services"
-          }
-        ],
-        "response_time_ms": 739,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Få mere at vide",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Få mere at vide"
       },
       {
         "url": "https://www.dell.com/support/home/da-dk",
@@ -1091,1119 +281,323 @@
             "url": "https://www.dell.com/support/home/da-dk"
           }
         ],
-        "response_time_ms": 388,
+        "response_time_ms": 4153,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Find ud af mere",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Supportforside",
         "link_type": "anchor",
         "source_attribute": "href",
-        "source_location": "Text link: Find ud af mere"
-      }
-    ]
-  },
-  {
-    "id": "ad869469-6adc-48b4-a35d-d40a82d8f003",
-    "batch_id": "6e11c8a7-83f9-4774-8fc5-637218bc0f2b",
-    "created_at": "2026-11-10T14:01:01.420994+00:00",
-    "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-    "total_links": 48,
-    "good": 39,
-    "redirected": 8,
-    "broken": 1,
-    "error": 0,
-    "summary": {
-      "total_links": 48,
-      "good": 39,
-      "redirected": 8,
-      "broken": 1,
-      "error": 0,
-      "healthy_count": 47,
-      "needs_action_count": 1,
-      "health_score": 98,
-      "health_state": "good",
-      "health_message": "1 link needs review.",
-      "summary_message": "Scan completed. 1 of 48 links needs attention."
-    },
-    "results": [
+        "source_location": "Text link: Supportforside"
+      },
       {
-        "url": "",
+        "url": "https://www.dell.com/support/home/da-dk?app=drivers",
+        "final_url": "https://www.dell.com/support/home/da-dk?app=drivers",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/home/da-dk?app=drivers"
+          }
+        ],
+        "response_time_ms": 681,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Drivere og downloads",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Drivere og downloads"
+      },
+      {
+        "url": "https://www.dell.com/support/contents/da-dk/category/esupport-order-support",
+        "final_url": "https://www.dell.com/support/contents/da-dk/category/esupport-order-support",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/contents/da-dk/category/esupport-order-support"
+          }
+        ],
+        "response_time_ms": 693,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Ordresupport",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Ordresupport"
+      },
+      {
+        "url": "https://www.dell.com/support/contractservices/da-dk/?msockid=20ad3c1dede06cce392c2f4fece86df8",
+        "final_url": "https://www.dell.com/support/contractservices/da-dk/?msockid=20ad3c1dede06cce392c2f4fece86df8",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/support/contractservices/da-dk/?msockid=20ad3c1dede06cce392c2f4fece86df8"
+          }
+        ],
+        "response_time_ms": 258,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Garanti og kontrakter",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Garanti og kontrakter"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/shop/dell-parts/partsforyourdell",
+        "final_url": "https://www.dell.com/da-dk/shop/dell-parts/partsforyourdell",
+        "http_status": 200,
+        "status": "Valid",
+        "status_group": "good",
+        "redirect_chain": [
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/shop/dell-parts/partsforyourdell"
+          }
+        ],
+        "response_time_ms": 270,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Dele og opgraderinger",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Dele og opgraderinger"
+      },
+      {
+        "url": "https://www.dell.com/dci/idp/dwa/authorize?response_type=id_token&client_id=228467e4-d9b6-4b04-8a11-45e1cc9f786d&redirect_uri=https://www.dell.com/identity/global/in/228467e4-d9b6-4b04-8a11-45e1cc9f786d&scope=openid&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&tag=cid%3d5e975851-be15-4359-a3f3-81a86588161d%2caid%3d7280de75-1511-4c5f-b7f9-3e9d9b1ded28&nonce=uu0uohohkjk0aqw2fii4a15h&state=aHR0cHM6Ly93d3cuZGVsbC5jb20vaWRlbnRpdHkvZ2xvYmFsL2luLzVlOTc1ODUxLWJlMTUtNDM1OS1hM2YzLTgxYTg2NTg4MTYxZD9jPWRrJmw9ZGEmcj1lbWVhJnM9YnNkJmNzPWRrYnNkdDEmcmVkaXJlY3RVcmw9aHR0cHM6JTJGJTJGd3d3LmRlbGwuY29tJTJGZGEtZGslMkZscCUyRndlbGNvbWUtdG8tbm93JnBuPUxvZ2luT3JSZWdpc3Rlcg%3d%3d",
         "final_url": null,
         "http_status": null,
-        "status": "Interactive Element",
-        "status_group": "good",
-        "redirect_chain": [],
-        "response_time_ms": 0,
-        "error_message": null,
-        "error_description": "Click changed visible page state.",
-        "technical_details": "Click changed visible page state.",
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "*",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: *"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=5-star-eye-comfort-certification-eye-comfort-certification,4-star-eye-comfort-certification-eye-comfort-certification,3-star-eye-comfort-certification-eye-comfort-certification",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=5-star-eye-comfort-certification-eye-comfort-certification,4-star-eye-comfort-certification-eye-comfort-certification,3-star-eye-comfort-certification-eye-comfort-certification",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=5-star-eye-comfort-certification-eye-comfort-certification,4-star-eye-comfort-certification-eye-comfort-certification,3-star-eye-comfort-certification-eye-comfort-certification"
-          }
-        ],
-        "response_time_ms": 6606,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Køb nu",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Køb nu"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors-alienware-gaming",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors-alienware-gaming",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors-alienware-gaming"
-          }
-        ],
-        "response_time_ms": 5530,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware og gaming",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware og gaming"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=6k-6144-x-3456-screen-resolution,wuhd-5120-x-2160-screen-resolution,dual-qhd-5120-x-1440-screen-resolution,4k-uhd-3840-x-2160-screen-resolution",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=6k-6144-x-3456-screen-resolution,wuhd-5120-x-2160-screen-resolution,dual-qhd-5120-x-1440-screen-resolution,4k-uhd-3840-x-2160-screen-resolution",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=6k-6144-x-3456-screen-resolution,wuhd-5120-x-2160-screen-resolution,dual-qhd-5120-x-1440-screen-resolution,4k-uhd-3840-x-2160-screen-resolution"
-          }
-        ],
-        "response_time_ms": 5165,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "4K-opløsning og derover",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: 4K-opløsning og derover"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=ultrawide-features",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=ultrawide-features",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=ultrawide-features"
-          }
-        ],
-        "response_time_ms": 5429,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Ultrabred",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Ultrabred"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=curved-features",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=curved-features",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors/appref=curved-features"
-          }
-        ],
-        "response_time_ms": 5875,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Buet",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Buet"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals",
-        "final_url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/deals/dc/monitor-deals"
-          }
-        ],
-        "response_time_ms": 6933,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Tilbud på Black Friday",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Tilbud på Black Friday"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/compare",
-        "final_url": "https://www.dell.com/da-dk/shop/compare",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/compare"
-          }
-        ],
-        "response_time_ms": 6093,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Sammenlign Alienware 39 5K OLED-gamingskærm - AW3926QW Compare your selections side by side",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Sammenlign Alienware 39 5K OLED-gamingskærm - AW3926QW Compare your selections side by side"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-39-5k-oled-gamingsk%C3%A6rm-aw3926qw/aw3926qw/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-39-5k-oled-gamingsk%C3%A6rm-aw3926qw/aw3926qw/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-39-5k-oled-gamingsk%C3%A6rm-aw3926qw/aw3926qw/-"
-          }
-        ],
-        "response_time_ms": 6426,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 39 5K OLED-gamingskærm - AW3926QW",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 39 5K OLED-gamingskærm - AW3926QW"
-      },
-      {
-        "url": "https://i.dell.com/assetlink/img/en/aw3926qw-eu-label-dl112x70-original.png?hei=2252&wid=1134",
-        "final_url": "https://i.dell.com/assetlink/img/en/aw3926qw-eu-label-dl112x70-original.png?hei=2252&wid=1134",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/assetlink/img/en/aw3926qw-eu-label-dl112x70-original.png?hei=2252&wid=1134"
-          }
-        ],
-        "response_time_ms": 3445,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2726294_DA.pdf",
-        "final_url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2726294_DA.pdf",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2726294_DA.pdf"
-          }
-        ],
-        "response_time_ms": 3659,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-oled-gamingsk%C3%A6rm-aw3226q/aw3226q_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-oled-gamingsk%C3%A6rm-aw3226q/aw3226q_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-oled-gamingsk%C3%A6rm-aw3226q/aw3226q_monitor/-"
-          }
-        ],
-        "response_time_ms": 6834,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 32 4K OLED-gamingskærm - AW3226Q",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 32 4K OLED-gamingskærm - AW3226Q"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-qd-oled-gamingsk%C3%A6rm-aw3225qf/aw3225qf_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-qd-oled-gamingsk%C3%A6rm-aw3225qf/aw3225qf_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-32-4k-qd-oled-gamingsk%C3%A6rm-aw3225qf/aw3225qf_monitor/-"
-          }
-        ],
-        "response_time_ms": 5977,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 32 4K QD-OLED-gamingskærm – AW3225QF",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 32 4K QD-OLED-gamingskærm – AW3225QF"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw3225qf-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw3225qf-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw3225qf-eu-energy.png?fmt=jpg&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 209,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1830139",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1830139?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1830139"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1830139?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 1881,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-4k-qd-oled-gamingsk%C3%A6rm-aw2725q/aw2725q_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-4k-qd-oled-gamingsk%C3%A6rm-aw2725q/aw2725q_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-4k-qd-oled-gamingsk%C3%A6rm-aw2725q/aw2725q_monitor/-"
-          }
-        ],
-        "response_time_ms": 4583,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 27 4k QD-OLED gamingskærm – AW2725Q",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 27 4k QD-OLED gamingskærm – AW2725Q"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725q-eu-energy-lbl-without-dimension.png?fmt=png-alpha&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725q-eu-energy-lbl-without-dimension.png?fmt=png-alpha&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725q-eu-energy-lbl-without-dimension.png?fmt=png-alpha&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 1448,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/2219070",
-        "final_url": "https://eprel.ec.europa.eu/qr/2219070",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/qr/2219070"
-          }
-        ],
-        "response_time_ms": 1297,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-360-hz-qd-oled-gamingsk%C3%A6rm-aw2725df/aw2725df/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-360-hz-qd-oled-gamingsk%C3%A6rm-aw2725df/aw2725df/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-27-360-hz-qd-oled-gamingsk%C3%A6rm-aw2725df/aw2725df/-"
-          }
-        ],
-        "response_time_ms": 2162,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 27 360 Hz QD-OLED gamingskærm – AW2725DF",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 27 360 Hz QD-OLED gamingskærm – AW2725DF"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725df-eu-energy-lbl.png?fmt=png-alpha&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725df-eu-energy-lbl.png?fmt=png-alpha&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/aw2725df-eu-energy-lbl.png?fmt=png-alpha&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 289,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1833147",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1833147?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1833147"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1833147?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 340,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-s-27-qhd-usb-c-sk%C3%A6rm-s2725dc/s2725dc/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-s-27-qhd-usb-c-sk%C3%A6rm-s2725dc/s2725dc/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-s-27-qhd-usb-c-sk%C3%A6rm-s2725dc/s2725dc/-"
-          }
-        ],
-        "response_time_ms": 2480,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Dell S 27 QHD USB-C-skærm – S2725DC",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Dell S 27 QHD USB-C-skærm – S2725DC"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/s2725dc-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/s2725dc-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/s2725dc-eu-label.png?fmt=png-alpha&wid=714&hei=1423"
-          }
-        ],
-        "response_time_ms": 1576,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2390300_DA.pdf",
-        "final_url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2390300_DA.pdf",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2390300_DA.pdf"
-          }
-        ],
-        "response_time_ms": 1618,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/b%C3%A6rbar-dell-pro-p-14-sk%C3%A6rm-p1425/p1425/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/b%C3%A6rbar-dell-pro-p-14-sk%C3%A6rm-p1425/p1425/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/b%C3%A6rbar-dell-pro-p-14-sk%C3%A6rm-p1425/p1425/-"
-          }
-        ],
-        "response_time_ms": 3856,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Bærbar Dell Pro P 14-skærm – P1425",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Bærbar Dell Pro P 14-skærm – P1425"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/p1425-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/p1425-eu-label.png?fmt=png-alpha&wid=714&hei=1423",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/p1425-eu-label.png?fmt=png-alpha&wid=714&hei=1423"
-          }
-        ],
-        "response_time_ms": 1909,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/2169254",
-        "final_url": "https://eprel.ec.europa.eu/qr/2169254",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/qr/2169254"
-          }
-        ],
-        "response_time_ms": 1668,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-34-sk%C3%A6rm-med-thunderbolt-hub-u3425we/u3425we_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-34-sk%C3%A6rm-med-thunderbolt-hub-u3425we/u3425we_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-34-sk%C3%A6rm-med-thunderbolt-hub-u3425we/u3425we_monitor/-"
-          }
-        ],
-        "response_time_ms": 2540,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Kurvet Dell UltraSharp 34-skærm med Thunderbolt™-hub – U3425WE",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Kurvet Dell UltraSharp 34-skærm med Thunderbolt™-hub – U3425WE"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3425we-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3425we-eu-energy.png?fmt=jpg&wid=710&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3425we-eu-energy.png?fmt=jpg&wid=710&hei=1419"
-          }
-        ],
-        "response_time_ms": 1643,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1777749",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1777749?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1777749"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1777749?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 1786,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-34-usb-c-hub-sk%C3%A6rm-p3425we/p3425we_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-34-usb-c-hub-sk%C3%A6rm-p3425we/p3425we_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-34-usb-c-hub-sk%C3%A6rm-p3425we/p3425we_monitor/-"
-          }
-        ],
-        "response_time_ms": 2482,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Dell Pro P 34 USB-C hub-skærm – P3425WE",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Dell Pro P 34 USB-C hub-skærm – P3425WE"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/p3425we-eu-lbl.png?fmt=png-alpha&wid=711&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/p3425we-eu-lbl.png?fmt=png-alpha&wid=711&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/p3425we-eu-lbl.png?fmt=png-alpha&wid=711&hei=1419"
-          }
-        ],
-        "response_time_ms": 347,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/2141837",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/2141837?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/2141837"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/2141837?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 1338,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-38-sk%C3%A6rm-med-usb-c-hub-u3824dw/u3824dw_withstand/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-38-sk%C3%A6rm-med-usb-c-hub-u3824dw/u3824dw_withstand/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/kurvet-dell-ultrasharp-38-sk%C3%A6rm-med-usb-c-hub-u3824dw/u3824dw_withstand/-"
-          }
-        ],
-        "response_time_ms": 1738,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Kurvet Dell UltraSharp 38-skærm med USB-C-hub – U3824DW",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Kurvet Dell UltraSharp 38-skærm med USB-C-hub – U3824DW"
-      },
-      {
-        "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3824dw-eu.png?fmt=png-alpha&wid=711&hei=1419",
-        "final_url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3824dw-eu.png?fmt=png-alpha&wid=711&hei=1419",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/esupport/labels/energy-label/euro/u3824dw-eu.png?fmt=png-alpha&wid=711&hei=1419"
-          }
-        ],
-        "response_time_ms": 243,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/1361189",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1361189?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/1361189"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/1361189?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 1250,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-34-280-hz-qd-oled-gamingsk%C3%A6rm-aw3426dw/aw3426dw/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-34-280-hz-qd-oled-gamingsk%C3%A6rm-aw3426dw/aw3426dw/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/alienware-34-280-hz-qd-oled-gamingsk%C3%A6rm-aw3426dw/aw3426dw/-"
-          }
-        ],
-        "response_time_ms": 2474,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Alienware 34 280 Hz QD-OLED gamingskærm – AW3426DW",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Alienware 34 280 Hz QD-OLED gamingskærm – AW3426DW"
-      },
-      {
-        "url": "https://i.dell.com/assetlink/img/en/aw3426dw-eu-label-dl112x6x-original.png?hei=2252&wid=1134",
-        "final_url": "https://i.dell.com/assetlink/img/en/aw3426dw-eu-label-dl112x6x-original.png?hei=2252&wid=1134",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/assetlink/img/en/aw3426dw-eu-label-dl112x6x-original.png?hei=2252&wid=1134"
-          }
-        ],
-        "response_time_ms": 1128,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2609824_DA.pdf",
-        "final_url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2609824_DA.pdf",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/fiches/electronicdisplays/Fiche_2609824_DA.pdf"
-          }
-        ],
-        "response_time_ms": 1841,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-sk%C3%A6rm-p1917s/p1917s_monitor/-",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-sk%C3%A6rm-p1917s/p1917s_monitor/-",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-sk%C3%A6rm-p1917s/p1917s_monitor/-"
-          }
-        ],
-        "response_time_ms": 1845,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Dell Pro P 19-skærm - P1917S",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Dell Pro P 19-skærm - P1917S"
-      },
-      {
-        "url": "https://i.dell.com/assetlink/img/global/eei-label-eu-dell-p1917s-dl1aadx-original.png?hei=1419&wid=711",
-        "final_url": "https://i.dell.com/assetlink/img/global/eei-label-eu-dell-p1917s-dl1aadx-original.png?hei=1419&wid=711",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://i.dell.com/assetlink/img/global/eei-label-eu-dell-p1917s-dl1aadx-original.png?hei=1419&wid=711"
-          }
-        ],
-        "response_time_ms": 213,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": null,
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: without visible text"
-      },
-      {
-        "url": "https://eprel.ec.europa.eu/qr/344219",
-        "final_url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/344219?navigatingFrom=qr",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://eprel.ec.europa.eu/qr/344219"
-          },
-          {
-            "status_code": 200,
-            "url": "https://eprel.ec.europa.eu/screen/product/electronicdisplays/344219?navigatingFrom=qr"
-          }
-        ],
-        "response_time_ms": 336,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Produktoplysningsskema",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Produktoplysningsskema"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/all-monitors"
-          }
-        ],
-        "response_time_ms": 1877,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Vis alle",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Vis alle"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/gaming-monitors/appref=alienware-product-line",
-        "final_url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/gaming-monitors/appref=alienware-product-line",
-        "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
-        "redirect_chain": [
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/computer-monitors/ar/gaming-monitors/appref=alienware-product-line"
-          }
-        ],
-        "response_time_ms": 1723,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Få mere at vide",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Få mere at vide"
-      },
-      {
-        "url": "https://www.dell.com/da-dk/lp/console-gaming-monitors",
-        "final_url": "https://www.dell.com/da-dk/shop/monitors/lp/console-gaming-monitors",
-        "http_status": 200,
-        "status": "Redirected",
-        "status_group": "redirected",
-        "redirect_chain": [
-          {
-            "status_code": 301,
-            "url": "https://www.dell.com/da-dk/lp/console-gaming-monitors"
-          },
-          {
-            "status_code": 200,
-            "url": "https://www.dell.com/da-dk/shop/monitors/lp/console-gaming-monitors"
-          }
-        ],
-        "response_time_ms": 646,
-        "error_message": null,
-        "error_description": null,
-        "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Få mere at vide",
-        "link_type": "anchor",
-        "source_attribute": "href",
-        "source_location": "Text link: Få mere at vide"
-      },
-      {
-        "url": "",
-        "final_url": null,
-        "http_status": null,
-        "status": "Interaction Error",
+        "status": "Redirect Loop",
         "status_group": "broken",
         "redirect_chain": [],
-        "response_time_ms": 0,
-        "error_message": "Locator.click: Timeout 1000ms exceeded.\nCall log:\n  - waiting for locator(\"a\").nth(370)\n    - locator resolved to <a target=\"_self\" class=\"ps-btn ps-blue\" href=\"https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-skærm-p1917s/p1917s_monitor/-\" data-metrics=\"{\"variant\":\"DellProPlusMonitors\",\"position\":12,\"productid\":\"p1917s_monitor\",\"btnname\":\"customizeandbuy\",\"stockstatus\":\"available\",\"source\":\"AccResult\",\"dellprice\":1692.5}\" data-button-info=\"{\"productid\":\"p1917s_monitor\",\"pdurl\":\"https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-skærm-p1917s/p1917s_monitor/-\",\"scope\":\"ConfigurableOffer\",\"pl…>…</a>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n",
-        "error_description": "Locator.click: Timeout 1000ms exceeded.\nCall log:\n  - waiting for locator(\"a\").nth(370)\n    - locator resolved to <a target=\"_self\" class=\"ps-btn ps-blue\" href=\"https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-skærm-p1917s/p1917s_monitor/-\" data-metrics=\"{\"variant\":\"DellProPlusMonitors\",\"position\":12,\"productid\":\"p1917s_monitor\",\"btnname\":\"customizeandbuy\",\"stockstatus\":\"available\",\"source\":\"AccResult\",\"dellprice\":1692.5}\" data-button-info=\"{\"productid\":\"p1917s_monitor\",\"pdurl\":\"https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-skærm-p1917s/p1917s_monitor/-\",\"scope\":\"ConfigurableOffer\",\"pl…>…</a>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n",
-        "technical_details": "Locator.click: Timeout 1000ms exceeded.\nCall log:\n  - waiting for locator(\"a\").nth(370)\n    - locator resolved to <a target=\"_self\" class=\"ps-btn ps-blue\" href=\"https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-skærm-p1917s/p1917s_monitor/-\" data-metrics=\"{\"variant\":\"DellProPlusMonitors\",\"position\":12,\"productid\":\"p1917s_monitor\",\"btnname\":\"customizeandbuy\",\"stockstatus\":\"available\",\"source\":\"AccResult\",\"dellprice\":1692.5}\" data-button-info=\"{\"productid\":\"p1917s_monitor\",\"pdurl\":\"https://www.dell.com/da-dk/shop/monitors/apd/dell-pro-p-19-skærm-p1917s/p1917s_monitor/-\",\"scope\":\"ConfigurableOffer\",\"pl…>…</a>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n",
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "*",
+        "response_time_ms": 2644,
+        "error_message": "The link exceeded the redirect limit or ended on a redirect status.",
+        "error_description": "The link exceeded the redirect limit or ended on a redirect status.",
+        "technical_details": "Exceeded 10 redirects.",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Log på",
         "link_type": "anchor",
         "source_attribute": "href",
-        "source_location": "Text link: *"
+        "source_location": "Text link: Log på"
       },
       {
-        "url": "https://www.dell.com/da-dk/lp/dt/recovery-recycling-services",
-        "final_url": "https://www.dell.com/da-dk/learn/our-company/lp/recycling/recovery-recycling-services",
+        "url": "https://www.dell.com/dci/idp/dwa/register?response_type=id_token&client_id=228467e4-d9b6-4b04-8a11-45e1cc9f786d&redirect_uri=https://www.dell.com/identity/global/in/228467e4-d9b6-4b04-8a11-45e1cc9f786d&scope=openid&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&tag=cid%3d5e975851-be15-4359-a3f3-81a86588161d%2caid%3d7280de75-1511-4c5f-b7f9-3e9d9b1ded28&nonce=uu0uohohkjk0aqw2fii4a15h&state=aHR0cHM6Ly93d3cuZGVsbC5jb20vaWRlbnRpdHkvZ2xvYmFsL2luLzVlOTc1ODUxLWJlMTUtNDM1OS1hM2YzLTgxYTg2NTg4MTYxZD9jPWRrJmw9ZGEmcj1lbWVhJnM9Y29ycCZyZWRpcmVjdFVybD1odHRwczolMkYlMkZ3d3cuZGVsbC5jb20lMkZkYS1kayZwbj1Mb2dpbk9yUmVnaXN0ZXI%3d",
+        "final_url": null,
+        "http_status": null,
+        "status": "Redirect Loop",
+        "status_group": "broken",
+        "redirect_chain": [],
+        "response_time_ms": 2790,
+        "error_message": "The link exceeded the redirect limit or ended on a redirect status.",
+        "error_description": "The link exceeded the redirect limit or ended on a redirect status.",
+        "technical_details": "Exceeded 10 redirects.",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Opret en konto",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Opret en konto"
+      },
+      {
+        "url": "https://www.dell.com/premier/home",
+        "final_url": "https://www.dell.com/premier/shop",
+        "http_status": 404,
+        "status": "Broken",
+        "status_group": "broken",
+        "redirect_chain": [
+          {
+            "status_code": 302,
+            "url": "https://www.dell.com/premier/home"
+          },
+          {
+            "status_code": 404,
+            "url": "https://www.dell.com/premier/shop"
+          }
+        ],
+        "response_time_ms": 510,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Log på",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Log på"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/dell-premier",
+        "final_url": "https://www.dell.com/da-dk/shop/lp/dell-premier",
         "http_status": 200,
         "status": "Redirected",
         "status_group": "redirected",
         "redirect_chain": [
           {
             "status_code": 301,
-            "url": "https://www.dell.com/da-dk/lp/dt/recovery-recycling-services"
+            "url": "https://www.dell.com/da-dk/lp/dt/dell-premier"
           },
           {
             "status_code": 200,
-            "url": "https://www.dell.com/da-dk/learn/our-company/lp/recycling/recovery-recycling-services"
+            "url": "https://www.dell.com/da-dk/shop/lp/dell-premier"
           }
         ],
-        "response_time_ms": 607,
+        "response_time_ms": 534,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
+        "source_page": "https://www.dell.com/da-dk",
         "link_text": "Få mere at vide",
         "link_type": "anchor",
         "source_attribute": "href",
         "source_location": "Text link: Få mere at vide"
       },
       {
-        "url": "https://www.dell.com/support/home/da-dk",
-        "final_url": "https://www.dell.com/support/home/da-dk",
+        "url": "https://www.dell.com/da-dk/lp/students",
+        "final_url": "https://www.dell.com/da-dk/shop/member/lp/students",
         "http_status": 200,
-        "status": "Valid",
-        "status_group": "good",
+        "status": "Redirected",
+        "status_group": "redirected",
         "redirect_chain": [
           {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/lp/students"
+          },
+          {
             "status_code": 200,
-            "url": "https://www.dell.com/support/home/da-dk"
+            "url": "https://www.dell.com/da-dk/shop/member/lp/students"
           }
         ],
-        "response_time_ms": 545,
+        "response_time_ms": 672,
         "error_message": null,
         "error_description": null,
         "technical_details": null,
-        "source_page": "https://www.dell.com/da-dk/shop/computer-monitors/sac/monitors/all-monitors",
-        "link_text": "Find ud af mere",
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Få mere at vide",
         "link_type": "anchor",
         "source_attribute": "href",
-        "source_location": "Text link: Find ud af mere"
+        "source_location": "Text link: Få mere at vide"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/delltechnologiesworld/lp/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up",
+        "final_url": "https://www.dell.com/da-dk/learn/events/lp/dell-technologies-world/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/delltechnologiesworld/lp/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/learn/events/lp/dell-technologies-world/2026-on-demand?dgc=ba&cid=dellcom&lid=DTW26-on-demand-4-up"
+          }
+        ],
+        "response_time_ms": 658,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Arbejd hurtigere og smartere. Find ud af, hvad der er næste skridt for din virksomhed.",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Arbejd hurtigere og smartere. Find ud af, hvad der er næste skridt for din virksomhed."
+      },
+      {
+        "url": "https://www.dell.com/da-dk/dt/corporate/newsroom.htm",
+        "final_url": "https://www.dell.com/da-dk",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/dt/corporate/newsroom.htm"
+          },
+          {
+            "status_code": 307,
+            "url": "https://www.dell.com/da-dk/newsroom"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk"
+          }
+        ],
+        "response_time_ms": 996,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Se alle nyheder",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Se alle nyheder"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/dt/events/index.htm",
+        "final_url": "https://www.dell.com/da-dk/events",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/dt/events/index.htm"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/events"
+          }
+        ],
+        "response_time_ms": 926,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Dell Technologies-begivenheder",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Dell Technologies-begivenheder"
+      },
+      {
+        "url": "https://www.dell.com/da-dk/lp/dt/corporate-impact",
+        "final_url": "https://www.dell.com/da-dk/learn/lp/corporate-impact",
+        "http_status": 200,
+        "status": "Redirected",
+        "status_group": "redirected",
+        "redirect_chain": [
+          {
+            "status_code": 301,
+            "url": "https://www.dell.com/da-dk/lp/dt/corporate-impact"
+          },
+          {
+            "status_code": 200,
+            "url": "https://www.dell.com/da-dk/learn/lp/corporate-impact"
+          }
+        ],
+        "response_time_ms": 1693,
+        "error_message": null,
+        "error_description": null,
+        "technical_details": null,
+        "source_page": "https://www.dell.com/da-dk",
+        "link_text": "Vores Mission i Aktion",
+        "link_type": "anchor",
+        "source_attribute": "href",
+        "source_location": "Text link: Vores Mission i Aktion"
       }
     ]
   }
