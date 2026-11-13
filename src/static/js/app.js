@@ -43,6 +43,46 @@ const resultsTableBody = document.getElementById("results-table-body");
 const resultsSearchInput = document.getElementById("results-search");
 const statusFilter = document.getElementById("status-filter");
 const exportCsvButton = document.getElementById("export-csv-button");
+const themeSelect = document.getElementById("theme-select");
+
+const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+function getSavedTheme() {
+    try {
+        return localStorage.getItem("atlas-theme") || "system";
+    } catch {
+        return "system";
+    }
+}
+
+function applyTheme(preference) {
+    const theme = preference === "system"
+        ? (systemThemeQuery.matches ? "dark" : "light")
+        : preference;
+
+    document.documentElement.dataset.theme = theme;
+    themeSelect.value = preference;
+}
+
+applyTheme(getSavedTheme());
+
+themeSelect.addEventListener("change", () => {
+    const preference = themeSelect.value;
+
+    try {
+        localStorage.setItem("atlas-theme", preference);
+    } catch {
+        // The selected theme still applies for this visit when storage is unavailable.
+    }
+
+    applyTheme(preference);
+});
+
+systemThemeQuery.addEventListener("change", () => {
+    if (getSavedTheme() === "system") {
+        applyTheme("system");
+    }
+});
 
 let currentResults = [];
 let currentSourcePage = "";
