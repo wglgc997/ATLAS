@@ -115,6 +115,7 @@ class ScanRequest(BaseModel):
         default=True,
         description="Include links pointing to external domains",
     )
+    detect_language: bool = Field(default=True)
 
 class LinkResult(BaseModel):
     """
@@ -137,6 +138,7 @@ class LinkResult(BaseModel):
     link_type: Optional[str] = None
     source_attribute: Optional[str] = None
     source_location: Optional[str] = None
+    language: dict | None = None
 
     def model_post_init(self, __context: object) -> None:
         if self.status_group is None:
@@ -167,6 +169,8 @@ class ScanResponse(BaseModel):
     error: int
     summary: ScanSummary | None = None
     results: list[LinkResult]
+    language_detection: dict | None = None
+    language_issues: list[dict] = Field(default_factory=list)
 
 
 class ScanBatchItem(BaseModel):

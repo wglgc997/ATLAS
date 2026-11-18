@@ -24,6 +24,7 @@ class ExtractedLink(BaseModel):
     link_type: LinkType
     source_attribute: str | None = None
     source_location: str | None = None
+    source_locale: str | None = None
     ignored: bool = False
     element_index: int | None = None
     interaction_status: InteractionStatus | None = None

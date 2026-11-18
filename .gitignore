@@ -27,6 +27,8 @@ coverage.xml
 build/
 dist/
 *.spec
+!LinkChecker.spec
+!LinkChecker.spec
 
 # Playwright browsers
 playwright-browsers/
@@ -43,3 +45,17 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+#Folders
+data/*
+web/dashboard.html
+!data/.gitkeep
+
+release/*
+!release/.gitkeep
+release/**/.venv/
+release/**/playwright-browsers/
+
+docs/*
+!docs/README.md
+!docs/RELEASE_NOTES_*.md

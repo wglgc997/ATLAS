@@ -6,7 +6,12 @@ def pluralize(count: int, singular: str, plural: str) -> str:
     return singular if count == 1 else plural
 
 
-def build_scan_response(source_page: str, results: list[LinkResult]) -> ScanResponse:
+def build_scan_response(
+    source_page: str,
+    results: list[LinkResult],
+    language_detection: dict | None = None,
+    language_issues: list[dict] | None = None,
+) -> ScanResponse:
     good = sum(result.status_group == LinkStatusGroup.GOOD for result in results)
     redirected = sum(
         result.status_group == LinkStatusGroup.REDIRECTED
@@ -54,6 +59,8 @@ def build_scan_response(source_page: str, results: list[LinkResult]) -> ScanResp
         error=error,
         summary=summary,
         results=results,
+        language_detection=language_detection,
+        language_issues=language_issues or [],
     )
 
 def get_health_state(health_score: int, needs_action_count: int) -> HealthState:

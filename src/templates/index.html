@@ -26,7 +26,7 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}?v=20261112-1"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20261117-2"
     >
 </head>
 
@@ -109,6 +109,15 @@
                             type="checkbox"
                         >
                         <span>Assets</span>
+                    </label>
+
+                    <label class="checkbox-control">
+                        <input
+                            id="detect-language"
+                            type="checkbox"
+                            checked
+                        >
+                        <span>Detect language</span>
                     </label>
 
                     <label class="number-control">
@@ -257,6 +266,28 @@
                 </div>
             </section>
 
+            <section id="language-panel" class="language-panel" aria-labelledby="language-title">
+                <div class="language-heading">
+                    <div>
+                        <h2 id="language-title">Detected language</h2>
+                        <p id="language-subtitle">Language detection was not requested.</p>
+                    </div>
+                    <div class="language-heading-actions">
+                        <span id="language-confidence" class="language-confidence hidden"></span>
+                        <button
+                            id="toggle-language-button"
+                            class="secondary-button"
+                            type="button"
+                            aria-controls="language-results"
+                            aria-expanded="true"
+                        >
+                            Minimize
+                        </button>
+                    </div>
+                </div>
+                <div id="language-results" class="language-results" aria-live="polite"></div>
+            </section>
+
             <section class="issues-panel" aria-labelledby="issues-title">
                 <div class="issues-header">
                     <div>
@@ -278,7 +309,7 @@
                 <div id="issues-list" class="issues-list"></div>
             </section>
 
-            <div class="table-panel">
+            <div class="table-panel" id="scan-results-panel">
 
                 <div class="table-header">
                     <div>
@@ -318,9 +349,20 @@
                         >
                             Export CSV
                         </button>
+
+                        <button
+                            id="toggle-results-button"
+                            class="secondary-button"
+                            type="button"
+                            aria-controls="results-table-content"
+                            aria-expanded="true"
+                        >
+                            Minimize
+                        </button>
                     </div>
                 </div>
 
+                <div id="results-table-content">
                 <div class="table-wrapper">
                     <table>
                         <thead>
@@ -362,6 +404,7 @@
                         <tbody id="results-table-body">
                         </tbody>
                     </table>
+                </div>
                 </div>
 
             </div>
@@ -414,6 +457,6 @@
 
     </main>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v=20261112-1"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v=20261117-2"></script>
 </body>
 </html>

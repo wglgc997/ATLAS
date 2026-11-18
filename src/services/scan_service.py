@@ -7,6 +7,7 @@ from src.crawler.browser_extractor import extract_links_with_browser
 from src.schemas.scan import ScanResponse
 from src.services.link_result_builder import build_link_result
 from src.services.scan_summary import build_scan_response
+from src.services.locale_detection import extract_locale
 
 
 def scan_page(
@@ -15,6 +16,7 @@ def scan_page(
         max_workers: int = 12,
         include_assets: bool = False,
         include_external: bool = True,
+        detect_language: bool = True,
         progress_callback: Callable[[str, int, int], None] | None = None,
 ) -> ScanResponse:
     if progress_callback:
@@ -39,7 +41,13 @@ def scan_page(
     results_by_index: list = [None] * total_links
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(build_link_result, link, page_url, timeout): index
+            executor.submit(
+                build_link_result,
+                link,
+                page_url,
+                timeout,
+                detect_language,
+            ): index
             for index, link in enumerate(filtered_links)
         }
 
@@ -51,8 +59,13 @@ def scan_page(
     if progress_callback:
         progress_callback("building", total_links, total_links)
 
+    final_results = [result for result in results_by_index if result is not None]
     return build_scan_response(
         source_page=page_url,
-        results=[result for result in results_by_index if result is not None],
+        results=final_results,
+        language_detection={"source_locale": extract_locale(page_url)} if detect_language else None,
+        language_issues=[
+            result.language for result in final_results if result.language
+        ],
     )
 

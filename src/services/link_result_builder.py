@@ -3,6 +3,7 @@ from src.config.settings import HTTP_TIMEOUT
 from src.schemas.link import ExtractedLink, InteractionStatus
 from src.schemas.scan import LinkResult, LinkStatus
 from src.services.link_normalizer import get_invalid_link_reason, get_raw_link_value
+from src.services.locale_detection import build_anchor_issue, build_locale_issue, detect_target_locale, extract_locale
 
 
 def normalize_link_status(status: object) -> LinkStatus:
@@ -77,6 +78,7 @@ def build_link_result(
         link: ExtractedLink,
         page_url: str,
         timeout: int = HTTP_TIMEOUT,
+        detect_language: bool = True,
 ) -> LinkResult | None:
     link_url = link.url
 
@@ -113,6 +115,30 @@ def build_link_result(
     )
 
     status = normalize_link_status(checked_link.get("status"))
+    target_url = checked_link.get("final_url") or link_url
+    source_locale = link.source_locale or extract_locale(page_url)
+    language_issue = None
+    if detect_language:
+        target_locale = detect_target_locale(target_url, timeout)
+        source_language = source_locale.split("-", 1)[0].lower() if source_locale else None
+        target_language = target_locale.split("-", 1)[0].lower() if target_locale else None
+        anchor_issue = (
+            build_anchor_issue(source_locale, target_url, link.link_text)
+            if target_locale
+            else None
+        )
+        if anchor_issue:
+            language_issue = anchor_issue
+        elif source_language and target_language and source_language != target_language:
+            language_issue = {
+                "url": target_url,
+                "anchor_text": link.link_text,
+                "source_locale": source_locale,
+                "target_locale": target_locale,
+                "target_type": "pdf" if target_url.lower().split("?", 1)[0].endswith(".pdf") else "page",
+                "reason": "target_page",
+                "message": "The destination page uses a different language.",
+            }
 
     return LinkResult(
         url=link_url,
@@ -129,4 +155,8 @@ def build_link_result(
         link_type=link.link_type,
         source_attribute=link.source_attribute,
         source_location=link.source_location,
+        language=(
+            {"mismatch": True, **language_issue}
+            if language_issue else None
+        ),
     )
