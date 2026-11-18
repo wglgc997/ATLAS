@@ -4,6 +4,7 @@ const pageUrl2Input = document.getElementById("page-url-2");
 const scanButton = document.getElementById("scan-button");
 const includeExternalInput = document.getElementById("include-external");
 const includeAssetsInput = document.getElementById("include-assets");
+const detectLanguageInput = document.getElementById("detect-language");
 const scanTimeoutInput = document.getElementById("scan-timeout");
 const scanWorkersInput = document.getElementById("scan-workers");
 const formError = document.getElementById("form-error");
@@ -43,6 +44,13 @@ const resultsTableBody = document.getElementById("results-table-body");
 const resultsSearchInput = document.getElementById("results-search");
 const statusFilter = document.getElementById("status-filter");
 const exportCsvButton = document.getElementById("export-csv-button");
+const resultsTableContent = document.getElementById("results-table-content");
+const toggleResultsButton = document.getElementById("toggle-results-button");
+const languagePanel = document.getElementById("language-panel");
+const languageSubtitleElement = document.getElementById("language-subtitle");
+const languageResultsElement = document.getElementById("language-results");
+const languageConfidenceElement = document.getElementById("language-confidence");
+const toggleLanguageButton = document.getElementById("toggle-language-button");
 const themeSelect = document.getElementById("theme-select");
 
 const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -147,6 +155,7 @@ function getScanOptions() {
     return {
         include_external: includeExternalInput.checked,
         include_assets: includeAssetsInput.checked,
+        detect_language: detectLanguageInput.checked,
         timeout: clampNumber(scanTimeoutInput.value, 20, 1, 60),
         max_workers: clampNumber(scanWorkersInput.value, 12, 1, 32),
     };
@@ -159,6 +168,7 @@ function setScanControlsDisabled(isDisabled) {
     pageUrl2Input.disabled = isDisabled;
     includeExternalInput.disabled = isDisabled;
     includeAssetsInput.disabled = isDisabled;
+    detectLanguageInput.disabled = isDisabled;
     scanTimeoutInput.disabled = isDisabled;
     scanWorkersInput.disabled = isDisabled;
 }
@@ -743,7 +753,116 @@ function renderSummary(data) {
         broken,
         error,
     });
+
+    renderLanguageDetection(data);
 }
+
+
+/**
+ * Render language data returned by the backend.
+ * Supported payloads: language_detection, detected_languages, or language.
+ * Each language may be a string or {language/name/code, confidence, percentage}.
+ */
+function renderLanguageDetection(data) {
+    const detection = data.language_detection ?? data.detected_languages ?? data.language;
+    const mismatches = data.language_issues ?? data.language_mismatches ?? [];
+    const items = Array.isArray(detection)
+        ? detection
+        : detection?.languages ?? (
+            detection?.source_locale
+                ? [{ code: detection.source_locale, name: detection.source_locale }]
+                : detection
+                    ? [detection]
+                    : []
+        );
+    const resultMismatches = Array.isArray(data.results)
+        ? data.results
+            .filter((result) => result.language?.mismatch)
+            .map((result) => ({ ...result.language, url: result.url }))
+        : [];
+    const languageIssues = Array.isArray(mismatches) && mismatches.length
+        ? mismatches
+        : resultMismatches;
+
+    languageResultsElement.innerHTML = "";
+    languageConfidenceElement.classList.add("hidden");
+
+    if (!detectLanguageInput.checked && !detection && !languageIssues.length) {
+        languageSubtitleElement.textContent = "Language detection was not requested.";
+        languagePanel.classList.add("language-panel-muted");
+        return;
+    }
+
+    languagePanel.classList.remove("language-panel-muted");
+
+    if (!items.length && !languageIssues.length) {
+        languageSubtitleElement.textContent = "No language could be detected on this page.";
+        languageResultsElement.innerHTML = '<span class="language-empty">Unavailable</span>';
+        return;
+    }
+
+    const confidence = detection?.confidence ?? data.language_confidence;
+    if (confidence !== undefined && confidence !== null && confidence !== "") {
+        const value = Number(confidence);
+        languageConfidenceElement.textContent = `${Number.isFinite(value) ? Math.round(value * (value <= 1 ? 100 : 1)) : confidence}% confidence`;
+        languageConfidenceElement.classList.remove("hidden");
+    }
+
+    languageSubtitleElement.textContent = items.length === 1
+        ? "Primary language found in the page content."
+        : items.length > 1
+            ? `${items.length} languages found in the page content.`
+            : "Language mismatch alerts found in linked pages.";
+
+    items.forEach((item) => {
+        const name = typeof item === "string"
+            ? item
+            : item.language ?? item.name ?? item.code ?? "Unknown";
+        const code = typeof item === "object" ? (item.code ?? item.locale) : "";
+        const score = typeof item === "object" ? (item.confidence ?? item.percentage) : null;
+        const row = document.createElement("div");
+        row.className = "language-item";
+        row.innerHTML = `<strong>${escapeHtml(name)}</strong>${code ? `<span>${escapeHtml(code)}</span>` : ""}${score !== null && score !== undefined ? `<em>${escapeHtml(score)}${Number(score) <= 1 ? "" : "%"}</em>` : ""}`;
+        languageResultsElement.appendChild(row);
+    });
+
+    if (languageIssues.length) {
+        const heading = document.createElement("strong");
+        heading.className = "language-issues-heading";
+        heading.textContent = `${languageIssues.length} language mismatch${languageIssues.length === 1 ? "" : "es"} found`;
+        languageResultsElement.prepend(heading);
+
+        languageIssues.slice(0, 6).forEach((issue) => {
+            const row = document.createElement("div");
+            row.className = "language-item language-mismatch";
+            const source = issue.source?.name ?? issue.source_locale ?? issue.source_language ?? issue.source?.code ?? "Unknown";
+            const target = issue.target?.name ?? issue.target_locale ?? issue.target_language ?? issue.target?.code ?? "Unknown";
+            const linkLabel = issue.anchor_text || issue.url || "Link";
+            row.innerHTML = `<strong>${escapeHtml(linkLabel)}</strong><span>${escapeHtml(source)} → ${escapeHtml(target)}</span><small>${escapeHtml(issue.url ?? "")}</small>`;
+            languageResultsElement.appendChild(row);
+        });
+    }
+}
+
+function setLanguagePanelCollapsed(collapsed) {
+    languageResultsElement.classList.toggle("collapsed", collapsed);
+    toggleLanguageButton.setAttribute("aria-expanded", String(!collapsed));
+    toggleLanguageButton.textContent = collapsed ? "Expand" : "Minimize";
+}
+
+toggleLanguageButton.addEventListener("click", () => {
+    setLanguagePanelCollapsed(!languageResultsElement.classList.contains("collapsed"));
+});
+
+function setResultsPanelCollapsed(collapsed) {
+    resultsTableContent.classList.toggle("collapsed", collapsed);
+    toggleResultsButton.setAttribute("aria-expanded", String(!collapsed));
+    toggleResultsButton.textContent = collapsed ? "Expand" : "Minimize";
+}
+
+toggleResultsButton.addEventListener("click", () => {
+    setResultsPanelCollapsed(!resultsTableContent.classList.contains("collapsed"));
+});
 
 
 /**

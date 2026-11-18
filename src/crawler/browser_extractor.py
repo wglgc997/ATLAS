@@ -257,8 +257,10 @@ def extract_links_with_browser(page_url: str) -> list[ExtractedLink]:
                 """
             )
 
+            page_locale = page.locator("html").get_attribute("lang")
+
             links = [
-                ExtractedLink.model_validate(link)
+                ExtractedLink.model_validate({**link, "source_locale": page_locale})
                 for link in raw_links
             ]
 

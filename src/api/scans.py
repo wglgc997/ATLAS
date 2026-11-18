@@ -48,6 +48,7 @@ def _run_scan(
                 max_workers=request.max_workers,
                 include_assets=request.include_assets,
                 include_external=request.include_external,
+                detect_language=request.detect_language,
                 progress_callback=(
                     lambda stage, total_links, checked_links: progress_callback({
                         "url": url,
